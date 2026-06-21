@@ -1,11 +1,8 @@
-import { UpdatePasswordForm } from "@/components/update-password-form";
-
-export default function Page() {
+// TODO: Update password form — will be built in features/auth/
+export default function UpdatePasswordPage() {
   return (
-    <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
-      <div className="w-full max-w-sm">
-        <UpdatePasswordForm />
-      </div>
+    <div className="flex min-h-svh w-full items-center justify-center p-6">
+      <p className="text-muted-foreground">Update Password — coming soon</p>
     </div>
-  );
+  )
 }

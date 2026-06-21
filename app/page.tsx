@@ -1,58 +1,87 @@
-import { DeployButton } from "@/components/deploy-button";
-import { EnvVarWarning } from "@/components/env-var-warning";
-import { AuthButton } from "@/components/auth-button";
-import { Hero } from "@/components/hero";
-import { ThemeSwitcher } from "@/components/theme-switcher";
-import { ConnectSupabaseSteps } from "@/components/tutorial/connect-supabase-steps";
-import { SignUpUserSteps } from "@/components/tutorial/sign-up-user-steps";
-import { hasEnvVars } from "@/lib/utils";
-import Link from "next/link";
-import { Suspense } from "react";
+'use client'
+
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { Button } from '@/components/ui/button'
+import { JoinForm } from '@/features/rooms/components/JoinForm'
+import { ArrowRight, Gamepad2, Monitor } from 'lucide-react'
 
 export default function Home() {
+  const [showJoin, setShowJoin] = useState(false)
+  const router = useRouter()
+
+  if (showJoin) {
+    return (
+      <main className="flex min-h-svh flex-col items-center justify-center p-4">
+        <div className="flex w-full max-w-sm flex-col gap-4">
+          <JoinForm />
+          <button
+            type="button"
+            onClick={() => setShowJoin(false)}
+            className="text-center text-sm text-muted-foreground transition-colors hover:text-foreground cursor-pointer"
+          >
+            ← Back
+          </button>
+        </div>
+      </main>
+    )
+  }
+
   return (
-    <main className="min-h-screen flex flex-col items-center">
-      <div className="flex-1 w-full flex flex-col gap-20 items-center">
-        <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16">
-          <div className="w-full max-w-5xl flex justify-between items-center p-3 px-5 text-sm">
-            <div className="flex gap-5 items-center font-semibold">
-              <Link href={"/"}>Next.js Supabase Starter</Link>
-              <div className="flex items-center gap-2">
-                <DeployButton />
+    <main className="flex min-h-svh flex-col items-center justify-center gap-8 p-4">
+      {/* Logo / Title */}
+      <div className="flex flex-col items-center gap-2">
+        <div className="flex size-16 items-center justify-center rounded-2xl bg-primary/10 ring-1 ring-primary/20">
+          <Gamepad2 className="size-8 text-primary" />
+        </div>
+        <h1 className="text-2xl font-bold tracking-tight">high6-play</h1>
+        <p className="text-sm text-muted-foreground">
+          Weekly meeting game hub
+        </p>
+      </div>
+
+      {/* Options */}
+      <div className="flex w-full max-w-sm flex-col gap-3">
+        <Button
+          variant="default"
+          size="lg"
+          className="h-auto w-full py-5"
+          onClick={() => router.push('/auth/login')}
+        >
+          <div className="flex w-full items-center justify-between">
+            <div className="flex items-center gap-3">
+              <Monitor className="size-5" />
+              <div className="text-left">
+                <div className="font-semibold">I&apos;m the Host</div>
+                <div className="text-xs text-primary-foreground/70">
+                  Create and manage game rooms
+                </div>
               </div>
             </div>
-            {!hasEnvVars ? (
-              <EnvVarWarning />
-            ) : (
-              <Suspense>
-                <AuthButton />
-              </Suspense>
-            )}
+            <ArrowRight className="size-4" />
           </div>
-        </nav>
-        <div className="flex-1 flex flex-col gap-20 max-w-5xl p-5">
-          <Hero />
-          <main className="flex-1 flex flex-col gap-6 px-4">
-            <h2 className="font-medium text-xl mb-4">Next steps</h2>
-            {hasEnvVars ? <SignUpUserSteps /> : <ConnectSupabaseSteps />}
-          </main>
-        </div>
+        </Button>
 
-        <footer className="w-full flex items-center justify-center border-t mx-auto text-center text-xs gap-8 py-16">
-          <p>
-            Powered by{" "}
-            <a
-              href="https://supabase.com/?utm_source=create-next-app&utm_medium=template&utm_term=nextjs"
-              target="_blank"
-              className="font-bold hover:underline"
-              rel="noreferrer"
-            >
-              Supabase
-            </a>
-          </p>
-          <ThemeSwitcher />
-        </footer>
+        <Button
+          variant="secondary"
+          size="lg"
+          className="h-auto py-5"
+          onClick={() => setShowJoin(true)}
+        >
+          <div className="flex w-full items-center justify-between">
+            <div className="flex items-center gap-3">
+              <Gamepad2 className="size-5" />
+              <div className="text-left">
+                <div className="font-semibold">Join a Room</div>
+                <div className="text-xs text-secondary-foreground/70">
+                  Enter a room code to play
+                </div>
+              </div>
+            </div>
+            <ArrowRight className="size-4" />
+          </div>
+        </Button>
       </div>
     </main>
-  );
+  )
 }

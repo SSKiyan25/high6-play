@@ -1,11 +1,8 @@
-import { SignUpForm } from "@/components/sign-up-form";
-
-export default function Page() {
+// TODO: Host sign-up form — will be built in features/auth/components/SignUpForm
+export default function SignUpPage() {
   return (
-    <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
-      <div className="w-full max-w-sm">
-        <SignUpForm />
-      </div>
+    <div className="flex min-h-svh w-full items-center justify-center p-6">
+      <p className="text-muted-foreground">Sign Up — coming soon</p>
     </div>
-  );
+  )
 }
