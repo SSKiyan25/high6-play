@@ -43,3 +43,14 @@ export type TotGameState = {
   isLastQuestion: boolean
   status: 'waiting' | 'active' | 'results' | 'ended'
 }
+
+export type TotVoteWithNickname = TotVote & { nickname: string }
+
+export type TotQuestionResult = {
+  question: TotQuestion
+  votes: {
+    a: { playerId: string; nickname: string }[]
+    b: { playerId: string; nickname: string }[]
+  }
+  totalVotes: number
+}

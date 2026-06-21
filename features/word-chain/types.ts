@@ -32,3 +32,13 @@ export type WcTurnResult = {
   valid: boolean
   reason?: 'already-used' | 'wrong-letter' | 'timeout'
 }
+
+export type WcFullResults = {
+  winner: WcPlayerWithNickname | null
+  eliminationOrder: {
+    player: WcPlayerWithNickname
+    reason: string
+  }[]
+  words: WcWord[]
+  totalWords: number
+}

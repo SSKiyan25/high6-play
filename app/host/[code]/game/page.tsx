@@ -42,12 +42,15 @@ export default async function HostGamePage({ params }: HostGamePageProps) {
     }
   }
 
+  const playerCount = room.players.filter((p) => !p.is_host).length
+
   return (
     <HostView
       roomCode={code}
       questions={questions}
       initialIndex={currentIndex}
       initialResults={initialResults}
+      totalPlayers={playerCount}
     />
   )
 }

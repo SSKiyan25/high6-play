@@ -175,6 +175,82 @@ export async function advanceQuestion(
   if (error) throw error
 }
 
+export async function getFullResults(
+  roomId: string,
+): Promise<
+  {
+    question: TotQuestion
+    votes: {
+      a: { playerId: string; nickname: string }[]
+      b: { playerId: string; nickname: string }[]
+    }
+    totalVotes: number
+  }[]
+> {
+  const supabase = createBrowserClient()
+
+  // Fetch all questions for the room
+  const { data: questions, error: questionsError } = await supabase
+    .from('tot_questions')
+    .select()
+    .eq('room_id', roomId)
+    .order('order', { ascending: true })
+
+  if (questionsError) throw questionsError
+  if (!questions || questions.length === 0) return []
+
+  // Fetch all votes for these questions with player nicknames
+  const questionIds = questions.map((q) => q.id)
+  const { data: votes, error: votesError } = await supabase
+    .from('tot_votes')
+    .select(
+      `
+      id,
+      question_id,
+      player_id,
+      choice,
+      players!inner (
+        nickname
+      )
+    `,
+    )
+    .in('question_id', questionIds)
+
+  if (votesError) throw votesError
+
+  const votesWithNicknames = (votes || []).map((v: Record<string, unknown>) => ({
+    id: v.id as string,
+    question_id: v.question_id as string,
+    player_id: v.player_id as string,
+    choice: v.choice as Choice,
+    nickname: (v.players as { nickname: string })?.nickname ?? 'Unknown',
+  }))
+
+  // Group votes by question
+  const votesByQuestion = new Map<string, typeof votesWithNicknames>()
+  for (const v of votesWithNicknames) {
+    const existing = votesByQuestion.get(v.question_id) || []
+    existing.push(v)
+    votesByQuestion.set(v.question_id, existing)
+  }
+
+  // Build result per question
+  return questions.map((q) => {
+    const qVotes = votesByQuestion.get(q.id) || []
+    const aVotes = qVotes.filter((v) => v.choice === 'a')
+    const bVotes = qVotes.filter((v) => v.choice === 'b')
+
+    return {
+      question: q,
+      votes: {
+        a: aVotes.map((v) => ({ playerId: v.player_id, nickname: v.nickname })),
+        b: bVotes.map((v) => ({ playerId: v.player_id, nickname: v.nickname })),
+      },
+      totalVotes: qVotes.length,
+    }
+  })
+}
+
 export async function endGame(roomCode: string): Promise<void> {
   const supabase = createBrowserClient()
 

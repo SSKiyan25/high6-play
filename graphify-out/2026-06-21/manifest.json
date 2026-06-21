@@ -1,452 +1,487 @@
 {
-  "/Users/josh/projects/high6-play/.claude/settings.json": {
+  ".claude/settings.json": {
     "mtime": 1781793241.9196062,
     "ast_hash": "bfee062c3962c14264fd704e975a6b38",
     "semantic_hash": "bfee062c3962c14264fd704e975a6b38"
   },
-  "/Users/josh/projects/high6-play/.claude/skills/ui-ux-pro-max/scripts/core.py": {
+  ".claude/skills/ui-ux-pro-max/scripts/core.py": {
     "mtime": 1781793089.82177,
     "ast_hash": "3df4734a785963a8242a56c1b926adfd",
     "semantic_hash": "3df4734a785963a8242a56c1b926adfd"
   },
-  "/Users/josh/projects/high6-play/.claude/skills/ui-ux-pro-max/scripts/design_system.py": {
+  ".claude/skills/ui-ux-pro-max/scripts/design_system.py": {
     "mtime": 1781793089.8213434,
     "ast_hash": "08f84d04608a19049c90fc2b1ef314f9",
     "semantic_hash": "08f84d04608a19049c90fc2b1ef314f9"
   },
-  "/Users/josh/projects/high6-play/.claude/skills/ui-ux-pro-max/scripts/search.py": {
+  ".claude/skills/ui-ux-pro-max/scripts/search.py": {
     "mtime": 1781793089.8236465,
     "ast_hash": "8c7e35426fe8f6f3ed91e9dce0ed7af1",
     "semantic_hash": "8c7e35426fe8f6f3ed91e9dce0ed7af1"
   },
-  "/Users/josh/projects/high6-play/.mcp.json": {
+  ".mcp.json": {
     "mtime": 1781793715.7239702,
     "ast_hash": "248f2002b4f078af61910d88240f0d72",
     "semantic_hash": "248f2002b4f078af61910d88240f0d72"
   },
-  "/Users/josh/projects/high6-play/app/api/games/this-or-that/advance/route.ts": {
+  "app/api/games/this-or-that/advance/route.ts": {
     "mtime": 1781969526.269609,
     "ast_hash": "a006a0eb2d7e0f0737bf898205477666",
     "semantic_hash": "a006a0eb2d7e0f0737bf898205477666"
   },
-  "/Users/josh/projects/high6-play/app/api/games/this-or-that/bank/route.ts": {
+  "app/api/games/this-or-that/bank/route.ts": {
     "mtime": 1781969529.580373,
     "ast_hash": "ad073bfae9d38ecaeae507030e8ec47b",
     "semantic_hash": "ad073bfae9d38ecaeae507030e8ec47b"
   },
-  "/Users/josh/projects/high6-play/app/api/games/this-or-that/end/route.ts": {
+  "app/api/games/this-or-that/end/route.ts": {
     "mtime": 1781969528.297971,
     "ast_hash": "eeee89c461414e61ab6922d10990b6cc",
     "semantic_hash": "eeee89c461414e61ab6922d10990b6cc"
   },
-  "/Users/josh/projects/high6-play/app/api/games/this-or-that/vote/route.ts": {
+  "app/api/games/this-or-that/vote/route.ts": {
     "mtime": 1781969523.5787814,
     "ast_hash": "02d38a47f4fc4b84d107ca1757f1ad34",
     "semantic_hash": "02d38a47f4fc4b84d107ca1757f1ad34"
   },
-  "/Users/josh/projects/high6-play/app/api/rooms/close/route.ts": {
+  "app/api/rooms/close/route.ts": {
     "mtime": 1781951428.5839686,
     "ast_hash": "bb5356a7b3377a21a3d071a50deb3bf7",
     "semantic_hash": "bb5356a7b3377a21a3d071a50deb3bf7"
   },
-  "/Users/josh/projects/high6-play/app/api/rooms/join/route.ts": {
+  "app/api/rooms/join/route.ts": {
     "mtime": 1781951427.091672,
     "ast_hash": "cae2fe3dd879f4e7f4651ab533bf1801",
     "semantic_hash": "cae2fe3dd879f4e7f4651ab533bf1801"
   },
-  "/Users/josh/projects/high6-play/app/api/rooms/route.ts": {
+  "app/api/rooms/route.ts": {
     "mtime": 1781969580.0784276,
     "ast_hash": "90423f88e8a73c9a8d1e6721c8519bbb",
     "semantic_hash": "90423f88e8a73c9a8d1e6721c8519bbb"
   },
-  "/Users/josh/projects/high6-play/app/api/rooms/start/route.ts": {
+  "app/api/rooms/start/route.ts": {
     "mtime": 1781970288.3267574,
     "ast_hash": "434e1751e7addb02032cae87f112a26b",
     "semantic_hash": "434e1751e7addb02032cae87f112a26b"
   },
-  "/Users/josh/projects/high6-play/app/auth/confirm/route.ts": {
+  "app/auth/confirm/route.ts": {
     "mtime": 1781790614.0,
     "ast_hash": "b25ed3b3d8906c5993ac12858fd4e115",
     "semantic_hash": "b25ed3b3d8906c5993ac12858fd4e115"
   },
-  "/Users/josh/projects/high6-play/app/auth/error/page.tsx": {
+  "app/auth/error/page.tsx": {
     "mtime": 1781950728.8511248,
     "ast_hash": "5272a10a73580a4325804c577c39a70b",
     "semantic_hash": "5272a10a73580a4325804c577c39a70b"
   },
-  "/Users/josh/projects/high6-play/app/auth/forgot-password/page.tsx": {
+  "app/auth/forgot-password/page.tsx": {
     "mtime": 1781950726.8140135,
     "ast_hash": "4560301b5763b46fd2bd38531d486247",
     "semantic_hash": "4560301b5763b46fd2bd38531d486247"
   },
-  "/Users/josh/projects/high6-play/app/auth/loading.tsx": {
+  "app/auth/loading.tsx": {
     "mtime": 1781967447.7588644,
     "ast_hash": "2fbc086a9471c1d7cf21b003ec9f584e",
     "semantic_hash": "2fbc086a9471c1d7cf21b003ec9f584e"
   },
-  "/Users/josh/projects/high6-play/app/auth/login/page.tsx": {
+  "app/auth/login/page.tsx": {
     "mtime": 1781964248.514132,
     "ast_hash": "a54a9fd7e727385daefd142b9eb02dfb",
     "semantic_hash": "a54a9fd7e727385daefd142b9eb02dfb"
   },
-  "/Users/josh/projects/high6-play/app/auth/sign-up-success/page.tsx": {
+  "app/auth/sign-up-success/page.tsx": {
     "mtime": 1781950738.430217,
     "ast_hash": "1ba9545e701fbfae44dc80b4887a86d9",
     "semantic_hash": "1ba9545e701fbfae44dc80b4887a86d9"
   },
-  "/Users/josh/projects/high6-play/app/auth/sign-up/page.tsx": {
+  "app/auth/sign-up/page.tsx": {
     "mtime": 1781950725.7944562,
     "ast_hash": "fa2a76a7e722635098a7bebe2756c2d4",
     "semantic_hash": "fa2a76a7e722635098a7bebe2756c2d4"
   },
-  "/Users/josh/projects/high6-play/app/auth/update-password/page.tsx": {
+  "app/auth/update-password/page.tsx": {
     "mtime": 1781950727.8312902,
     "ast_hash": "41e805e8528da3963a8f7203a2870b7e",
     "semantic_hash": "41e805e8528da3963a8f7203a2870b7e"
   },
-  "/Users/josh/projects/high6-play/app/dashboard/page.tsx": {
+  "app/dashboard/page.tsx": {
     "mtime": 1781964221.6473372,
     "ast_hash": "b958662a129b68f0f653b907a17f8d26",
     "semantic_hash": "b958662a129b68f0f653b907a17f8d26"
   },
-  "/Users/josh/projects/high6-play/app/host/[code]/game/page.tsx": {
+  "app/host/[code]/game/page.tsx": {
     "mtime": 1781970429.2494798,
     "ast_hash": "9a5a7337aabc1701e10e05f4bf971c1d",
     "semantic_hash": "9a5a7337aabc1701e10e05f4bf971c1d"
   },
-  "/Users/josh/projects/high6-play/app/host/[code]/page.tsx": {
+  "app/host/[code]/page.tsx": {
     "mtime": 1781953720.4265578,
     "ast_hash": "917cf52781ea2db15316411c1abe8328",
     "semantic_hash": "917cf52781ea2db15316411c1abe8328"
   },
-  "/Users/josh/projects/high6-play/app/host/[code]/results/page.tsx": {
+  "app/host/[code]/results/page.tsx": {
     "mtime": 1781970462.3825495,
     "ast_hash": "58c3e46ba4166897ec6b0cb60058b368",
     "semantic_hash": "58c3e46ba4166897ec6b0cb60058b368"
   },
-  "/Users/josh/projects/high6-play/app/layout.tsx": {
+  "app/layout.tsx": {
     "mtime": 1781953626.5667717,
     "ast_hash": "668dbfd693f0d2d0376cd06b1db1983d",
     "semantic_hash": "668dbfd693f0d2d0376cd06b1db1983d"
   },
-  "/Users/josh/projects/high6-play/app/page.tsx": {
+  "app/page.tsx": {
     "mtime": 1781967443.8041492,
     "ast_hash": "372e1f33d4736f45bda7ba9fa7effb2a",
     "semantic_hash": "372e1f33d4736f45bda7ba9fa7effb2a"
   },
-  "/Users/josh/projects/high6-play/app/play/[code]/game/page.tsx": {
+  "app/play/[code]/game/page.tsx": {
     "mtime": 1781970492.0131466,
     "ast_hash": "ffd611239793f114b515d4329308d5cb",
     "semantic_hash": "ffd611239793f114b515d4329308d5cb"
   },
-  "/Users/josh/projects/high6-play/app/play/[code]/page.tsx": {
+  "app/play/[code]/page.tsx": {
     "mtime": 1781953731.7218673,
     "ast_hash": "5611efd73d93ec24f01cbf18c77126c0",
     "semantic_hash": "5611efd73d93ec24f01cbf18c77126c0"
   },
-  "/Users/josh/projects/high6-play/components.json": {
+  "components.json": {
     "mtime": 1781792921.2462392,
     "ast_hash": "9ced01cefe0a8913d79fe1095dcfce62",
     "semantic_hash": "9ced01cefe0a8913d79fe1095dcfce62"
   },
-  "/Users/josh/projects/high6-play/components/ui/badge.tsx": {
+  "components/ui/badge.tsx": {
     "mtime": 1781790614.0,
     "ast_hash": "fab627ac69014587ad778e110e88939e",
     "semantic_hash": "fab627ac69014587ad778e110e88939e"
   },
-  "/Users/josh/projects/high6-play/components/ui/button.tsx": {
+  "components/ui/button.tsx": {
     "mtime": 1781967421.4628463,
     "ast_hash": "005736dfecc175db0f4422bd8d3152a6",
     "semantic_hash": "005736dfecc175db0f4422bd8d3152a6"
   },
-  "/Users/josh/projects/high6-play/components/ui/card.tsx": {
+  "components/ui/card.tsx": {
     "mtime": 1781790614.0,
     "ast_hash": "9569f167267e5201544904760ccb165c",
     "semantic_hash": "9569f167267e5201544904760ccb165c"
   },
-  "/Users/josh/projects/high6-play/components/ui/checkbox.tsx": {
+  "components/ui/checkbox.tsx": {
     "mtime": 1781790614.0,
     "ast_hash": "0ecbef44848e5526f65c7f6e049709f8",
     "semantic_hash": "0ecbef44848e5526f65c7f6e049709f8"
   },
-  "/Users/josh/projects/high6-play/components/ui/dialog.tsx": {
+  "components/ui/dialog.tsx": {
     "mtime": 1781968121.0070567,
     "ast_hash": "d3f0d7591716fa786e848e8ed60615d9",
     "semantic_hash": "d3f0d7591716fa786e848e8ed60615d9"
   },
-  "/Users/josh/projects/high6-play/components/ui/drawer.tsx": {
+  "components/ui/drawer.tsx": {
     "mtime": 1781792968.0500576,
     "ast_hash": "ecce2b5100dd3d8a11f15fcc20fa33dd",
     "semantic_hash": "ecce2b5100dd3d8a11f15fcc20fa33dd"
   },
-  "/Users/josh/projects/high6-play/components/ui/dropdown-menu.tsx": {
+  "components/ui/dropdown-menu.tsx": {
     "mtime": 1781790614.0,
     "ast_hash": "5b1d42fdebe55872fbff8a23d50a08f2",
     "semantic_hash": "5b1d42fdebe55872fbff8a23d50a08f2"
   },
-  "/Users/josh/projects/high6-play/components/ui/input.tsx": {
+  "components/ui/input.tsx": {
     "mtime": 1781790614.0,
     "ast_hash": "1d4cc52a4cd8afb3e18e45bda942bb8a",
     "semantic_hash": "1d4cc52a4cd8afb3e18e45bda942bb8a"
   },
-  "/Users/josh/projects/high6-play/components/ui/label.tsx": {
+  "components/ui/label.tsx": {
     "mtime": 1781790614.0,
     "ast_hash": "49ec723b023c9b1b57dd73cc64e92bb0",
     "semantic_hash": "49ec723b023c9b1b57dd73cc64e92bb0"
   },
-  "/Users/josh/projects/high6-play/components/ui/progress.tsx": {
+  "components/ui/progress.tsx": {
     "mtime": 1781968122.0255475,
     "ast_hash": "1e35eba114c4f8f899b9ac305e9ab43b",
     "semantic_hash": "1e35eba114c4f8f899b9ac305e9ab43b"
   },
-  "/Users/josh/projects/high6-play/eslint.config.mjs": {
+  "eslint.config.mjs": {
     "mtime": 1781790614.0,
     "ast_hash": "b43f470c5df5e9ff4c2f5e0bd917a881",
     "semantic_hash": "b43f470c5df5e9ff4c2f5e0bd917a881"
   },
-  "/Users/josh/projects/high6-play/features/auth/actions.ts": {
+  "features/auth/actions.ts": {
     "mtime": 1781950705.107647,
     "ast_hash": "e708806a2621ebc134e5d6a0c300bf68",
     "semantic_hash": "e708806a2621ebc134e5d6a0c300bf68"
   },
-  "/Users/josh/projects/high6-play/features/auth/components/LoginForm.tsx": {
+  "features/auth/components/LoginForm.tsx": {
     "mtime": 1781964244.0056,
     "ast_hash": "c7aff4fb84de27967968e928d0e8986f",
     "semantic_hash": "c7aff4fb84de27967968e928d0e8986f"
   },
-  "/Users/josh/projects/high6-play/features/rooms/actions.ts": {
+  "features/rooms/actions.ts": {
     "mtime": 1781969499.150975,
     "ast_hash": "bfd321e3abecd295147881e566bebd0f",
     "semantic_hash": "bfd321e3abecd295147881e566bebd0f"
   },
-  "/Users/josh/projects/high6-play/features/rooms/components/CreateRoom.tsx": {
+  "features/rooms/components/CreateRoom.tsx": {
     "mtime": 1781970352.8374574,
     "ast_hash": "d7c8e36c0f8cce4edb548ac399ab70fc",
     "semantic_hash": "d7c8e36c0f8cce4edb548ac399ab70fc"
   },
-  "/Users/josh/projects/high6-play/features/rooms/components/HostLobby.tsx": {
-    "mtime": 1781970371.452633,
-    "ast_hash": "03ad577a6a5cc725baa757a156986c23",
-    "semantic_hash": "03ad577a6a5cc725baa757a156986c23"
+  "features/rooms/components/HostLobby.tsx": {
+    "mtime": 1781973030.6224804,
+    "ast_hash": "6e6e4c02c3f1128b72d83bd6b4eb0753",
+    "semantic_hash": ""
   },
-  "/Users/josh/projects/high6-play/features/rooms/components/JoinForm.tsx": {
+  "features/rooms/components/JoinForm.tsx": {
     "mtime": 1781953671.329108,
     "ast_hash": "2b8e1696bf3406d969c5b8f411b8b4cb",
     "semantic_hash": "2b8e1696bf3406d969c5b8f411b8b4cb"
   },
-  "/Users/josh/projects/high6-play/features/rooms/components/PlayerLobby.tsx": {
-    "mtime": 1781964294.3633165,
-    "ast_hash": "156a64381242e7ac1a74bb907b0a1a51",
-    "semantic_hash": "156a64381242e7ac1a74bb907b0a1a51"
+  "features/rooms/components/PlayerLobby.tsx": {
+    "mtime": 1781973035.1359868,
+    "ast_hash": "ddcf6d6bae193365a4dd02ae0e05e6f8",
+    "semantic_hash": ""
   },
-  "/Users/josh/projects/high6-play/features/rooms/components/PlayerLobbyGate.tsx": {
+  "features/rooms/components/PlayerLobbyGate.tsx": {
     "mtime": 1781953734.102563,
     "ast_hash": "ca0fe96b6b5f4a03971e599befdac018",
     "semantic_hash": "ca0fe96b6b5f4a03971e599befdac018"
   },
-  "/Users/josh/projects/high6-play/features/rooms/hooks/useRoom.ts": {
+  "features/rooms/hooks/useRoom.ts": {
     "mtime": 1781953652.381467,
     "ast_hash": "e6f61de8f5134b29fc04ac41f9c20f6f",
     "semantic_hash": "e6f61de8f5134b29fc04ac41f9c20f6f"
   },
-  "/Users/josh/projects/high6-play/features/rooms/hooks/useRoomPlayers.ts": {
+  "features/rooms/hooks/useRoomPlayers.ts": {
     "mtime": 1781953654.9868376,
     "ast_hash": "2636e2a47760948359c2564004d3acfc",
     "semantic_hash": "2636e2a47760948359c2564004d3acfc"
   },
-  "/Users/josh/projects/high6-play/features/rooms/types.ts": {
+  "features/rooms/types.ts": {
     "mtime": 1781970277.2706048,
     "ast_hash": "55a2ee81a2a99a01946c00c99784c536",
     "semantic_hash": "55a2ee81a2a99a01946c00c99784c536"
   },
-  "/Users/josh/projects/high6-play/features/this-or-that/actions.ts": {
+  "features/this-or-that/actions.ts": {
     "mtime": 1781969473.857964,
     "ast_hash": "7d4fa59a1aeeb5767324edfe4a83633d",
     "semantic_hash": "7d4fa59a1aeeb5767324edfe4a83633d"
   },
-  "/Users/josh/projects/high6-play/features/this-or-that/components/HostView.tsx": {
+  "features/this-or-that/components/HostView.tsx": {
     "mtime": 1781970478.5021775,
     "ast_hash": "616fd902c65defee2161f2311f8cd15e",
     "semantic_hash": "616fd902c65defee2161f2311f8cd15e"
   },
-  "/Users/josh/projects/high6-play/features/this-or-that/components/PlayerView.tsx": {
+  "features/this-or-that/components/PlayerView.tsx": {
     "mtime": 1781970520.0911832,
     "ast_hash": "753fb36eb067f70d55531ed083dffb00",
     "semantic_hash": "753fb36eb067f70d55531ed083dffb00"
   },
-  "/Users/josh/projects/high6-play/features/this-or-that/components/QuestionSetup.tsx": {
+  "features/this-or-that/components/QuestionSetup.tsx": {
     "mtime": 1781970334.7586763,
     "ast_hash": "d5847df1f8e4ac9da2da02c9ae51e396",
     "semantic_hash": "d5847df1f8e4ac9da2da02c9ae51e396"
   },
-  "/Users/josh/projects/high6-play/features/this-or-that/hooks/useThisOrThat.ts": {
+  "features/this-or-that/hooks/useThisOrThat.ts": {
     "mtime": 1781970309.5212226,
     "ast_hash": "c4c438a81f30df359ed1a1dbf3c0315d",
     "semantic_hash": "c4c438a81f30df359ed1a1dbf3c0315d"
   },
-  "/Users/josh/projects/high6-play/features/this-or-that/hooks/useVotes.ts": {
+  "features/this-or-that/hooks/useVotes.ts": {
     "mtime": 1781970306.247247,
     "ast_hash": "f61df2df65b25a884494e697f9d31c84",
     "semantic_hash": "f61df2df65b25a884494e697f9d31c84"
   },
-  "/Users/josh/projects/high6-play/features/this-or-that/types.ts": {
+  "features/this-or-that/types.ts": {
     "mtime": 1781969456.9447496,
     "ast_hash": "2f3cf366288a65d6711edf7510ec9fe6",
     "semantic_hash": "2f3cf366288a65d6711edf7510ec9fe6"
   },
-  "/Users/josh/projects/high6-play/features/word-chain/actions.ts": {
+  "features/word-chain/actions.ts": {
     "mtime": 1781971764.1940506,
     "ast_hash": "84b6588a4738a113376bddc7533b2391",
     "semantic_hash": "84b6588a4738a113376bddc7533b2391"
   },
-  "/Users/josh/projects/high6-play/features/word-chain/types.ts": {
+  "features/word-chain/types.ts": {
     "mtime": 1781971740.4475417,
     "ast_hash": "f26040f27f4a05d635b9712c4edc701e",
     "semantic_hash": "f26040f27f4a05d635b9712c4edc701e"
   },
-  "/Users/josh/projects/high6-play/lib/pusher/client.ts": {
+  "lib/pusher/client.ts": {
     "mtime": 1781949042.9262202,
     "ast_hash": "b975eb9e1ee385f240623eae073f322b",
     "semantic_hash": "b975eb9e1ee385f240623eae073f322b"
   },
-  "/Users/josh/projects/high6-play/lib/pusher/server.ts": {
+  "lib/pusher/server.ts": {
     "mtime": 1781949032.1114755,
     "ast_hash": "7bb0412f7c2feba44f26b30e317dd376",
     "semantic_hash": "7bb0412f7c2feba44f26b30e317dd376"
   },
-  "/Users/josh/projects/high6-play/lib/pusher/trigger.ts": {
+  "lib/pusher/trigger.ts": {
     "mtime": 1781969483.6846988,
     "ast_hash": "37f1ccf7ad0bcb7437fb928c58b26776",
     "semantic_hash": "37f1ccf7ad0bcb7437fb928c58b26776"
   },
-  "/Users/josh/projects/high6-play/lib/supabase/client.ts": {
+  "lib/supabase/client.ts": {
     "mtime": 1781790614.0,
     "ast_hash": "8807ce93034af4fca2fe117da4f0dc17",
     "semantic_hash": "8807ce93034af4fca2fe117da4f0dc17"
   },
-  "/Users/josh/projects/high6-play/lib/supabase/proxy.ts": {
+  "lib/supabase/proxy.ts": {
     "mtime": 1781969017.345371,
     "ast_hash": "e6cf47e2f24d54f203c4d4fa5cde7a5c",
     "semantic_hash": "e6cf47e2f24d54f203c4d4fa5cde7a5c"
   },
-  "/Users/josh/projects/high6-play/lib/supabase/server.ts": {
+  "lib/supabase/server.ts": {
     "mtime": 1781790614.0,
     "ast_hash": "a31f6016a623d865793e05eaf5ff7ebf",
     "semantic_hash": "a31f6016a623d865793e05eaf5ff7ebf"
   },
-  "/Users/josh/projects/high6-play/lib/utils.ts": {
+  "lib/utils.ts": {
     "mtime": 1781792935.0442212,
     "ast_hash": "5a6fd53fdcf2be529e9cc0b718fde352",
     "semantic_hash": "5a6fd53fdcf2be529e9cc0b718fde352"
   },
-  "/Users/josh/projects/high6-play/next.config.ts": {
+  "next.config.ts": {
     "mtime": 1781968215.4711947,
     "ast_hash": "154177f65fdb13f40bd06e8a890eacc6",
     "semantic_hash": "154177f65fdb13f40bd06e8a890eacc6"
   },
-  "/Users/josh/projects/high6-play/package.json": {
+  "package.json": {
     "mtime": 1781949009.9630873,
     "ast_hash": "68a664630ecd787b13a0ecf91c9e9151",
     "semantic_hash": "68a664630ecd787b13a0ecf91c9e9151"
   },
-  "/Users/josh/projects/high6-play/postcss.config.mjs": {
+  "postcss.config.mjs": {
     "mtime": 1781790614.0,
     "ast_hash": "c56b5f3c12f777a86e2513f45daab56a",
     "semantic_hash": "c56b5f3c12f777a86e2513f45daab56a"
   },
-  "/Users/josh/projects/high6-play/proxy.ts": {
+  "proxy.ts": {
     "mtime": 1781968252.5258784,
     "ast_hash": "122ec3844529e9d06df10f8778e8e71a",
     "semantic_hash": "122ec3844529e9d06df10f8778e8e71a"
   },
-  "/Users/josh/projects/high6-play/tailwind.config.ts": {
+  "tailwind.config.ts": {
     "mtime": 1781968394.3628075,
     "ast_hash": "8dd3c47b583f40e63c2b6ff6d61efe7b",
     "semantic_hash": "8dd3c47b583f40e63c2b6ff6d61efe7b"
   },
-  "/Users/josh/projects/high6-play/tsconfig.json": {
+  "tsconfig.json": {
     "mtime": 1781790614.0,
     "ast_hash": "897ac3024f0d2d34a37cc19db3cd7cbc",
     "semantic_hash": "897ac3024f0d2d34a37cc19db3cd7cbc"
   },
-  "/Users/josh/projects/high6-play/.claude/skills/graphify/SKILL.md": {
+  ".claude/skills/graphify/SKILL.md": {
     "mtime": 1781793241.9183738,
     "ast_hash": "b57bd11db36a7c0e58f7078aa0d54614",
     "semantic_hash": "b57bd11db36a7c0e58f7078aa0d54614"
   },
-  "/Users/josh/projects/high6-play/.claude/skills/graphify/references/add-watch.md": {
+  ".claude/skills/graphify/references/add-watch.md": {
     "mtime": 1780885395.2226458,
     "ast_hash": "0df0589623217ca38a12bdcabfb42f4c",
     "semantic_hash": "0df0589623217ca38a12bdcabfb42f4c"
   },
-  "/Users/josh/projects/high6-play/.claude/skills/graphify/references/exports.md": {
+  ".claude/skills/graphify/references/exports.md": {
     "mtime": 1780885395.223297,
     "ast_hash": "7fb1a81aca17a462db70684a324fcfb0",
     "semantic_hash": "7fb1a81aca17a462db70684a324fcfb0"
   },
-  "/Users/josh/projects/high6-play/.claude/skills/graphify/references/extraction-spec.md": {
+  ".claude/skills/graphify/references/extraction-spec.md": {
     "mtime": 1780885395.2234495,
     "ast_hash": "24808b03abfeaf5f6435bb69c0125b2c",
     "semantic_hash": "24808b03abfeaf5f6435bb69c0125b2c"
   },
-  "/Users/josh/projects/high6-play/.claude/skills/graphify/references/github-and-merge.md": {
+  ".claude/skills/graphify/references/github-and-merge.md": {
     "mtime": 1780885395.2235403,
     "ast_hash": "cde13df085e4c492aeb7ba298a996d0d",
     "semantic_hash": "cde13df085e4c492aeb7ba298a996d0d"
   },
-  "/Users/josh/projects/high6-play/.claude/skills/graphify/references/hooks.md": {
+  ".claude/skills/graphify/references/hooks.md": {
     "mtime": 1780885395.2236362,
     "ast_hash": "3f545db6ce646650bb9de588f5512a27",
     "semantic_hash": "3f545db6ce646650bb9de588f5512a27"
   },
-  "/Users/josh/projects/high6-play/.claude/skills/graphify/references/query.md": {
+  ".claude/skills/graphify/references/query.md": {
     "mtime": 1780885395.2248845,
     "ast_hash": "8b40ed8c9e9060fc215219a8fc964091",
     "semantic_hash": "8b40ed8c9e9060fc215219a8fc964091"
   },
-  "/Users/josh/projects/high6-play/.claude/skills/graphify/references/transcribe.md": {
+  ".claude/skills/graphify/references/transcribe.md": {
     "mtime": 1780885395.2249832,
     "ast_hash": "70f6aa30d6211f3a2c7e9fc45479f50c",
     "semantic_hash": "70f6aa30d6211f3a2c7e9fc45479f50c"
   },
-  "/Users/josh/projects/high6-play/.claude/skills/graphify/references/update.md": {
+  ".claude/skills/graphify/references/update.md": {
     "mtime": 1780885395.225123,
     "ast_hash": "0dad167a95bdb389f02fecffb60b1bc8",
     "semantic_hash": "0dad167a95bdb389f02fecffb60b1bc8"
   },
-  "/Users/josh/projects/high6-play/.claude/skills/ui-ux-pro-max/SKILL.md": {
+  ".claude/skills/ui-ux-pro-max/SKILL.md": {
     "mtime": 1781793089.80768,
     "ast_hash": "e092c3924799d4fc4194f994d8394cc3",
     "semantic_hash": "e092c3924799d4fc4194f994d8394cc3"
   },
-  "/Users/josh/projects/high6-play/CLAUDE.md": {
+  "CLAUDE.md": {
     "mtime": 1781952497.3263776,
     "ast_hash": "f87e6864516d08aad9cd4ef00fe2c249",
     "semantic_hash": "f87e6864516d08aad9cd4ef00fe2c249"
   },
-  "/Users/josh/projects/high6-play/HANDOFF.md": {
+  "HANDOFF.md": {
     "mtime": 1781969883.0859861,
     "ast_hash": "912877925c1261fdece4ef6c534969d1",
     "semantic_hash": "912877925c1261fdece4ef6c534969d1"
   },
-  "/Users/josh/projects/high6-play/README.md": {
+  "README.md": {
     "mtime": 1781790614.0,
     "ast_hash": "5ead18cf32b4ca89f5f30078aca70d6c",
     "semantic_hash": "5ead18cf32b4ca89f5f30078aca70d6c"
   },
-  "/Users/josh/projects/high6-play/app/api/games/word-chain/eliminate/route.ts": {
+  "app/api/games/word-chain/eliminate/route.ts": {
     "mtime": 1781971785.7339373,
     "ast_hash": "9bf22e8a2cac0522ef3a782fb5c2ad02",
     "semantic_hash": "9bf22e8a2cac0522ef3a782fb5c2ad02"
   },
-  "/Users/josh/projects/high6-play/app/api/games/word-chain/end/route.ts": {
+  "app/api/games/word-chain/end/route.ts": {
     "mtime": 1781971789.2454257,
     "ast_hash": "f71388e4a4c5db73d70eaa14b64fdde9",
     "semantic_hash": "f71388e4a4c5db73d70eaa14b64fdde9"
   },
-  "/Users/josh/projects/high6-play/app/api/games/word-chain/submit/route.ts": {
+  "app/api/games/word-chain/submit/route.ts": {
     "mtime": 1781971780.72321,
     "ast_hash": "01f8c90289410da8c6d27eeae1ff5a43",
     "semantic_hash": "01f8c90289410da8c6d27eeae1ff5a43"
+  },
+  "app/host/[code]/wc-game/page.tsx": {
+    "mtime": 1781972997.5021045,
+    "ast_hash": "ffa993717b73ab00394ce544a31de3eb",
+    "semantic_hash": ""
+  },
+  "app/host/[code]/wc-results/page.tsx": {
+    "mtime": 1781973020.3860207,
+    "ast_hash": "7b8bf1fd0d550ca7965946f992ffe1fc",
+    "semantic_hash": ""
+  },
+  "app/play/[code]/wc-game/page.tsx": {
+    "mtime": 1781973010.485596,
+    "ast_hash": "cdf329cd4c4873af3c08690de2ba587d",
+    "semantic_hash": ""
+  },
+  "features/word-chain/components/HostWcView.tsx": {
+    "mtime": 1781972945.6352775,
+    "ast_hash": "f4417746b341c164dcb44fe298a6a6ad",
+    "semantic_hash": ""
+  },
+  "features/word-chain/components/PlayerWcView.tsx": {
+    "mtime": 1781972979.5021763,
+    "ast_hash": "91c25f9b9ddcfbb1a1709b193dcf845c",
+    "semantic_hash": ""
+  },
+  "features/word-chain/hooks/useTurnTimer.ts": {
+    "mtime": 1781972900.4925435,
+    "ast_hash": "93a98e9b76b49e9ec58b814897daec69",
+    "semantic_hash": ""
+  },
+  "features/word-chain/hooks/useWordChain.ts": {
+    "mtime": 1781972892.265965,
+    "ast_hash": "3ff732f590d7006d8c2cef8aaf7e5905",
+    "semantic_hash": ""
   }
 }

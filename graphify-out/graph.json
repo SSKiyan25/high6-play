@@ -819,7 +819,7 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "rooms_route_get",
-      "community": 6,
+      "community": 2,
       "norm_label": "get()"
     },
     {
@@ -1089,27 +1089,27 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "results_page",
-      "community": 6,
+      "community": 2,
       "norm_label": "page.tsx"
     },
     {
       "label": "ResultsPageProps",
       "file_type": "code",
       "source_file": "app/host/[code]/results/page.tsx",
-      "source_location": "L5",
+      "source_location": "L6",
       "_origin": "ast",
       "id": "results_page_resultspageprops",
-      "community": 6,
+      "community": 2,
       "norm_label": "resultspageprops"
     },
     {
       "label": "ResultsPage()",
       "file_type": "code",
       "source_file": "app/host/[code]/results/page.tsx",
-      "source_location": "L9",
+      "source_location": "L10",
       "_origin": "ast",
       "id": "results_page_resultspage",
-      "community": 6,
+      "community": 2,
       "norm_label": "resultspage()"
     },
     {
@@ -1156,7 +1156,7 @@
       "label": "WcResultsPageProps",
       "file_type": "code",
       "source_file": "app/host/[code]/wc-results/page.tsx",
-      "source_location": "L9",
+      "source_location": "L6",
       "_origin": "ast",
       "id": "wc_results_page_wcresultspageprops",
       "community": 6,
@@ -1166,7 +1166,7 @@
       "label": "WcResultsPage()",
       "file_type": "code",
       "source_file": "app/host/[code]/wc-results/page.tsx",
-      "source_location": "L13",
+      "source_location": "L10",
       "_origin": "ast",
       "id": "wc_results_page_wcresultspage",
       "community": 6,
@@ -1239,7 +1239,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_play_code_game_page_tsx_game_page",
-      "community": 0,
+      "community": 29,
       "norm_label": "page.tsx"
     },
     {
@@ -1249,7 +1249,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "game_page_playeridentity",
-      "community": 0,
+      "community": 29,
       "norm_label": "playeridentity"
     },
     {
@@ -1259,7 +1259,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "game_page_playgamepage",
-      "community": 0,
+      "community": 29,
       "norm_label": "playgamepage()"
     },
     {
@@ -1299,7 +1299,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_play_code_wc_game_page_tsx_wc_game_page",
-      "community": 6,
+      "community": 1,
       "norm_label": "page.tsx"
     },
     {
@@ -1309,7 +1309,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "wc_game_page_playeridentity",
-      "community": 6,
+      "community": 1,
       "norm_label": "playeridentity"
     },
     {
@@ -1319,7 +1319,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "wc_game_page_playwcgamepage",
-      "community": 6,
+      "community": 1,
       "norm_label": "playwcgamepage()"
     },
     {
@@ -1549,7 +1549,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_badge",
-      "community": 6,
+      "community": 1,
       "norm_label": "badge.tsx"
     },
     {
@@ -1559,7 +1559,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "ui_badge_badgevariants",
-      "community": 6,
+      "community": 1,
       "norm_label": "badgevariants"
     },
     {
@@ -1569,7 +1569,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "ui_badge_badgeprops",
-      "community": 6,
+      "community": 1,
       "norm_label": "badgeprops"
     },
     {
@@ -1579,7 +1579,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "ui_badge_badge",
-      "community": 6,
+      "community": 1,
       "norm_label": "badge()"
     },
     {
@@ -2613,10 +2613,20 @@
       "norm_label": "advancequestion()"
     },
     {
-      "label": "endGame()",
+      "label": "getFullResults()",
       "file_type": "code",
       "source_file": "features/this-or-that/actions.ts",
       "source_location": "L178",
+      "_origin": "ast",
+      "id": "this_or_that_actions_getfullresults",
+      "community": 2,
+      "norm_label": "getfullresults()"
+    },
+    {
+      "label": "endGame()",
+      "file_type": "code",
+      "source_file": "features/this-or-that/actions.ts",
+      "source_location": "L254",
       "_origin": "ast",
       "id": "this_or_that_actions_endgame",
       "community": 2,
@@ -2629,27 +2639,37 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_hostview",
-      "community": 0,
+      "community": 29,
       "norm_label": "hostview.tsx"
+    },
+    {
+      "label": "CountdownStatus",
+      "file_type": "code",
+      "source_file": "features/this-or-that/components/HostView.tsx",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "components_hostview_countdownstatus",
+      "community": 29,
+      "norm_label": "countdownstatus"
     },
     {
       "label": "HostViewProps",
       "file_type": "code",
       "source_file": "features/this-or-that/components/HostView.tsx",
-      "source_location": "L13",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "components_hostview_hostviewprops",
-      "community": 0,
+      "community": 29,
       "norm_label": "hostviewprops"
     },
     {
       "label": "HostView()",
       "file_type": "code",
       "source_file": "features/this-or-that/components/HostView.tsx",
-      "source_location": "L20",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "components_hostview_hostview",
-      "community": 0,
+      "community": 29,
       "norm_label": "hostview()"
     },
     {
@@ -2659,7 +2679,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_playerview",
-      "community": 0,
+      "community": 29,
       "norm_label": "playerview.tsx"
     },
     {
@@ -2669,7 +2689,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "components_playerview_playerviewprops",
-      "community": 0,
+      "community": 29,
       "norm_label": "playerviewprops"
     },
     {
@@ -2679,7 +2699,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "components_playerview_playerview",
-      "community": 0,
+      "community": 29,
       "norm_label": "playerview()"
     },
     {
@@ -2709,7 +2729,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "components_questionsetup_bankitem",
-      "community": 2,
+      "community": 1,
       "norm_label": "bankitem"
     },
     {
@@ -2723,13 +2743,53 @@
       "norm_label": "questionsetup()"
     },
     {
+      "label": "TotResultsView.tsx",
+      "file_type": "code",
+      "source_file": "features/this-or-that/components/TotResultsView.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_totresultsview",
+      "community": 29,
+      "norm_label": "totresultsview.tsx"
+    },
+    {
+      "label": "TotResultsViewProps",
+      "file_type": "code",
+      "source_file": "features/this-or-that/components/TotResultsView.tsx",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "components_totresultsview_totresultsviewprops",
+      "community": 29,
+      "norm_label": "totresultsviewprops"
+    },
+    {
+      "label": "TotResultsView()",
+      "file_type": "code",
+      "source_file": "features/this-or-that/components/TotResultsView.tsx",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "components_totresultsview_totresultsview",
+      "community": 2,
+      "norm_label": "totresultsview()"
+    },
+    {
+      "label": "QuestionResultCard()",
+      "file_type": "code",
+      "source_file": "features/this-or-that/components/TotResultsView.tsx",
+      "source_location": "L66",
+      "_origin": "ast",
+      "id": "components_totresultsview_questionresultcard",
+      "community": 29,
+      "norm_label": "questionresultcard()"
+    },
+    {
       "label": "useThisOrThat.ts",
       "file_type": "code",
       "source_file": "features/this-or-that/hooks/useThisOrThat.ts",
       "source_location": "L1",
       "_origin": "ast",
       "id": "hooks_usethisorthat",
-      "community": 0,
+      "community": 29,
       "norm_label": "usethisorthat.ts"
     },
     {
@@ -2739,7 +2799,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "hooks_usethisorthat_usethisorthatoptions",
-      "community": 0,
+      "community": 29,
       "norm_label": "usethisorthatoptions"
     },
     {
@@ -2749,7 +2809,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "hooks_usethisorthat_usethisorthatstate",
-      "community": 0,
+      "community": 29,
       "norm_label": "usethisorthatstate"
     },
     {
@@ -2759,7 +2819,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "hooks_usethisorthat_usethisorthat",
-      "community": 0,
+      "community": 29,
       "norm_label": "usethisorthat()"
     },
     {
@@ -2769,7 +2829,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "hooks_usevotes",
-      "community": 0,
+      "community": 29,
       "norm_label": "usevotes.ts"
     },
     {
@@ -2779,17 +2839,17 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "hooks_usevotes_usevotesoptions",
-      "community": 0,
+      "community": 29,
       "norm_label": "usevotesoptions"
     },
     {
       "label": "useVotes()",
       "file_type": "code",
       "source_file": "features/this-or-that/hooks/useVotes.ts",
-      "source_location": "L16",
+      "source_location": "L21",
       "_origin": "ast",
       "id": "hooks_usevotes_usevotes",
-      "community": 0,
+      "community": 29,
       "norm_label": "usevotes()"
     },
     {
@@ -2799,7 +2859,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "this_or_that_types",
-      "community": 2,
+      "community": 29,
       "norm_label": "types.ts"
     },
     {
@@ -2819,7 +2879,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "this_or_that_types_totquestion",
-      "community": 0,
+      "community": 29,
       "norm_label": "totquestion"
     },
     {
@@ -2829,7 +2889,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "this_or_that_types_totvote",
-      "community": 2,
+      "community": 29,
       "norm_label": "totvote"
     },
     {
@@ -2839,7 +2899,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "this_or_that_types_totquestionbank",
-      "community": 2,
+      "community": 1,
       "norm_label": "totquestionbank"
     },
     {
@@ -2859,7 +2919,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "this_or_that_types_totresults",
-      "community": 0,
+      "community": 29,
       "norm_label": "totresults"
     },
     {
@@ -2869,8 +2929,28 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "this_or_that_types_totgamestate",
-      "community": 2,
+      "community": 29,
       "norm_label": "totgamestate"
+    },
+    {
+      "label": "TotVoteWithNickname",
+      "file_type": "code",
+      "source_file": "features/this-or-that/types.ts",
+      "source_location": "L47",
+      "_origin": "ast",
+      "id": "this_or_that_types_totvotewithnickname",
+      "community": 29,
+      "norm_label": "totvotewithnickname"
+    },
+    {
+      "label": "TotQuestionResult",
+      "file_type": "code",
+      "source_file": "features/this-or-that/types.ts",
+      "source_location": "L49",
+      "_origin": "ast",
+      "id": "this_or_that_types_totquestionresult",
+      "community": 29,
+      "norm_label": "totquestionresult"
     },
     {
       "label": "actions.ts",
@@ -2953,6 +3033,16 @@
       "norm_label": "endwcgame()"
     },
     {
+      "label": "getWcFullResults()",
+      "file_type": "code",
+      "source_file": "features/word-chain/actions.ts",
+      "source_location": "L171",
+      "_origin": "ast",
+      "id": "word_chain_actions_getwcfullresults",
+      "community": 6,
+      "norm_label": "getwcfullresults()"
+    },
+    {
       "label": "HostWcView.tsx",
       "file_type": "code",
       "source_file": "features/word-chain/components/HostWcView.tsx",
@@ -2999,7 +3089,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_playerwcview",
-      "community": 6,
+      "community": 1,
       "norm_label": "playerwcview.tsx"
     },
     {
@@ -3019,8 +3109,48 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "components_playerwcview_playerwcview",
-      "community": 6,
+      "community": 1,
       "norm_label": "playerwcview()"
+    },
+    {
+      "label": "WcResultsView.tsx",
+      "file_type": "code",
+      "source_file": "features/word-chain/components/WcResultsView.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_wcresultsview",
+      "community": 6,
+      "norm_label": "wcresultsview.tsx"
+    },
+    {
+      "label": "WcResultsViewProps",
+      "file_type": "code",
+      "source_file": "features/word-chain/components/WcResultsView.tsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "components_wcresultsview_wcresultsviewprops",
+      "community": 6,
+      "norm_label": "wcresultsviewprops"
+    },
+    {
+      "label": "REASON_ICONS",
+      "file_type": "code",
+      "source_file": "features/word-chain/components/WcResultsView.tsx",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "components_wcresultsview_reason_icons",
+      "community": 6,
+      "norm_label": "reason_icons"
+    },
+    {
+      "label": "WcResultsView()",
+      "file_type": "code",
+      "source_file": "features/word-chain/components/WcResultsView.tsx",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "components_wcresultsview_wcresultsview",
+      "community": 6,
+      "norm_label": "wcresultsview()"
     },
     {
       "label": "useTurnTimer.ts",
@@ -3029,7 +3159,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "hooks_useturntimer",
-      "community": 6,
+      "community": 1,
       "norm_label": "useturntimer.ts"
     },
     {
@@ -3039,7 +3169,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "hooks_useturntimer_useturntimeroptions",
-      "community": 6,
+      "community": 1,
       "norm_label": "useturntimeroptions"
     },
     {
@@ -3049,7 +3179,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "hooks_useturntimer_useturntimerreturn",
-      "community": 6,
+      "community": 1,
       "norm_label": "useturntimerreturn"
     },
     {
@@ -3059,7 +3189,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "hooks_useturntimer_useturntimer",
-      "community": 6,
+      "community": 1,
       "norm_label": "useturntimer()"
     },
     {
@@ -3163,13 +3293,23 @@
       "norm_label": "wcturnresult"
     },
     {
+      "label": "WcFullResults",
+      "file_type": "code",
+      "source_file": "features/word-chain/types.ts",
+      "source_location": "L36",
+      "_origin": "ast",
+      "id": "word_chain_types_wcfullresults",
+      "community": 6,
+      "norm_label": "wcfullresults"
+    },
+    {
       "label": "client.ts",
       "file_type": "code",
       "source_file": "lib/pusher/client.ts",
       "source_location": "L1",
       "_origin": "ast",
       "id": "pusher_client",
-      "community": 6,
+      "community": 29,
       "norm_label": "client.ts"
     },
     {
@@ -3179,7 +3319,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "pusher_client_pusherclient",
-      "community": 6,
+      "community": 29,
       "norm_label": "pusherclient"
     },
     {
@@ -4049,7 +4189,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "graphify_skill_what_you_must_do_when_invoked",
-      "community": 29,
+      "community": 8,
       "norm_label": "what you must do when invoked"
     },
     {
@@ -4059,7 +4199,7 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "graphify_skill_step_0_github_repos_and_multi_path_merge_only_if_a_url_or_several_paths",
-      "community": 29,
+      "community": 8,
       "norm_label": "step 0 - github repos and multi-path merge (only if a url or several paths)"
     },
     {
@@ -4069,7 +4209,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "graphify_skill_step_1_ensure_graphify_is_installed",
-      "community": 29,
+      "community": 8,
       "norm_label": "step 1 - ensure graphify is installed"
     },
     {
@@ -4079,7 +4219,7 @@
       "source_location": "L106",
       "_origin": "ast",
       "id": "graphify_skill_step_2_detect_files",
-      "community": 29,
+      "community": 8,
       "norm_label": "step 2 - detect files"
     },
     {
@@ -4089,7 +4229,7 @@
       "source_location": "L143",
       "_origin": "ast",
       "id": "graphify_skill_step_2_5_video_and_audio_only_if_video_files_detected",
-      "community": 29,
+      "community": 8,
       "norm_label": "step 2.5 - video and audio (only if video files detected)"
     },
     {
@@ -4099,7 +4239,7 @@
       "source_location": "L147",
       "_origin": "ast",
       "id": "graphify_skill_step_3_extract_entities_and_relationships",
-      "community": 29,
+      "community": 8,
       "norm_label": "step 3 - extract entities and relationships"
     },
     {
@@ -4109,7 +4249,7 @@
       "source_location": "L164",
       "_origin": "ast",
       "id": "graphify_skill_part_a_structural_extraction_for_code_files",
-      "community": 29,
+      "community": 8,
       "norm_label": "part a - structural extraction for code files"
     },
     {
@@ -4119,7 +4259,7 @@
       "source_location": "L190",
       "_origin": "ast",
       "id": "graphify_skill_part_b_semantic_extraction_parallel_subagents",
-      "community": 29,
+      "community": 8,
       "norm_label": "part b - semantic extraction (parallel subagents)"
     },
     {
@@ -4129,7 +4269,7 @@
       "source_location": "L335",
       "_origin": "ast",
       "id": "graphify_skill_part_c_merge_ast_semantic_into_final_extraction",
-      "community": 29,
+      "community": 8,
       "norm_label": "part c - merge ast + semantic into final extraction"
     },
     {
@@ -4139,7 +4279,7 @@
       "source_location": "L369",
       "_origin": "ast",
       "id": "graphify_skill_step_4_build_graph_cluster_analyze_generate_outputs",
-      "community": 29,
+      "community": 8,
       "norm_label": "step 4 - build graph, cluster, analyze, generate outputs"
     },
     {
@@ -4149,7 +4289,7 @@
       "source_location": "L421",
       "_origin": "ast",
       "id": "graphify_skill_step_5_label_communities",
-      "community": 29,
+      "community": 8,
       "norm_label": "step 5 - label communities"
     },
     {
@@ -4159,7 +4299,7 @@
       "source_location": "L461",
       "_origin": "ast",
       "id": "graphify_skill_step_6_generate_obsidian_vault_opt_in_html",
-      "community": 29,
+      "community": 8,
       "norm_label": "step 6 - generate obsidian vault (opt-in) + html"
     },
     {
@@ -4169,7 +4309,7 @@
       "source_location": "L481",
       "_origin": "ast",
       "id": "graphify_skill_steps_6b_8_wiki_neo4j_svg_graphml_mcp_benchmark_only_on_their_flags",
-      "community": 29,
+      "community": 8,
       "norm_label": "steps 6b-8 - wiki, neo4j, svg, graphml, mcp, benchmark (only on their flags)"
     },
     {
@@ -4179,7 +4319,7 @@
       "source_location": "L487",
       "_origin": "ast",
       "id": "graphify_skill_step_9_save_manifest_update_cost_tracker_clean_up_and_report",
-      "community": 29,
+      "community": 8,
       "norm_label": "step 9 - save manifest, update cost tracker, clean up, and report"
     },
     {
@@ -4949,7 +5089,7 @@
       "source_location": "L344",
       "_origin": "ast",
       "id": "ui_ux_pro_max_skill_pre_delivery_checklist",
-      "community": 8,
+      "community": 4,
       "norm_label": "pre-delivery checklist"
     },
     {
@@ -4959,7 +5099,7 @@
       "source_location": "L348",
       "_origin": "ast",
       "id": "ui_ux_pro_max_skill_visual_quality",
-      "community": 8,
+      "community": 4,
       "norm_label": "visual quality"
     },
     {
@@ -4969,7 +5109,7 @@
       "source_location": "L355",
       "_origin": "ast",
       "id": "ui_ux_pro_max_skill_interaction",
-      "community": 8,
+      "community": 4,
       "norm_label": "interaction"
     },
     {
@@ -4979,7 +5119,7 @@
       "source_location": "L361",
       "_origin": "ast",
       "id": "ui_ux_pro_max_skill_light_dark_mode",
-      "community": 8,
+      "community": 4,
       "norm_label": "light/dark mode"
     },
     {
@@ -4989,7 +5129,7 @@
       "source_location": "L367",
       "_origin": "ast",
       "id": "ui_ux_pro_max_skill_layout",
-      "community": 8,
+      "community": 4,
       "norm_label": "layout"
     },
     {
@@ -4999,7 +5139,7 @@
       "source_location": "L373",
       "_origin": "ast",
       "id": "ui_ux_pro_max_skill_accessibility",
-      "community": 8,
+      "community": 4,
       "norm_label": "accessibility"
     },
     {
@@ -5702,7 +5842,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 4,
       "norm_label": "ui/ux pro max",
       "id": "ui_ux_pro_max_skill_uiuxpromax"
     },
@@ -5715,7 +5855,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 4,
       "norm_label": "design system generation",
       "id": "ui_ux_pro_max_skill_designsystem"
     },
@@ -6821,9 +6961,9 @@
       "source_file": "app/api/games/this-or-that/end/route.ts",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_api_games_this_or_that_end_route_ts_end_route",
-      "target": "app_api_games_this_or_that_end_route_ts_end_route_post",
-      "confidence_score": 1.0
+      "target": "app_api_games_this_or_that_end_route_ts_end_route_post"
     },
     {
       "relation": "imports_from",
@@ -6832,9 +6972,9 @@
       "source_file": "app/api/games/this-or-that/end/route.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_api_games_this_or_that_end_route_ts_end_route",
-      "target": "pusher_trigger",
-      "confidence_score": 1.0
+      "target": "pusher_trigger"
     },
     {
       "relation": "imports",
@@ -6843,9 +6983,9 @@
       "source_file": "app/api/games/this-or-that/end/route.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_api_games_this_or_that_end_route_ts_end_route",
-      "target": "pusher_trigger_triggergameevent",
-      "confidence_score": 1.0
+      "target": "pusher_trigger_triggergameevent"
     },
     {
       "relation": "imports_from",
@@ -6854,9 +6994,9 @@
       "source_file": "app/api/games/this-or-that/end/route.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_api_games_this_or_that_end_route_ts_end_route",
-      "target": "this_or_that_actions",
-      "confidence_score": 1.0
+      "target": "this_or_that_actions"
     },
     {
       "relation": "imports",
@@ -6865,9 +7005,9 @@
       "source_file": "app/api/games/this-or-that/end/route.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_api_games_this_or_that_end_route_ts_end_route",
-      "target": "this_or_that_actions_endgame",
-      "confidence_score": 1.0
+      "target": "this_or_that_actions_endgame"
     },
     {
       "relation": "calls",
@@ -7028,9 +7168,9 @@
       "source_file": "app/api/games/word-chain/eliminate/route.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "eliminate_route",
-      "target": "pusher_trigger",
-      "confidence_score": 1.0
+      "target": "pusher_trigger"
     },
     {
       "relation": "imports",
@@ -7050,9 +7190,9 @@
       "source_file": "app/api/games/word-chain/eliminate/route.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "eliminate_route",
-      "target": "supabase_server",
-      "confidence_score": 1.0
+      "target": "supabase_server"
     },
     {
       "relation": "imports",
@@ -7126,9 +7266,9 @@
       "source_file": "app/api/games/word-chain/end/route.ts",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_api_games_word_chain_end_route_ts_end_route",
-      "target": "app_api_games_word_chain_end_route_ts_end_route_post",
-      "confidence_score": 1.0
+      "target": "app_api_games_word_chain_end_route_ts_end_route_post"
     },
     {
       "relation": "imports_from",
@@ -7137,9 +7277,9 @@
       "source_file": "app/api/games/word-chain/end/route.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_api_games_word_chain_end_route_ts_end_route",
-      "target": "pusher_trigger",
-      "confidence_score": 1.0
+      "target": "pusher_trigger"
     },
     {
       "relation": "imports",
@@ -7148,9 +7288,9 @@
       "source_file": "app/api/games/word-chain/end/route.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_api_games_word_chain_end_route_ts_end_route",
-      "target": "pusher_trigger_triggergameevent",
-      "confidence_score": 1.0
+      "target": "pusher_trigger_triggergameevent"
     },
     {
       "relation": "imports_from",
@@ -7159,9 +7299,9 @@
       "source_file": "app/api/games/word-chain/end/route.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_api_games_word_chain_end_route_ts_end_route",
-      "target": "supabase_server",
-      "confidence_score": 1.0
+      "target": "supabase_server"
     },
     {
       "relation": "imports",
@@ -7170,9 +7310,9 @@
       "source_file": "app/api/games/word-chain/end/route.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_api_games_word_chain_end_route_ts_end_route",
-      "target": "supabase_server_createclient",
-      "confidence_score": 1.0
+      "target": "supabase_server_createclient"
     },
     {
       "relation": "imports_from",
@@ -7181,9 +7321,9 @@
       "source_file": "app/api/games/word-chain/end/route.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_api_games_word_chain_end_route_ts_end_route",
-      "target": "word_chain_actions",
-      "confidence_score": 1.0
+      "target": "word_chain_actions"
     },
     {
       "relation": "imports",
@@ -7192,9 +7332,9 @@
       "source_file": "app/api/games/word-chain/end/route.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_api_games_word_chain_end_route_ts_end_route",
-      "target": "word_chain_actions_endwcgame",
-      "confidence_score": 1.0
+      "target": "word_chain_actions_endwcgame"
     },
     {
       "relation": "calls",
@@ -7225,9 +7365,9 @@
       "source_file": "app/api/games/word-chain/submit/route.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "submit_route",
-      "target": "pusher_trigger",
-      "confidence_score": 1.0
+      "target": "pusher_trigger"
     },
     {
       "relation": "imports",
@@ -7257,9 +7397,9 @@
       "source_file": "app/api/games/word-chain/submit/route.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "submit_route",
-      "target": "supabase_server",
-      "confidence_score": 1.0
+      "target": "supabase_server"
     },
     {
       "relation": "imports",
@@ -8080,6 +8220,28 @@
       "target": "rooms_actions_getroom"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/host/[code]/results/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "results_page",
+      "target": "components_totresultsview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/host/[code]/results/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "results_page",
+      "target": "components_totresultsview_totresultsview",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/host/[code]/results/page.tsx",
@@ -8122,6 +8284,28 @@
       "target": "rooms_actions_getroom"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/host/[code]/results/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "results_page",
+      "target": "this_or_that_actions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/host/[code]/results/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "results_page",
+      "target": "this_or_that_actions_getfullresults",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -8133,15 +8317,26 @@
       "target": "rooms_actions_getroom"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/host/[code]/results/page.tsx",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "results_page_resultspage",
+      "target": "this_or_that_actions_getfullresults"
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/host/[code]/wc-game/page.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_host_code_wc_game_page_tsx_wc_game_page",
-      "target": "components_hostwcview",
-      "confidence_score": 1.0
+      "target": "components_hostwcview"
     },
     {
       "relation": "imports",
@@ -8150,9 +8345,9 @@
       "source_file": "app/host/[code]/wc-game/page.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_host_code_wc_game_page_tsx_wc_game_page",
-      "target": "components_hostwcview_hostwcview",
-      "confidence_score": 1.0
+      "target": "components_hostwcview_hostwcview"
     },
     {
       "relation": "imports_from",
@@ -8161,9 +8356,9 @@
       "source_file": "app/host/[code]/wc-game/page.tsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_host_code_wc_game_page_tsx_wc_game_page",
-      "target": "rooms_actions",
-      "confidence_score": 1.0
+      "target": "rooms_actions"
     },
     {
       "relation": "imports",
@@ -8172,9 +8367,9 @@
       "source_file": "app/host/[code]/wc-game/page.tsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_host_code_wc_game_page_tsx_wc_game_page",
-      "target": "rooms_actions_getroom",
-      "confidence_score": 1.0
+      "target": "rooms_actions_getroom"
     },
     {
       "relation": "contains",
@@ -8182,9 +8377,9 @@
       "source_file": "app/host/[code]/wc-game/page.tsx",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_host_code_wc_game_page_tsx_wc_game_page",
-      "target": "wc_game_page_hostwcgamepage",
-      "confidence_score": 1.0
+      "target": "wc_game_page_hostwcgamepage"
     },
     {
       "relation": "contains",
@@ -8192,9 +8387,9 @@
       "source_file": "app/host/[code]/wc-game/page.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_host_code_wc_game_page_tsx_wc_game_page",
-      "target": "wc_game_page_hostwcgamepageprops",
-      "confidence_score": 1.0
+      "target": "wc_game_page_hostwcgamepageprops"
     },
     {
       "relation": "imports_from",
@@ -8203,9 +8398,9 @@
       "source_file": "app/host/[code]/wc-game/page.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_host_code_wc_game_page_tsx_wc_game_page",
-      "target": "word_chain_actions",
-      "confidence_score": 1.0
+      "target": "word_chain_actions"
     },
     {
       "relation": "imports",
@@ -8214,9 +8409,9 @@
       "source_file": "app/host/[code]/wc-game/page.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_host_code_wc_game_page_tsx_wc_game_page",
-      "target": "word_chain_actions_getwcgamestate",
-      "confidence_score": 1.0
+      "target": "word_chain_actions_getwcgamestate"
     },
     {
       "relation": "imports",
@@ -8225,9 +8420,9 @@
       "source_file": "app/host/[code]/wc-game/page.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_host_code_wc_game_page_tsx_wc_game_page",
-      "target": "word_chain_actions_getwcplayers",
-      "confidence_score": 1.0
+      "target": "word_chain_actions_getwcplayers"
     },
     {
       "relation": "imports",
@@ -8236,9 +8431,9 @@
       "source_file": "app/host/[code]/wc-game/page.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_host_code_wc_game_page_tsx_wc_game_page",
-      "target": "word_chain_actions_initwcplayers",
-      "confidence_score": 1.0
+      "target": "word_chain_actions_initwcplayers"
     },
     {
       "relation": "calls",
@@ -8289,11 +8484,33 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/host/[code]/wc-results/page.tsx",
-      "source_location": "L1",
+      "source_location": "L3",
       "weight": 1.0,
       "source": "wc_results_page",
-      "target": "rooms_actions",
+      "target": "components_wcresultsview",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/host/[code]/wc-results/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "wc_results_page",
+      "target": "components_wcresultsview_wcresultsview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/host/[code]/wc-results/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "wc_results_page",
+      "target": "rooms_actions"
     },
     {
       "relation": "imports",
@@ -8302,9 +8519,9 @@
       "source_file": "app/host/[code]/wc-results/page.tsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "wc_results_page",
-      "target": "rooms_actions_getroom",
-      "confidence_score": 1.0
+      "target": "rooms_actions_getroom"
     },
     {
       "relation": "imports_from",
@@ -8313,9 +8530,9 @@
       "source_file": "app/host/[code]/wc-results/page.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "wc_results_page",
-      "target": "ui_badge",
-      "confidence_score": 1.0
+      "target": "ui_badge"
     },
     {
       "relation": "imports",
@@ -8324,9 +8541,9 @@
       "source_file": "app/host/[code]/wc-results/page.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "wc_results_page",
-      "target": "ui_badge_badge",
-      "confidence_score": 1.0
+      "target": "ui_badge_badge"
     },
     {
       "relation": "imports_from",
@@ -8335,9 +8552,9 @@
       "source_file": "app/host/[code]/wc-results/page.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "wc_results_page",
-      "target": "ui_button",
-      "confidence_score": 1.0
+      "target": "ui_button"
     },
     {
       "relation": "imports",
@@ -8346,9 +8563,9 @@
       "source_file": "app/host/[code]/wc-results/page.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "wc_results_page",
-      "target": "ui_button_button",
-      "confidence_score": 1.0
+      "target": "ui_button_button"
     },
     {
       "relation": "contains",
@@ -8356,9 +8573,9 @@
       "source_file": "app/host/[code]/wc-results/page.tsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "wc_results_page",
-      "target": "wc_results_page_wcresultspage",
-      "confidence_score": 1.0
+      "target": "wc_results_page_wcresultspage"
     },
     {
       "relation": "contains",
@@ -8366,9 +8583,9 @@
       "source_file": "app/host/[code]/wc-results/page.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "wc_results_page",
-      "target": "wc_results_page_wcresultspageprops",
-      "confidence_score": 1.0
+      "target": "wc_results_page_wcresultspageprops"
     },
     {
       "relation": "imports_from",
@@ -8377,9 +8594,9 @@
       "source_file": "app/host/[code]/wc-results/page.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "wc_results_page",
-      "target": "word_chain_actions",
-      "confidence_score": 1.0
+      "target": "word_chain_actions"
     },
     {
       "relation": "imports",
@@ -8389,8 +8606,19 @@
       "source_location": "L2",
       "weight": 1.0,
       "source": "wc_results_page",
-      "target": "word_chain_actions_getwcgamestate",
+      "target": "word_chain_actions_getwcfullresults",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/host/[code]/wc-results/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "wc_results_page",
+      "target": "word_chain_actions_getwcgamestate"
     },
     {
       "relation": "calls",
@@ -8402,6 +8630,17 @@
       "weight": 1.0,
       "source": "wc_results_page_wcresultspage",
       "target": "rooms_actions_getroom"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/host/[code]/wc-results/page.tsx",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "wc_results_page_wcresultspage",
+      "target": "word_chain_actions_getwcfullresults"
     },
     {
       "relation": "calls",
@@ -8666,9 +8905,9 @@
       "source_file": "app/play/[code]/wc-game/page.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_play_code_wc_game_page_tsx_wc_game_page",
-      "target": "components_playerwcview",
-      "confidence_score": 1.0
+      "target": "components_playerwcview"
     },
     {
       "relation": "imports",
@@ -8677,9 +8916,9 @@
       "source_file": "app/play/[code]/wc-game/page.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_play_code_wc_game_page_tsx_wc_game_page",
-      "target": "components_playerwcview_playerwcview",
-      "confidence_score": 1.0
+      "target": "components_playerwcview_playerwcview"
     },
     {
       "relation": "imports_from",
@@ -8688,9 +8927,9 @@
       "source_file": "app/play/[code]/wc-game/page.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_play_code_wc_game_page_tsx_wc_game_page",
-      "target": "rooms_types",
-      "confidence_score": 1.0
+      "target": "rooms_types"
     },
     {
       "relation": "imports",
@@ -8699,9 +8938,9 @@
       "source_file": "app/play/[code]/wc-game/page.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_play_code_wc_game_page_tsx_wc_game_page",
-      "target": "rooms_types_room",
-      "confidence_score": 1.0
+      "target": "rooms_types_room"
     },
     {
       "relation": "contains",
@@ -8709,9 +8948,9 @@
       "source_file": "app/play/[code]/wc-game/page.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_play_code_wc_game_page_tsx_wc_game_page",
-      "target": "wc_game_page_playeridentity",
-      "confidence_score": 1.0
+      "target": "wc_game_page_playeridentity"
     },
     {
       "relation": "contains",
@@ -8719,9 +8958,9 @@
       "source_file": "app/play/[code]/wc-game/page.tsx",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_play_code_wc_game_page_tsx_wc_game_page",
-      "target": "wc_game_page_playwcgamepage",
-      "confidence_score": 1.0
+      "target": "wc_game_page_playwcgamepage"
     },
     {
       "relation": "imports_from",
@@ -8730,9 +8969,9 @@
       "source_file": "app/play/[code]/wc-game/page.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_play_code_wc_game_page_tsx_wc_game_page",
-      "target": "word_chain_types",
-      "confidence_score": 1.0
+      "target": "word_chain_types"
     },
     {
       "relation": "imports",
@@ -8741,9 +8980,9 @@
       "source_file": "app/play/[code]/wc-game/page.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_play_code_wc_game_page_tsx_wc_game_page",
-      "target": "word_chain_types_wcgamestate",
-      "confidence_score": 1.0
+      "target": "word_chain_types_wcgamestate"
     },
     {
       "relation": "contains",
@@ -8973,9 +9212,9 @@
       "source_file": "features/word-chain/components/HostWcView.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_hostwcview",
-      "target": "ui_badge",
-      "confidence_score": 1.0
+      "target": "ui_badge"
     },
     {
       "relation": "imports_from",
@@ -8995,9 +9234,9 @@
       "source_file": "features/word-chain/components/PlayerWcView.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_playerwcview",
-      "target": "ui_badge",
-      "confidence_score": 1.0
+      "target": "ui_badge"
     },
     {
       "relation": "imports_from",
@@ -9091,9 +9330,9 @@
       "source_file": "features/word-chain/components/HostWcView.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_hostwcview",
-      "target": "ui_badge_badge",
-      "confidence_score": 1.0
+      "target": "ui_badge_badge"
     },
     {
       "relation": "imports",
@@ -9113,9 +9352,9 @@
       "source_file": "features/word-chain/components/PlayerWcView.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_playerwcview",
-      "target": "ui_badge_badge",
-      "confidence_score": 1.0
+      "target": "ui_badge_badge"
     },
     {
       "relation": "imports",
@@ -9179,9 +9418,9 @@
       "source_file": "features/word-chain/components/HostWcView.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_hostwcview",
-      "target": "ui_button",
-      "confidence_score": 1.0
+      "target": "ui_button"
     },
     {
       "relation": "imports_from",
@@ -9212,9 +9451,9 @@
       "source_file": "features/word-chain/components/PlayerWcView.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_playerwcview",
-      "target": "ui_button",
-      "confidence_score": 1.0
+      "target": "ui_button"
     },
     {
       "relation": "imports_from",
@@ -9331,9 +9570,9 @@
       "source_file": "features/word-chain/components/HostWcView.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_hostwcview",
-      "target": "ui_button_button",
-      "confidence_score": 1.0
+      "target": "ui_button_button"
     },
     {
       "relation": "imports",
@@ -9364,9 +9603,9 @@
       "source_file": "features/word-chain/components/PlayerWcView.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_playerwcview",
-      "target": "ui_button_button",
-      "confidence_score": 1.0
+      "target": "ui_button_button"
     },
     {
       "relation": "imports",
@@ -10428,9 +10667,9 @@
       "source_file": "features/word-chain/components/PlayerWcView.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_playerwcview",
-      "target": "ui_input",
-      "confidence_score": 1.0
+      "target": "ui_input"
     },
     {
       "relation": "imports_from",
@@ -10504,9 +10743,9 @@
       "source_file": "features/word-chain/components/PlayerWcView.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_playerwcview",
-      "target": "ui_input_input",
-      "confidence_score": 1.0
+      "target": "ui_input_input"
     },
     {
       "relation": "imports",
@@ -11740,6 +11979,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "features/this-or-that/actions.ts",
+      "source_location": "L178",
+      "weight": 1.0,
+      "source": "this_or_that_actions",
+      "target": "this_or_that_actions_getfullresults",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "features/this-or-that/actions.ts",
       "source_location": "L4",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -11861,6 +12110,16 @@
       "confidence_score": 1.0,
       "source": "this_or_that_actions",
       "target": "this_or_that_types_totresults"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "features/this-or-that/components/HostView.tsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "components_hostview",
+      "target": "components_hostview_countdownstatus",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -12243,6 +12502,102 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "features/this-or-that/components/TotResultsView.tsx",
+      "source_location": "L66",
+      "weight": 1.0,
+      "source": "components_totresultsview",
+      "target": "components_totresultsview_questionresultcard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "features/this-or-that/components/TotResultsView.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "components_totresultsview",
+      "target": "components_totresultsview_totresultsview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "features/this-or-that/components/TotResultsView.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_totresultsview",
+      "target": "components_totresultsview_totresultsviewprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "features/this-or-that/components/TotResultsView.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "components_totresultsview",
+      "target": "lib_utils",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "features/this-or-that/components/TotResultsView.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "components_totresultsview",
+      "target": "lib_utils_cn",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "features/this-or-that/components/TotResultsView.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "components_totresultsview",
+      "target": "this_or_that_types",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "features/this-or-that/components/TotResultsView.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "components_totresultsview",
+      "target": "this_or_that_types_totquestionresult",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "features/this-or-that/components/TotResultsView.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_totresultsview_totresultsviewprops",
+      "target": "this_or_that_types_totquestionresult",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/this-or-that/components/TotResultsView.tsx",
+      "source_location": "L101",
+      "weight": 1.0,
+      "source": "components_totresultsview_questionresultcard",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "features/this-or-that/hooks/useThisOrThat.ts",
       "source_location": "L25",
       "weight": 1.0,
@@ -12476,6 +12831,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "features/this-or-that/types.ts",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "this_or_that_types",
+      "target": "this_or_that_types_totquestionresult",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "features/this-or-that/types.ts",
       "source_location": "L30",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -12493,15 +12858,25 @@
       "target": "this_or_that_types_totvote"
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "features/this-or-that/types.ts",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "this_or_that_types",
+      "target": "this_or_that_types_totvotewithnickname",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "features/word-chain/actions.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "word_chain_actions",
-      "target": "supabase_client",
-      "confidence_score": 1.0
+      "target": "supabase_client"
     },
     {
       "relation": "imports",
@@ -12533,6 +12908,16 @@
       "confidence_score": 1.0,
       "source": "word_chain_actions",
       "target": "word_chain_actions_endwcgame"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "features/word-chain/actions.ts",
+      "source_location": "L171",
+      "weight": 1.0,
+      "source": "word_chain_actions",
+      "target": "word_chain_actions_getwcfullresults",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -12655,11 +13040,33 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "features/word-chain/actions.ts",
+      "source_location": "L183",
+      "weight": 1.0,
+      "source": "word_chain_actions_getwcfullresults",
+      "target": "word_chain_actions_getwcplayers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "features/word-chain/actions.ts",
       "source_location": "L138",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "word_chain_actions_getwcgamestate",
       "target": "word_chain_actions_getwcplayers"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "features/word-chain/actions.ts",
+      "source_location": "L184",
+      "weight": 1.0,
+      "source": "word_chain_actions_getwcfullresults",
+      "target": "word_chain_actions_getwcwords",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -12689,9 +13096,9 @@
       "source_file": "features/word-chain/components/HostWcView.tsx",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_hostwcview",
-      "target": "components_hostwcview_hostwcview",
-      "confidence_score": 1.0
+      "target": "components_hostwcview_hostwcview"
     },
     {
       "relation": "contains",
@@ -12699,9 +13106,9 @@
       "source_file": "features/word-chain/components/HostWcView.tsx",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_hostwcview",
-      "target": "components_hostwcview_hostwcviewprops",
-      "confidence_score": 1.0
+      "target": "components_hostwcview_hostwcviewprops"
     },
     {
       "relation": "contains",
@@ -12709,9 +13116,9 @@
       "source_file": "features/word-chain/components/HostWcView.tsx",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_hostwcview",
-      "target": "components_hostwcview_usehosttimer",
-      "confidence_score": 1.0
+      "target": "components_hostwcview_usehosttimer"
     },
     {
       "relation": "imports_from",
@@ -12720,9 +13127,9 @@
       "source_file": "features/word-chain/components/HostWcView.tsx",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_hostwcview",
-      "target": "hooks_usewordchain",
-      "confidence_score": 1.0
+      "target": "hooks_usewordchain"
     },
     {
       "relation": "imports",
@@ -12731,9 +13138,9 @@
       "source_file": "features/word-chain/components/HostWcView.tsx",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_hostwcview",
-      "target": "hooks_usewordchain_usewordchain",
-      "confidence_score": 1.0
+      "target": "hooks_usewordchain_usewordchain"
     },
     {
       "relation": "imports_from",
@@ -12742,9 +13149,9 @@
       "source_file": "features/word-chain/components/HostWcView.tsx",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_hostwcview",
-      "target": "lib_utils",
-      "confidence_score": 1.0
+      "target": "lib_utils"
     },
     {
       "relation": "imports",
@@ -12753,9 +13160,9 @@
       "source_file": "features/word-chain/components/HostWcView.tsx",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_hostwcview",
-      "target": "lib_utils_cn",
-      "confidence_score": 1.0
+      "target": "lib_utils_cn"
     },
     {
       "relation": "imports_from",
@@ -12764,9 +13171,9 @@
       "source_file": "features/word-chain/components/HostWcView.tsx",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_hostwcview",
-      "target": "pusher_client",
-      "confidence_score": 1.0
+      "target": "pusher_client"
     },
     {
       "relation": "imports",
@@ -12775,9 +13182,9 @@
       "source_file": "features/word-chain/components/HostWcView.tsx",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_hostwcview",
-      "target": "pusher_client_pusherclient",
-      "confidence_score": 1.0
+      "target": "pusher_client_pusherclient"
     },
     {
       "relation": "imports_from",
@@ -12786,9 +13193,9 @@
       "source_file": "features/word-chain/components/HostWcView.tsx",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_hostwcview",
-      "target": "word_chain_types",
-      "confidence_score": 1.0
+      "target": "word_chain_types"
     },
     {
       "relation": "imports",
@@ -12797,9 +13204,9 @@
       "source_file": "features/word-chain/components/HostWcView.tsx",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_hostwcview",
-      "target": "word_chain_types_wcgamestate",
-      "confidence_score": 1.0
+      "target": "word_chain_types_wcgamestate"
     },
     {
       "relation": "references",
@@ -12808,9 +13215,9 @@
       "source_file": "features/word-chain/components/HostWcView.tsx",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_hostwcview_hostwcviewprops",
-      "target": "word_chain_types_wcgamestate",
-      "confidence_score": 1.0
+      "target": "word_chain_types_wcgamestate"
     },
     {
       "relation": "calls",
@@ -12819,9 +13226,9 @@
       "source_file": "features/word-chain/components/HostWcView.tsx",
       "source_location": "L62",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_hostwcview_hostwcview",
-      "target": "components_hostwcview_usehosttimer",
-      "confidence_score": 1.0
+      "target": "components_hostwcview_usehosttimer"
     },
     {
       "relation": "calls",
@@ -12851,9 +13258,9 @@
       "source_file": "features/word-chain/components/PlayerWcView.tsx",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_playerwcview",
-      "target": "components_playerwcview_playerwcview",
-      "confidence_score": 1.0
+      "target": "components_playerwcview_playerwcview"
     },
     {
       "relation": "contains",
@@ -12861,9 +13268,9 @@
       "source_file": "features/word-chain/components/PlayerWcView.tsx",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_playerwcview",
-      "target": "components_playerwcview_playerwcviewprops",
-      "confidence_score": 1.0
+      "target": "components_playerwcview_playerwcviewprops"
     },
     {
       "relation": "imports_from",
@@ -12872,9 +13279,9 @@
       "source_file": "features/word-chain/components/PlayerWcView.tsx",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_playerwcview",
-      "target": "hooks_useturntimer",
-      "confidence_score": 1.0
+      "target": "hooks_useturntimer"
     },
     {
       "relation": "imports",
@@ -12883,9 +13290,9 @@
       "source_file": "features/word-chain/components/PlayerWcView.tsx",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_playerwcview",
-      "target": "hooks_useturntimer_useturntimer",
-      "confidence_score": 1.0
+      "target": "hooks_useturntimer_useturntimer"
     },
     {
       "relation": "imports_from",
@@ -12894,9 +13301,9 @@
       "source_file": "features/word-chain/components/PlayerWcView.tsx",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_playerwcview",
-      "target": "hooks_usewordchain",
-      "confidence_score": 1.0
+      "target": "hooks_usewordchain"
     },
     {
       "relation": "imports",
@@ -12905,9 +13312,9 @@
       "source_file": "features/word-chain/components/PlayerWcView.tsx",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_playerwcview",
-      "target": "hooks_usewordchain_usewordchain",
-      "confidence_score": 1.0
+      "target": "hooks_usewordchain_usewordchain"
     },
     {
       "relation": "imports_from",
@@ -12916,9 +13323,9 @@
       "source_file": "features/word-chain/components/PlayerWcView.tsx",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_playerwcview",
-      "target": "lib_utils",
-      "confidence_score": 1.0
+      "target": "lib_utils"
     },
     {
       "relation": "imports",
@@ -12927,9 +13334,9 @@
       "source_file": "features/word-chain/components/PlayerWcView.tsx",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_playerwcview",
-      "target": "lib_utils_cn",
-      "confidence_score": 1.0
+      "target": "lib_utils_cn"
     },
     {
       "relation": "imports_from",
@@ -12938,9 +13345,9 @@
       "source_file": "features/word-chain/components/PlayerWcView.tsx",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_playerwcview",
-      "target": "word_chain_types",
-      "confidence_score": 1.0
+      "target": "word_chain_types"
     },
     {
       "relation": "imports",
@@ -12949,9 +13356,9 @@
       "source_file": "features/word-chain/components/PlayerWcView.tsx",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_playerwcview",
-      "target": "word_chain_types_wcgamestate",
-      "confidence_score": 1.0
+      "target": "word_chain_types_wcgamestate"
     },
     {
       "relation": "references",
@@ -12960,9 +13367,9 @@
       "source_file": "features/word-chain/components/PlayerWcView.tsx",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_playerwcview_playerwcviewprops",
-      "target": "word_chain_types_wcgamestate",
-      "confidence_score": 1.0
+      "target": "word_chain_types_wcgamestate"
     },
     {
       "relation": "calls",
@@ -13000,93 +13407,63 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "features/word-chain/hooks/useTurnTimer.ts",
-      "source_location": "L22",
+      "source_file": "features/word-chain/components/WcResultsView.tsx",
+      "source_location": "L13",
       "weight": 1.0,
-      "source": "hooks_useturntimer",
-      "target": "hooks_useturntimer_useturntimer",
+      "source": "components_wcresultsview",
+      "target": "components_wcresultsview_reason_icons",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "features/word-chain/hooks/useTurnTimer.ts",
+      "source_file": "features/word-chain/components/WcResultsView.tsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "components_wcresultsview",
+      "target": "components_wcresultsview_wcresultsview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "features/word-chain/components/WcResultsView.tsx",
       "source_location": "L5",
       "weight": 1.0,
-      "source": "hooks_useturntimer",
-      "target": "hooks_useturntimer_useturntimeroptions",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "features/word-chain/hooks/useTurnTimer.ts",
-      "source_location": "L11",
-      "weight": 1.0,
-      "source": "hooks_useturntimer",
-      "target": "hooks_useturntimer_useturntimerreturn",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "features/word-chain/hooks/useWordChain.ts",
-      "source_location": "L27",
-      "weight": 1.0,
-      "source": "hooks_usewordchain",
-      "target": "hooks_usewordchain_usewordchain",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "features/word-chain/hooks/useWordChain.ts",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "hooks_usewordchain",
-      "target": "hooks_usewordchain_usewordchainoptions",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "features/word-chain/hooks/useWordChain.ts",
-      "source_location": "L12",
-      "weight": 1.0,
-      "source": "hooks_usewordchain",
-      "target": "hooks_usewordchain_usewordchainreturn",
+      "source": "components_wcresultsview",
+      "target": "components_wcresultsview_wcresultsviewprops",
       "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "features/word-chain/hooks/useWordChain.ts",
-      "source_location": "L4",
+      "source_file": "features/word-chain/components/WcResultsView.tsx",
+      "source_location": "L2",
       "weight": 1.0,
-      "source": "hooks_usewordchain",
-      "target": "pusher_client",
+      "source": "components_wcresultsview",
+      "target": "lib_utils",
       "confidence_score": 1.0
     },
     {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "features/word-chain/hooks/useWordChain.ts",
-      "source_location": "L4",
+      "source_file": "features/word-chain/components/WcResultsView.tsx",
+      "source_location": "L2",
       "weight": 1.0,
-      "source": "hooks_usewordchain",
-      "target": "pusher_client_pusherclient",
+      "source": "components_wcresultsview",
+      "target": "lib_utils_cn",
       "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "features/word-chain/hooks/useWordChain.ts",
-      "source_location": "L5",
+      "source_file": "features/word-chain/components/WcResultsView.tsx",
+      "source_location": "L1",
       "weight": 1.0,
-      "source": "hooks_usewordchain",
+      "source": "components_wcresultsview",
       "target": "word_chain_types",
       "confidence_score": 1.0
     },
@@ -13094,12 +13471,138 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "features/word-chain/components/WcResultsView.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "components_wcresultsview",
+      "target": "word_chain_types_wcplayerwithnickname",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "features/word-chain/components/WcResultsView.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "components_wcresultsview",
+      "target": "word_chain_types_wcword",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "features/word-chain/components/WcResultsView.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "components_wcresultsview_wcresultsviewprops",
+      "target": "word_chain_types_wcplayerwithnickname",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "features/word-chain/components/WcResultsView.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "components_wcresultsview_wcresultsviewprops",
+      "target": "word_chain_types_wcword",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "features/word-chain/hooks/useTurnTimer.ts",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hooks_useturntimer",
+      "target": "hooks_useturntimer_useturntimer"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "features/word-chain/hooks/useTurnTimer.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hooks_useturntimer",
+      "target": "hooks_useturntimer_useturntimeroptions"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "features/word-chain/hooks/useTurnTimer.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hooks_useturntimer",
+      "target": "hooks_useturntimer_useturntimerreturn"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "features/word-chain/hooks/useWordChain.ts",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hooks_usewordchain",
+      "target": "hooks_usewordchain_usewordchain"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "features/word-chain/hooks/useWordChain.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hooks_usewordchain",
+      "target": "hooks_usewordchain_usewordchainoptions"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "features/word-chain/hooks/useWordChain.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hooks_usewordchain",
+      "target": "hooks_usewordchain_usewordchainreturn"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "features/word-chain/hooks/useWordChain.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hooks_usewordchain",
+      "target": "pusher_client"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "features/word-chain/hooks/useWordChain.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hooks_usewordchain",
+      "target": "pusher_client_pusherclient"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "features/word-chain/hooks/useWordChain.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hooks_usewordchain",
-      "target": "word_chain_types_wcgamestate",
-      "confidence_score": 1.0
+      "target": "word_chain_types"
     },
     {
       "relation": "imports",
@@ -13108,9 +13611,20 @@
       "source_file": "features/word-chain/hooks/useWordChain.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hooks_usewordchain",
-      "target": "word_chain_types_wcplayerwithnickname",
-      "confidence_score": 1.0
+      "target": "word_chain_types_wcgamestate"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "features/word-chain/hooks/useWordChain.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hooks_usewordchain",
+      "target": "word_chain_types_wcplayerwithnickname"
     },
     {
       "relation": "references",
@@ -13119,9 +13633,9 @@
       "source_file": "features/word-chain/hooks/useWordChain.ts",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hooks_usewordchain_usewordchainoptions",
-      "target": "word_chain_types_wcgamestate",
-      "confidence_score": 1.0
+      "target": "word_chain_types_wcgamestate"
     },
     {
       "relation": "references",
@@ -13130,9 +13644,9 @@
       "source_file": "features/word-chain/hooks/useWordChain.ts",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hooks_usewordchain_usewordchainreturn",
-      "target": "word_chain_types_wcgamestate",
-      "confidence_score": 1.0
+      "target": "word_chain_types_wcgamestate"
     },
     {
       "relation": "references",
@@ -13141,8 +13655,18 @@
       "source_file": "features/word-chain/hooks/useWordChain.ts",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hooks_usewordchain_usewordchainreturn",
-      "target": "word_chain_types_wcplayerwithnickname",
+      "target": "word_chain_types_wcplayerwithnickname"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "features/word-chain/types.ts",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "word_chain_types",
+      "target": "word_chain_types_wcfullresults",
       "confidence_score": 1.0
     },
     {
@@ -13966,9 +14490,9 @@
       "source_file": ".claude/skills/graphify/SKILL.md",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "graphify_skill",
-      "target": "graphify_skill_graphify",
-      "confidence_score": 1.0
+      "target": "graphify_skill_graphify"
     },
     {
       "relation": "conceptually_related_to",
@@ -14006,9 +14530,9 @@
       "source_file": ".claude/skills/graphify/SKILL.md",
       "source_location": "L598",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "graphify_skill_graphify",
-      "target": "graphify_skill_for_graphify_add_and_watch",
-      "confidence_score": 1.0
+      "target": "graphify_skill_for_graphify_add_and_watch"
     },
     {
       "relation": "contains",
@@ -14016,9 +14540,9 @@
       "source_file": ".claude/skills/graphify/SKILL.md",
       "source_location": "L586",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "graphify_skill_graphify",
-      "target": "graphify_skill_for_graphify_query",
-      "confidence_score": 1.0
+      "target": "graphify_skill_for_graphify_query"
     },
     {
       "relation": "contains",
@@ -14026,9 +14550,9 @@
       "source_file": ".claude/skills/graphify/SKILL.md",
       "source_location": "L604",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "graphify_skill_graphify",
-      "target": "graphify_skill_for_the_commit_hook_and_native_claude_md_integration",
-      "confidence_score": 1.0
+      "target": "graphify_skill_for_the_commit_hook_and_native_claude_md_integration"
     },
     {
       "relation": "contains",
@@ -14036,9 +14560,9 @@
       "source_file": ".claude/skills/graphify/SKILL.md",
       "source_location": "L580",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "graphify_skill_graphify",
-      "target": "graphify_skill_for_update_and_cluster_only",
-      "confidence_score": 1.0
+      "target": "graphify_skill_for_update_and_cluster_only"
     },
     {
       "relation": "conceptually_related_to",
@@ -14056,9 +14580,9 @@
       "source_file": ".claude/skills/graphify/SKILL.md",
       "source_location": "L610",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "graphify_skill_graphify",
-      "target": "graphify_skill_honesty_rules",
-      "confidence_score": 1.0
+      "target": "graphify_skill_honesty_rules"
     },
     {
       "relation": "contains",
@@ -14066,9 +14590,9 @@
       "source_file": ".claude/skills/graphify/SKILL.md",
       "source_location": "L562",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "graphify_skill_graphify",
-      "target": "graphify_skill_interpreter_guard_for_subcommands",
-      "confidence_score": 1.0
+      "target": "graphify_skill_interpreter_guard_for_subcommands"
     },
     {
       "relation": "conceptually_related_to",
@@ -14096,9 +14620,9 @@
       "source_file": ".claude/skills/graphify/SKILL.md",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "graphify_skill_graphify",
-      "target": "graphify_skill_usage",
-      "confidence_score": 1.0
+      "target": "graphify_skill_usage"
     },
     {
       "relation": "contains",
@@ -14106,9 +14630,9 @@
       "source_file": ".claude/skills/graphify/SKILL.md",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "graphify_skill_graphify",
-      "target": "graphify_skill_what_graphify_is_for",
-      "confidence_score": 1.0
+      "target": "graphify_skill_what_graphify_is_for"
     },
     {
       "relation": "contains",
@@ -14116,9 +14640,9 @@
       "source_file": ".claude/skills/graphify/SKILL.md",
       "source_location": "L48",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "graphify_skill_graphify",
-      "target": "graphify_skill_what_you_must_do_when_invoked",
-      "confidence_score": 1.0
+      "target": "graphify_skill_what_you_must_do_when_invoked"
     },
     {
       "relation": "conceptually_related_to",
@@ -14236,9 +14760,9 @@
       "source_file": ".claude/skills/graphify/SKILL.md",
       "source_location": "L60",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "graphify_skill_what_you_must_do_when_invoked",
-      "target": "graphify_skill_step_0_github_repos_and_multi_path_merge_only_if_a_url_or_several_paths",
-      "confidence_score": 1.0
+      "target": "graphify_skill_step_0_github_repos_and_multi_path_merge_only_if_a_url_or_several_paths"
     },
     {
       "relation": "contains",
@@ -14246,9 +14770,9 @@
       "source_file": ".claude/skills/graphify/SKILL.md",
       "source_location": "L64",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "graphify_skill_what_you_must_do_when_invoked",
-      "target": "graphify_skill_step_1_ensure_graphify_is_installed",
-      "confidence_score": 1.0
+      "target": "graphify_skill_step_1_ensure_graphify_is_installed"
     },
     {
       "relation": "contains",
@@ -14256,9 +14780,9 @@
       "source_file": ".claude/skills/graphify/SKILL.md",
       "source_location": "L143",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "graphify_skill_what_you_must_do_when_invoked",
-      "target": "graphify_skill_step_2_5_video_and_audio_only_if_video_files_detected",
-      "confidence_score": 1.0
+      "target": "graphify_skill_step_2_5_video_and_audio_only_if_video_files_detected"
     },
     {
       "relation": "contains",
@@ -14266,9 +14790,9 @@
       "source_file": ".claude/skills/graphify/SKILL.md",
       "source_location": "L106",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "graphify_skill_what_you_must_do_when_invoked",
-      "target": "graphify_skill_step_2_detect_files",
-      "confidence_score": 1.0
+      "target": "graphify_skill_step_2_detect_files"
     },
     {
       "relation": "contains",
@@ -14276,9 +14800,9 @@
       "source_file": ".claude/skills/graphify/SKILL.md",
       "source_location": "L147",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "graphify_skill_what_you_must_do_when_invoked",
-      "target": "graphify_skill_step_3_extract_entities_and_relationships",
-      "confidence_score": 1.0
+      "target": "graphify_skill_step_3_extract_entities_and_relationships"
     },
     {
       "relation": "contains",
@@ -14286,9 +14810,9 @@
       "source_file": ".claude/skills/graphify/SKILL.md",
       "source_location": "L369",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "graphify_skill_what_you_must_do_when_invoked",
-      "target": "graphify_skill_step_4_build_graph_cluster_analyze_generate_outputs",
-      "confidence_score": 1.0
+      "target": "graphify_skill_step_4_build_graph_cluster_analyze_generate_outputs"
     },
     {
       "relation": "contains",
@@ -14296,9 +14820,9 @@
       "source_file": ".claude/skills/graphify/SKILL.md",
       "source_location": "L421",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "graphify_skill_what_you_must_do_when_invoked",
-      "target": "graphify_skill_step_5_label_communities",
-      "confidence_score": 1.0
+      "target": "graphify_skill_step_5_label_communities"
     },
     {
       "relation": "contains",
@@ -14306,9 +14830,9 @@
       "source_file": ".claude/skills/graphify/SKILL.md",
       "source_location": "L461",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "graphify_skill_what_you_must_do_when_invoked",
-      "target": "graphify_skill_step_6_generate_obsidian_vault_opt_in_html",
-      "confidence_score": 1.0
+      "target": "graphify_skill_step_6_generate_obsidian_vault_opt_in_html"
     },
     {
       "relation": "contains",
@@ -14316,9 +14840,9 @@
       "source_file": ".claude/skills/graphify/SKILL.md",
       "source_location": "L487",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "graphify_skill_what_you_must_do_when_invoked",
-      "target": "graphify_skill_step_9_save_manifest_update_cost_tracker_clean_up_and_report",
-      "confidence_score": 1.0
+      "target": "graphify_skill_step_9_save_manifest_update_cost_tracker_clean_up_and_report"
     },
     {
       "relation": "contains",
@@ -14326,9 +14850,9 @@
       "source_file": ".claude/skills/graphify/SKILL.md",
       "source_location": "L481",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "graphify_skill_what_you_must_do_when_invoked",
-      "target": "graphify_skill_steps_6b_8_wiki_neo4j_svg_graphml_mcp_benchmark_only_on_their_flags",
-      "confidence_score": 1.0
+      "target": "graphify_skill_steps_6b_8_wiki_neo4j_svg_graphml_mcp_benchmark_only_on_their_flags"
     },
     {
       "relation": "contains",
@@ -14336,9 +14860,9 @@
       "source_file": ".claude/skills/graphify/SKILL.md",
       "source_location": "L164",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "graphify_skill_step_3_extract_entities_and_relationships",
-      "target": "graphify_skill_part_a_structural_extraction_for_code_files",
-      "confidence_score": 1.0
+      "target": "graphify_skill_part_a_structural_extraction_for_code_files"
     },
     {
       "relation": "contains",
@@ -14346,9 +14870,9 @@
       "source_file": ".claude/skills/graphify/SKILL.md",
       "source_location": "L190",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "graphify_skill_step_3_extract_entities_and_relationships",
-      "target": "graphify_skill_part_b_semantic_extraction_parallel_subagents",
-      "confidence_score": 1.0
+      "target": "graphify_skill_part_b_semantic_extraction_parallel_subagents"
     },
     {
       "relation": "contains",
@@ -14356,9 +14880,9 @@
       "source_file": ".claude/skills/graphify/SKILL.md",
       "source_location": "L335",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "graphify_skill_step_3_extract_entities_and_relationships",
-      "target": "graphify_skill_part_c_merge_ast_semantic_into_final_extraction",
-      "confidence_score": 1.0
+      "target": "graphify_skill_part_c_merge_ast_semantic_into_final_extraction"
     },
     {
       "relation": "contains",
@@ -14366,9 +14890,9 @@
       "source_file": ".claude/skills/graphify/references/add-watch.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_add_watch",
-      "target": "references_add_watch_graphify_reference_add_a_url_and_watch_a_folder",
-      "confidence_score": 1.0
+      "target": "references_add_watch_graphify_reference_add_a_url_and_watch_a_folder"
     },
     {
       "relation": "contains",
@@ -14376,9 +14900,9 @@
       "source_file": ".claude/skills/graphify/references/add-watch.md",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_add_watch_graphify_reference_add_a_url_and_watch_a_folder",
-      "target": "references_add_watch_for_graphify_add",
-      "confidence_score": 1.0
+      "target": "references_add_watch_for_graphify_add"
     },
     {
       "relation": "contains",
@@ -14386,9 +14910,9 @@
       "source_file": ".claude/skills/graphify/references/add-watch.md",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_add_watch_graphify_reference_add_a_url_and_watch_a_folder",
-      "target": "references_add_watch_for_watch",
-      "confidence_score": 1.0
+      "target": "references_add_watch_for_watch"
     },
     {
       "relation": "contains",
@@ -14396,9 +14920,9 @@
       "source_file": ".claude/skills/graphify/references/exports.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_exports",
-      "target": "references_exports_graphify_reference_extra_exports_and_benchmark",
-      "confidence_score": 1.0
+      "target": "references_exports_graphify_reference_extra_exports_and_benchmark"
     },
     {
       "relation": "contains",
@@ -14406,9 +14930,9 @@
       "source_file": ".claude/skills/graphify/references/exports.md",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_exports_graphify_reference_extra_exports_and_benchmark",
-      "target": "references_exports_step_6b_wiki_only_if_wiki_flag",
-      "confidence_score": 1.0
+      "target": "references_exports_step_6b_wiki_only_if_wiki_flag"
     },
     {
       "relation": "contains",
@@ -14416,9 +14940,9 @@
       "source_file": ".claude/skills/graphify/references/exports.md",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_exports_graphify_reference_extra_exports_and_benchmark",
-      "target": "references_exports_step_7_neo4j_export_only_if_neo4j_or_neo4j_push_flag",
-      "confidence_score": 1.0
+      "target": "references_exports_step_7_neo4j_export_only_if_neo4j_or_neo4j_push_flag"
     },
     {
       "relation": "contains",
@@ -14426,9 +14950,9 @@
       "source_file": ".claude/skills/graphify/references/exports.md",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_exports_graphify_reference_extra_exports_and_benchmark",
-      "target": "references_exports_step_7b_svg_export_only_if_svg_flag",
-      "confidence_score": 1.0
+      "target": "references_exports_step_7b_svg_export_only_if_svg_flag"
     },
     {
       "relation": "contains",
@@ -14436,9 +14960,9 @@
       "source_file": ".claude/skills/graphify/references/exports.md",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_exports_graphify_reference_extra_exports_and_benchmark",
-      "target": "references_exports_step_7c_graphml_export_only_if_graphml_flag",
-      "confidence_score": 1.0
+      "target": "references_exports_step_7c_graphml_export_only_if_graphml_flag"
     },
     {
       "relation": "contains",
@@ -14446,9 +14970,9 @@
       "source_file": ".claude/skills/graphify/references/exports.md",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_exports_graphify_reference_extra_exports_and_benchmark",
-      "target": "references_exports_step_7d_mcp_server_only_if_mcp_flag",
-      "confidence_score": 1.0
+      "target": "references_exports_step_7d_mcp_server_only_if_mcp_flag"
     },
     {
       "relation": "contains",
@@ -14456,9 +14980,9 @@
       "source_file": ".claude/skills/graphify/references/exports.md",
       "source_location": "L63",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_exports_graphify_reference_extra_exports_and_benchmark",
-      "target": "references_exports_step_8_token_reduction_benchmark_only_if_total_words_5000",
-      "confidence_score": 1.0
+      "target": "references_exports_step_8_token_reduction_benchmark_only_if_total_words_5000"
     },
     {
       "relation": "contains",
@@ -14466,9 +14990,9 @@
       "source_file": ".claude/skills/graphify/references/extraction-spec.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_extraction_spec",
-      "target": "references_extraction_spec_graphify_reference_extraction_subagent_prompt",
-      "confidence_score": 1.0
+      "target": "references_extraction_spec_graphify_reference_extraction_subagent_prompt"
     },
     {
       "relation": "contains",
@@ -14476,9 +15000,9 @@
       "source_file": ".claude/skills/graphify/references/github-and-merge.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_github_and_merge",
-      "target": "references_github_and_merge_graphify_reference_github_clone_and_cross_repo_merge",
-      "confidence_score": 1.0
+      "target": "references_github_and_merge_graphify_reference_github_clone_and_cross_repo_merge"
     },
     {
       "relation": "contains",
@@ -14486,9 +15010,9 @@
       "source_file": ".claude/skills/graphify/references/github-and-merge.md",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_github_and_merge_graphify_reference_github_clone_and_cross_repo_merge",
-      "target": "references_github_and_merge_step_0_clone_github_repo_s_only_if_a_github_url_was_given",
-      "confidence_score": 1.0
+      "target": "references_github_and_merge_step_0_clone_github_repo_s_only_if_a_github_url_was_given"
     },
     {
       "relation": "contains",
@@ -14496,9 +15020,9 @@
       "source_file": ".claude/skills/graphify/references/hooks.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_hooks",
-      "target": "references_hooks_graphify_reference_commit_hook_and_native_claude_md_integration",
-      "confidence_score": 1.0
+      "target": "references_hooks_graphify_reference_commit_hook_and_native_claude_md_integration"
     },
     {
       "relation": "contains",
@@ -14506,9 +15030,9 @@
       "source_file": ".claude/skills/graphify/references/hooks.md",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_hooks_graphify_reference_commit_hook_and_native_claude_md_integration",
-      "target": "references_hooks_for_git_commit_hook",
-      "confidence_score": 1.0
+      "target": "references_hooks_for_git_commit_hook"
     },
     {
       "relation": "contains",
@@ -14516,9 +15040,9 @@
       "source_file": ".claude/skills/graphify/references/hooks.md",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_hooks_graphify_reference_commit_hook_and_native_claude_md_integration",
-      "target": "references_hooks_for_native_claude_md_integration",
-      "confidence_score": 1.0
+      "target": "references_hooks_for_native_claude_md_integration"
     },
     {
       "relation": "contains",
@@ -14526,9 +15050,9 @@
       "source_file": ".claude/skills/graphify/references/query.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_query",
-      "target": "references_query_graphify_reference_query_path_explain",
-      "confidence_score": 1.0
+      "target": "references_query_graphify_reference_query_path_explain"
     },
     {
       "relation": "contains",
@@ -14536,9 +15060,9 @@
       "source_file": ".claude/skills/graphify/references/query.md",
       "source_location": "L89",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_query_graphify_reference_query_path_explain",
-      "target": "references_query_for_graphify_explain",
-      "confidence_score": 1.0
+      "target": "references_query_for_graphify_explain"
     },
     {
       "relation": "contains",
@@ -14546,9 +15070,9 @@
       "source_file": ".claude/skills/graphify/references/query.md",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_query_graphify_reference_query_path_explain",
-      "target": "references_query_for_graphify_path",
-      "confidence_score": 1.0
+      "target": "references_query_for_graphify_path"
     },
     {
       "relation": "contains",
@@ -14556,9 +15080,9 @@
       "source_file": ".claude/skills/graphify/references/query.md",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_query_graphify_reference_query_path_explain",
-      "target": "references_query_step_0_constrained_query_expansion_required_before_traversal",
-      "confidence_score": 1.0
+      "target": "references_query_step_0_constrained_query_expansion_required_before_traversal"
     },
     {
       "relation": "contains",
@@ -14566,9 +15090,9 @@
       "source_file": ".claude/skills/graphify/references/query.md",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_query_graphify_reference_query_path_explain",
-      "target": "references_query_step_1_traversal",
-      "confidence_score": 1.0
+      "target": "references_query_step_1_traversal"
     },
     {
       "relation": "contains",
@@ -14576,9 +15100,9 @@
       "source_file": ".claude/skills/graphify/references/transcribe.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_transcribe",
-      "target": "references_transcribe_graphify_reference_transcribe_video_and_audio",
-      "confidence_score": 1.0
+      "target": "references_transcribe_graphify_reference_transcribe_video_and_audio"
     },
     {
       "relation": "contains",
@@ -14586,9 +15110,9 @@
       "source_file": ".claude/skills/graphify/references/transcribe.md",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_transcribe_graphify_reference_transcribe_video_and_audio",
-      "target": "references_transcribe_step_2_5_transcribe_video_audio_files_only_if_video_files_detected",
-      "confidence_score": 1.0
+      "target": "references_transcribe_step_2_5_transcribe_video_audio_files_only_if_video_files_detected"
     },
     {
       "relation": "contains",
@@ -14596,9 +15120,9 @@
       "source_file": ".claude/skills/graphify/references/update.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_update",
-      "target": "references_update_graphify_reference_incremental_update_and_cluster_only",
-      "confidence_score": 1.0
+      "target": "references_update_graphify_reference_incremental_update_and_cluster_only"
     },
     {
       "relation": "contains",
@@ -14606,9 +15130,9 @@
       "source_file": ".claude/skills/graphify/references/update.md",
       "source_location": "L171",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_update_graphify_reference_incremental_update_and_cluster_only",
-      "target": "references_update_for_cluster_only",
-      "confidence_score": 1.0
+      "target": "references_update_for_cluster_only"
     },
     {
       "relation": "contains",
@@ -14616,9 +15140,9 @@
       "source_file": ".claude/skills/graphify/references/update.md",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_update_graphify_reference_incremental_update_and_cluster_only",
-      "target": "references_update_for_update_incremental_re_extraction",
-      "confidence_score": 1.0
+      "target": "references_update_for_update_incremental_re_extraction"
     },
     {
       "relation": "contains",
@@ -14626,9 +15150,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill",
-      "target": "ui_ux_pro_max_skill_ui_ux_pro_max_design_intelligence",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_ui_ux_pro_max_design_intelligence"
     },
     {
       "relation": "contains",
@@ -14636,9 +15160,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L304",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_ui_ux_pro_max_design_intelligence",
-      "target": "ui_ux_pro_max_skill_common_rules_for_professional_ui",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_common_rules_for_professional_ui"
     },
     {
       "relation": "contains",
@@ -14646,9 +15170,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L241",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_ui_ux_pro_max_design_intelligence",
-      "target": "ui_ux_pro_max_skill_example_workflow",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_example_workflow"
     },
     {
       "relation": "contains",
@@ -14656,9 +15180,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L87",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_ui_ux_pro_max_design_intelligence",
-      "target": "ui_ux_pro_max_skill_how_to_use",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_how_to_use"
     },
     {
       "relation": "contains",
@@ -14666,9 +15190,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L121",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_ui_ux_pro_max_design_intelligence",
-      "target": "ui_ux_pro_max_skill_how_to_use_this_skill",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_how_to_use_this_skill"
     },
     {
       "relation": "contains",
@@ -14676,9 +15200,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L279",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_ui_ux_pro_max_design_intelligence",
-      "target": "ui_ux_pro_max_skill_output_formats",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_output_formats"
     },
     {
       "relation": "contains",
@@ -14686,9 +15210,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L344",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_ui_ux_pro_max_design_intelligence",
-      "target": "ui_ux_pro_max_skill_pre_delivery_checklist",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_pre_delivery_checklist"
     },
     {
       "relation": "contains",
@@ -14696,9 +15220,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L94",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_ui_ux_pro_max_design_intelligence",
-      "target": "ui_ux_pro_max_skill_prerequisites",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_prerequisites"
     },
     {
       "relation": "contains",
@@ -14706,9 +15230,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_ui_ux_pro_max_design_intelligence",
-      "target": "ui_ux_pro_max_skill_quick_reference",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_quick_reference"
     },
     {
       "relation": "contains",
@@ -14716,9 +15240,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_ui_ux_pro_max_design_intelligence",
-      "target": "ui_ux_pro_max_skill_rule_categories_by_priority",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_rule_categories_by_priority"
     },
     {
       "relation": "contains",
@@ -14726,9 +15250,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L207",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_ui_ux_pro_max_design_intelligence",
-      "target": "ui_ux_pro_max_skill_search_reference",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_search_reference"
     },
     {
       "relation": "contains",
@@ -14736,9 +15260,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L293",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_ui_ux_pro_max_design_intelligence",
-      "target": "ui_ux_pro_max_skill_tips_for_better_results",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_tips_for_better_results"
     },
     {
       "relation": "contains",
@@ -14746,9 +15270,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_ui_ux_pro_max_design_intelligence",
-      "target": "ui_ux_pro_max_skill_when_to_apply",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_when_to_apply"
     },
     {
       "relation": "contains",
@@ -14756,9 +15280,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_quick_reference",
-      "target": "ui_ux_pro_max_skill_1_accessibility_critical",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_1_accessibility_critical"
     },
     {
       "relation": "contains",
@@ -14766,9 +15290,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_quick_reference",
-      "target": "ui_ux_pro_max_skill_2_touch_interaction_critical",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_2_touch_interaction_critical"
     },
     {
       "relation": "contains",
@@ -14776,9 +15300,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_quick_reference",
-      "target": "ui_ux_pro_max_skill_3_performance_high",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_3_performance_high"
     },
     {
       "relation": "contains",
@@ -14786,9 +15310,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_quick_reference",
-      "target": "ui_ux_pro_max_skill_4_layout_responsive_high",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_4_layout_responsive_high"
     },
     {
       "relation": "contains",
@@ -14796,9 +15320,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L63",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_quick_reference",
-      "target": "ui_ux_pro_max_skill_5_typography_color_medium",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_5_typography_color_medium"
     },
     {
       "relation": "contains",
@@ -14806,9 +15330,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L69",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_quick_reference",
-      "target": "ui_ux_pro_max_skill_6_animation_medium",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_6_animation_medium"
     },
     {
       "relation": "contains",
@@ -14816,9 +15340,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L75",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_quick_reference",
-      "target": "ui_ux_pro_max_skill_7_style_selection_medium",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_7_style_selection_medium"
     },
     {
       "relation": "contains",
@@ -14826,9 +15350,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L81",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_quick_reference",
-      "target": "ui_ux_pro_max_skill_8_charts_data_low",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_8_charts_data_low"
     },
     {
       "relation": "contains",
@@ -14836,9 +15360,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L125",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_how_to_use_this_skill",
-      "target": "ui_ux_pro_max_skill_step_1_analyze_user_requirements",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_step_1_analyze_user_requirements"
     },
     {
       "relation": "contains",
@@ -14846,9 +15370,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L133",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_how_to_use_this_skill",
-      "target": "ui_ux_pro_max_skill_step_2_generate_design_system_required",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_step_2_generate_design_system_required"
     },
     {
       "relation": "contains",
@@ -14856,9 +15380,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L152",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_how_to_use_this_skill",
-      "target": "ui_ux_pro_max_skill_step_2b_persist_design_system_master_overrides_pattern",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_step_2b_persist_design_system_master_overrides_pattern"
     },
     {
       "relation": "contains",
@@ -14866,9 +15390,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L177",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_how_to_use_this_skill",
-      "target": "ui_ux_pro_max_skill_step_3_supplement_with_detailed_searches_as_needed",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_step_3_supplement_with_detailed_searches_as_needed"
     },
     {
       "relation": "contains",
@@ -14876,9 +15400,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L195",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_how_to_use_this_skill",
-      "target": "ui_ux_pro_max_skill_step_4_stack_guidelines_default_html_tailwind",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_step_4_stack_guidelines_default_html_tailwind"
     },
     {
       "relation": "contains",
@@ -14886,9 +15410,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L209",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_search_reference",
-      "target": "ui_ux_pro_max_skill_available_domains",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_available_domains"
     },
     {
       "relation": "contains",
@@ -14896,9 +15420,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L224",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_search_reference",
-      "target": "ui_ux_pro_max_skill_available_stacks",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_available_stacks"
     },
     {
       "relation": "contains",
@@ -14906,9 +15430,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L245",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_example_workflow",
-      "target": "ui_ux_pro_max_skill_step_1_analyze_requirements",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_step_1_analyze_requirements"
     },
     {
       "relation": "contains",
@@ -14916,9 +15440,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L251",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_example_workflow",
-      "target": "ui_ux_pro_max_skill_step_2_generate_design_system_required_251",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_step_2_generate_design_system_required_251"
     },
     {
       "relation": "contains",
@@ -14926,9 +15450,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L259",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_example_workflow",
-      "target": "ui_ux_pro_max_skill_step_3_supplement_with_detailed_searches_as_needed_259",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_step_3_supplement_with_detailed_searches_as_needed_259"
     },
     {
       "relation": "contains",
@@ -14936,9 +15460,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L269",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_example_workflow",
-      "target": "ui_ux_pro_max_skill_step_4_stack_guidelines",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_step_4_stack_guidelines"
     },
     {
       "relation": "contains",
@@ -14946,9 +15470,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L308",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_common_rules_for_professional_ui",
-      "target": "ui_ux_pro_max_skill_icons_visual_elements",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_icons_visual_elements"
     },
     {
       "relation": "contains",
@@ -14956,9 +15480,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L317",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_common_rules_for_professional_ui",
-      "target": "ui_ux_pro_max_skill_interaction_cursor",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_interaction_cursor"
     },
     {
       "relation": "contains",
@@ -14966,9 +15490,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L334",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_common_rules_for_professional_ui",
-      "target": "ui_ux_pro_max_skill_layout_spacing",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_layout_spacing"
     },
     {
       "relation": "contains",
@@ -14976,9 +15500,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L325",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_common_rules_for_professional_ui",
-      "target": "ui_ux_pro_max_skill_light_dark_mode_contrast",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_light_dark_mode_contrast"
     },
     {
       "relation": "contains",
@@ -14986,9 +15510,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L373",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_pre_delivery_checklist",
-      "target": "ui_ux_pro_max_skill_accessibility",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_accessibility"
     },
     {
       "relation": "contains",
@@ -14996,9 +15520,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L355",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_pre_delivery_checklist",
-      "target": "ui_ux_pro_max_skill_interaction",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_interaction"
     },
     {
       "relation": "contains",
@@ -15006,9 +15530,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L367",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_pre_delivery_checklist",
-      "target": "ui_ux_pro_max_skill_layout",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_layout"
     },
     {
       "relation": "contains",
@@ -15016,9 +15540,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L361",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_pre_delivery_checklist",
-      "target": "ui_ux_pro_max_skill_light_dark_mode",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_light_dark_mode"
     },
     {
       "relation": "contains",
@@ -15026,9 +15550,9 @@
       "source_file": ".claude/skills/ui-ux-pro-max/SKILL.md",
       "source_location": "L348",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_ux_pro_max_skill_pre_delivery_checklist",
-      "target": "ui_ux_pro_max_skill_visual_quality",
-      "confidence_score": 1.0
+      "target": "ui_ux_pro_max_skill_visual_quality"
     },
     {
       "relation": "conceptually_related_to",
@@ -15046,9 +15570,9 @@
       "source_file": "CLAUDE.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "claude",
-      "target": "claude_high6_play",
-      "confidence_score": 1.0
+      "target": "claude_high6_play"
     },
     {
       "relation": "contains",
@@ -15056,9 +15580,9 @@
       "source_file": "CLAUDE.md",
       "source_location": "L153",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "claude_high6_play",
-      "target": "claude_auth",
-      "confidence_score": 1.0
+      "target": "claude_auth"
     },
     {
       "relation": "contains",
@@ -15066,9 +15590,9 @@
       "source_file": "CLAUDE.md",
       "source_location": "L194",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "claude_high6_play",
-      "target": "claude_claude_code_plugins",
-      "confidence_score": 1.0
+      "target": "claude_claude_code_plugins"
     },
     {
       "relation": "contains",
@@ -15076,9 +15600,9 @@
       "source_file": "CLAUDE.md",
       "source_location": "L246",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "claude_high6_play",
-      "target": "claude_current_status",
-      "confidence_score": 1.0
+      "target": "claude_current_status"
     },
     {
       "relation": "contains",
@@ -15086,9 +15610,9 @@
       "source_file": "CLAUDE.md",
       "source_location": "L119",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "claude_high6_play",
-      "target": "claude_database_schema",
-      "confidence_score": 1.0
+      "target": "claude_database_schema"
     },
     {
       "relation": "contains",
@@ -15096,9 +15620,9 @@
       "source_file": "CLAUDE.md",
       "source_location": "L103",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "claude_high6_play",
-      "target": "claude_environment_variables",
-      "confidence_score": 1.0
+      "target": "claude_environment_variables"
     },
     {
       "relation": "contains",
@@ -15106,9 +15630,9 @@
       "source_file": "CLAUDE.md",
       "source_location": "L164",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "claude_high6_play",
-      "target": "claude_game_rules",
-      "confidence_score": 1.0
+      "target": "claude_game_rules"
     },
     {
       "relation": "contains",
@@ -15116,9 +15640,9 @@
       "source_file": "CLAUDE.md",
       "source_location": "L182",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "claude_high6_play",
-      "target": "claude_key_conventions",
-      "confidence_score": 1.0
+      "target": "claude_key_conventions"
     },
     {
       "relation": "contains",
@@ -15126,9 +15650,9 @@
       "source_file": "CLAUDE.md",
       "source_location": "L219",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "claude_high6_play",
-      "target": "claude_mcp_servers",
-      "confidence_score": 1.0
+      "target": "claude_mcp_servers"
     },
     {
       "relation": "contains",
@@ -15136,9 +15660,9 @@
       "source_file": "CLAUDE.md",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "claude_high6_play",
-      "target": "claude_project_structure",
-      "confidence_score": 1.0
+      "target": "claude_project_structure"
     },
     {
       "relation": "contains",
@@ -15146,9 +15670,9 @@
       "source_file": "CLAUDE.md",
       "source_location": "L139",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "claude_high6_play",
-      "target": "claude_realtime_pusher_channel_conventions",
-      "confidence_score": 1.0
+      "target": "claude_realtime_pusher_channel_conventions"
     },
     {
       "relation": "contains",
@@ -15156,9 +15680,9 @@
       "source_file": "CLAUDE.md",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "claude_high6_play",
-      "target": "claude_tech_stack",
-      "confidence_score": 1.0
+      "target": "claude_tech_stack"
     },
     {
       "relation": "contains",
@@ -15166,9 +15690,9 @@
       "source_file": "CLAUDE.md",
       "source_location": "L231",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "claude_high6_play",
-      "target": "claude_what_not_to_do",
-      "confidence_score": 1.0
+      "target": "claude_what_not_to_do"
     },
     {
       "relation": "contains",
@@ -15176,9 +15700,9 @@
       "source_file": "CLAUDE.md",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "claude_high6_play",
-      "target": "claude_what_this_app_is",
-      "confidence_score": 1.0
+      "target": "claude_what_this_app_is"
     },
     {
       "relation": "contains",
@@ -15186,9 +15710,9 @@
       "source_file": "CLAUDE.md",
       "source_location": "L166",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "claude_game_rules",
-      "target": "claude_this_or_that",
-      "confidence_score": 1.0
+      "target": "claude_this_or_that"
     },
     {
       "relation": "contains",
@@ -15196,9 +15720,9 @@
       "source_file": "CLAUDE.md",
       "source_location": "L173",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "claude_game_rules",
-      "target": "claude_word_chain",
-      "confidence_score": 1.0
+      "target": "claude_word_chain"
     },
     {
       "relation": "contains",
@@ -15206,9 +15730,9 @@
       "source_file": "CLAUDE.md",
       "source_location": "L196",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "claude_claude_code_plugins",
-      "target": "claude_engram",
-      "confidence_score": 1.0
+      "target": "claude_engram"
     },
     {
       "relation": "contains",
@@ -15216,9 +15740,9 @@
       "source_file": "CLAUDE.md",
       "source_location": "L199",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "claude_claude_code_plugins",
-      "target": "claude_graphify",
-      "confidence_score": 1.0
+      "target": "claude_graphify"
     },
     {
       "relation": "contains",
@@ -15226,9 +15750,9 @@
       "source_file": "CLAUDE.md",
       "source_location": "L209",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "claude_claude_code_plugins",
-      "target": "claude_ui_ux_pro_max",
-      "confidence_score": 1.0
+      "target": "claude_ui_ux_pro_max"
     },
     {
       "relation": "contains",
@@ -15236,9 +15760,9 @@
       "source_file": "CLAUDE.md",
       "source_location": "L221",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "claude_mcp_servers",
-      "target": "claude_shadcn_ui_mcp",
-      "confidence_score": 1.0
+      "target": "claude_shadcn_ui_mcp"
     },
     {
       "relation": "contains",
@@ -15246,9 +15770,9 @@
       "source_file": "HANDOFF.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "handoff",
-      "target": "handoff_high6_play_session_handoff",
-      "confidence_score": 1.0
+      "target": "handoff_high6_play_session_handoff"
     },
     {
       "relation": "contains",
@@ -15256,9 +15780,9 @@
       "source_file": "HANDOFF.md",
       "source_location": "L243",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "handoff_high6_play_session_handoff",
-      "target": "handoff_claude_code_plugins_mcps",
-      "confidence_score": 1.0
+      "target": "handoff_claude_code_plugins_mcps"
     },
     {
       "relation": "contains",
@@ -15266,9 +15790,9 @@
       "source_file": "HANDOFF.md",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "handoff_high6_play_session_handoff",
-      "target": "handoff_current_status",
-      "confidence_score": 1.0
+      "target": "handoff_current_status"
     },
     {
       "relation": "contains",
@@ -15276,9 +15800,9 @@
       "source_file": "HANDOFF.md",
       "source_location": "L134",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "handoff_high6_play_session_handoff",
-      "target": "handoff_database_schema",
-      "confidence_score": 1.0
+      "target": "handoff_database_schema"
     },
     {
       "relation": "contains",
@@ -15286,9 +15810,9 @@
       "source_file": "HANDOFF.md",
       "source_location": "L306",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "handoff_high6_play_session_handoff",
-      "target": "handoff_how_to_continue_in_next_session",
-      "confidence_score": 1.0
+      "target": "handoff_how_to_continue_in_next_session"
     },
     {
       "relation": "contains",
@@ -15296,9 +15820,9 @@
       "source_file": "HANDOFF.md",
       "source_location": "L229",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "handoff_high6_play_session_handoff",
-      "target": "handoff_key_conventions",
-      "confidence_score": 1.0
+      "target": "handoff_key_conventions"
     },
     {
       "relation": "contains",
@@ -15306,9 +15830,9 @@
       "source_file": "HANDOFF.md",
       "source_location": "L60",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "handoff_high6_play_session_handoff",
-      "target": "handoff_project_structure",
-      "confidence_score": 1.0
+      "target": "handoff_project_structure"
     },
     {
       "relation": "contains",
@@ -15316,9 +15840,9 @@
       "source_file": "HANDOFF.md",
       "source_location": "L205",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "handoff_high6_play_session_handoff",
-      "target": "handoff_pusher_conventions",
-      "confidence_score": 1.0
+      "target": "handoff_pusher_conventions"
     },
     {
       "relation": "contains",
@@ -15326,9 +15850,9 @@
       "source_file": "HANDOFF.md",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "handoff_high6_play_session_handoff",
-      "target": "handoff_tech_stack",
-      "confidence_score": 1.0
+      "target": "handoff_tech_stack"
     },
     {
       "relation": "contains",
@@ -15336,9 +15860,9 @@
       "source_file": "HANDOFF.md",
       "source_location": "L254",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "handoff_high6_play_session_handoff",
-      "target": "handoff_what_not_to_do",
-      "confidence_score": 1.0
+      "target": "handoff_what_not_to_do"
     },
     {
       "relation": "contains",
@@ -15346,9 +15870,9 @@
       "source_file": "HANDOFF.md",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "handoff_high6_play_session_handoff",
-      "target": "handoff_what_this_project_is",
-      "confidence_score": 1.0
+      "target": "handoff_what_this_project_is"
     },
     {
       "relation": "contains",
@@ -15356,9 +15880,9 @@
       "source_file": "HANDOFF.md",
       "source_location": "L269",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "handoff_high6_play_session_handoff",
-      "target": "handoff_what_to_build_next_this_or_that_frontend",
-      "confidence_score": 1.0
+      "target": "handoff_what_to_build_next_this_or_that_frontend"
     },
     {
       "relation": "contains",
@@ -15366,9 +15890,9 @@
       "source_file": "HANDOFF.md",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "handoff_current_status",
-      "target": "handoff_done",
-      "confidence_score": 1.0
+      "target": "handoff_done"
     },
     {
       "relation": "contains",
@@ -15376,9 +15900,9 @@
       "source_file": "HANDOFF.md",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "handoff_current_status",
-      "target": "handoff_next_up",
-      "confidence_score": 1.0
+      "target": "handoff_next_up"
     },
     {
       "relation": "conceptually_related_to",
@@ -15406,9 +15930,9 @@
       "source_file": "HANDOFF.md",
       "source_location": "L273",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "handoff_what_to_build_next_this_or_that_frontend",
-      "target": "handoff_dashboard_update",
-      "confidence_score": 1.0
+      "target": "handoff_dashboard_update"
     },
     {
       "relation": "contains",
@@ -15416,9 +15940,9 @@
       "source_file": "HANDOFF.md",
       "source_location": "L298",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "handoff_what_to_build_next_this_or_that_frontend",
-      "target": "handoff_design_notes",
-      "confidence_score": 1.0
+      "target": "handoff_design_notes"
     },
     {
       "relation": "contains",
@@ -15426,9 +15950,9 @@
       "source_file": "HANDOFF.md",
       "source_location": "L279",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "handoff_what_to_build_next_this_or_that_frontend",
-      "target": "handoff_game_screens",
-      "confidence_score": 1.0
+      "target": "handoff_game_screens"
     },
     {
       "relation": "contains",
@@ -15436,9 +15960,9 @@
       "source_file": "HANDOFF.md",
       "source_location": "L294",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "handoff_what_to_build_next_this_or_that_frontend",
-      "target": "handoff_hooks_to_implement",
-      "confidence_score": 1.0
+      "target": "handoff_hooks_to_implement"
     },
     {
       "relation": "contains",
@@ -15446,9 +15970,9 @@
       "source_file": "README.md",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "readme",
-      "target": "readme_clone_and_run_locally",
-      "confidence_score": 1.0
+      "target": "readme_clone_and_run_locally"
     },
     {
       "relation": "contains",
@@ -15456,9 +15980,9 @@
       "source_file": "README.md",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "readme",
-      "target": "readme_demo",
-      "confidence_score": 1.0
+      "target": "readme_demo"
     },
     {
       "relation": "contains",
@@ -15466,9 +15990,9 @@
       "source_file": "README.md",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "readme",
-      "target": "readme_deploy_to_vercel",
-      "confidence_score": 1.0
+      "target": "readme_deploy_to_vercel"
     },
     {
       "relation": "contains",
@@ -15476,9 +16000,9 @@
       "source_file": "README.md",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "readme",
-      "target": "readme_features",
-      "confidence_score": 1.0
+      "target": "readme_features"
     },
     {
       "relation": "contains",
@@ -15486,9 +16010,9 @@
       "source_file": "README.md",
       "source_location": "L101",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "readme",
-      "target": "readme_feedback_and_issues",
-      "confidence_score": 1.0
+      "target": "readme_feedback_and_issues"
     },
     {
       "relation": "contains",
@@ -15496,9 +16020,9 @@
       "source_file": "README.md",
       "source_location": "L105",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "readme",
-      "target": "readme_more_supabase_examples",
-      "confidence_score": 1.0
+      "target": "readme_more_supabase_examples"
     },
     {
       "relation": "semantically_similar_to",
@@ -15612,5 +16136,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "9f845245b4c9060fd01f1aec327c1da7df3b1993"
+  "built_at_commit": "e92f52ec77cdc1e5c7aef8293ea63851ff5a036c"
 }

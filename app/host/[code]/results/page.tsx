@@ -1,6 +1,7 @@
 import { getRoom } from '@/features/rooms/actions'
+import { getFullResults } from '@/features/this-or-that/actions'
+import { TotResultsView } from '@/features/this-or-that/components/TotResultsView'
 import { notFound } from 'next/navigation'
-import Link from 'next/link'
 
 interface ResultsPageProps {
   params: Promise<{ code: string }>
@@ -16,26 +17,11 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
     notFound()
   }
 
-  return (
-    <main className="flex min-h-svh flex-col items-center justify-center gap-6 bg-[#0a0a0a] p-6">
-      <div className="flex size-20 items-center justify-center rounded-full bg-primary/10 ring-1 ring-primary/20">
-        <span className="text-2xl font-bold text-primary">🏆</span>
-      </div>
-      <div className="text-center">
-        <h1 className="text-3xl font-bold tracking-tight">Game Over</h1>
-        <p className="mt-2 text-muted-foreground">
-          Room {code} has ended.
-        </p>
-        <p className="mt-1 text-sm text-muted-foreground">
-          Full results coming soon — stay tuned!
-        </p>
-      </div>
-      <Link
-        href="/dashboard"
-        className="text-sm text-primary transition-colors hover:underline"
-      >
-        ← Back to Dashboard
-      </Link>
-    </main>
-  )
+  if (room.game_type !== 'this-or-that') {
+    notFound()
+  }
+
+  const results = await getFullResults(room.id)
+
+  return <TotResultsView roomCode={code} results={results} />
 }

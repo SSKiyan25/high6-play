@@ -1,20 +1,29 @@
 'use client'
 
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
-import { ArrowRight, Loader2 } from 'lucide-react'
+import { ArrowRight, Clock, Loader2, StopCircle } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { pusherClient } from '@/lib/pusher/client'
 import { useVotes } from '../hooks/useVotes'
 import type { TotQuestion, TotResults } from '../types'
+
+/** Timer duration per question in seconds. */
+const QUESTION_TIME = 30
+/** Delay before advancing to show the status message. */
+const ADVANCE_DELAY_MS = 1500
+
+type CountdownStatus = 'counting' | 'all-voted' | 'times-up' | 'advancing'
 
 interface HostViewProps {
   roomCode: string
   questions: TotQuestion[]
   initialIndex: number
   initialResults: TotResults | null
+  /** Number of non-host players who can vote. */
+  totalPlayers: number
 }
 
 export function HostView({
@@ -22,31 +31,94 @@ export function HostView({
   questions,
   initialIndex,
   initialResults,
+  totalPlayers,
 }: HostViewProps) {
   const router = useRouter()
   const [currentIndex, setCurrentIndex] = useState(initialIndex)
-  const [advancing, setAdvancing] = useState(false)
+  const [timeLeft, setTimeLeft] = useState(QUESTION_TIME)
+  const [countdownStatus, setCountdownStatus] =
+    useState<CountdownStatus>('counting')
   const [transitioning, setTransitioning] = useState(false)
+
+  // Refs for cleanup
+  const advanceTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const timerIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
+
+  // Stable callback ref so useVotes doesn't get stale closures
+  const onAllVotedRef = useRef<() => void>(() => {})
+  onAllVotedRef.current = () => {
+    setCountdownStatus((prev) => {
+      // Only transition if still counting (guard against double-fire)
+      if (prev === 'counting') return 'all-voted'
+      return prev
+    })
+  }
 
   const { results } = useVotes({
     roomCode,
     initialResults,
+    totalPlayers,
+    onAllVoted: useCallback(() => {
+      onAllVotedRef.current()
+    }, []),
   })
 
   const currentQuestion = questions[currentIndex] ?? null
   const totalQuestions = questions.length
   const isLastQuestion = currentIndex >= totalQuestions - 1
-  const progressPercent = totalQuestions > 0
-    ? ((currentIndex + 1) / totalQuestions) * 100
-    : 0
+  const progressPercent =
+    totalQuestions > 0 ? ((currentIndex + 1) / totalQuestions) * 100 : 0
 
+  // ── Timer: resets when currentIndex or countdownStatus changes ──────
+  useEffect(() => {
+    // Reset timer when question changes
+    setTimeLeft(QUESTION_TIME)
+    setCountdownStatus('counting')
+
+    return () => {
+      if (timerIntervalRef.current) clearInterval(timerIntervalRef.current)
+    }
+  }, [currentIndex])
+
+  // Tick the timer while counting
+  useEffect(() => {
+    if (countdownStatus !== 'counting') {
+      if (timerIntervalRef.current) {
+        clearInterval(timerIntervalRef.current)
+        timerIntervalRef.current = null
+      }
+      return
+    }
+
+    timerIntervalRef.current = setInterval(() => {
+      setTimeLeft((prev) => {
+        const next = prev - 1
+        if (next <= 0) {
+          // Time's up — trigger force advance
+          setCountdownStatus('times-up')
+          return 0
+        }
+        return next
+      })
+    }, 1000)
+
+    return () => {
+      if (timerIntervalRef.current) {
+        clearInterval(timerIntervalRef.current)
+        timerIntervalRef.current = null
+      }
+    }
+  }, [countdownStatus, currentIndex])
+
+  // ── Advance logic ──────────────────────────────────────────────────
   const advance = useCallback(async () => {
-    if (advancing) return
+    if (countdownStatus === 'advancing') return
+
     const nextIndex = currentIndex + 1
 
     if (nextIndex >= totalQuestions) {
       // End game
-      setAdvancing(true)
+      setCountdownStatus('advancing')
       try {
         await fetch('/api/games/this-or-that/end', {
           method: 'POST',
@@ -54,12 +126,12 @@ export function HostView({
           body: JSON.stringify({ room_code: roomCode }),
         })
       } catch {
-        setAdvancing(false)
+        setCountdownStatus('counting')
       }
       return
     }
 
-    setAdvancing(true)
+    setCountdownStatus('advancing')
     setTransitioning(true)
 
     try {
@@ -75,17 +147,33 @@ export function HostView({
       setTimeout(() => {
         setCurrentIndex(nextIndex)
         setTransitioning(false)
-        setAdvancing(false)
       }, 300)
     } catch {
       setTransitioning(false)
-      setAdvancing(false)
+      setCountdownStatus('counting')
     }
-  }, [advancing, currentIndex, totalQuestions, roomCode])
+  }, [countdownStatus, currentIndex, totalQuestions, roomCode])
 
+  // When status changes to all-voted or times-up, delay then advance
+  useEffect(() => {
+    if (countdownStatus === 'all-voted' || countdownStatus === 'times-up') {
+      advanceTimeoutRef.current = setTimeout(() => {
+        advance()
+      }, ADVANCE_DELAY_MS)
+    }
+
+    return () => {
+      if (advanceTimeoutRef.current) {
+        clearTimeout(advanceTimeoutRef.current)
+        advanceTimeoutRef.current = null
+      }
+    }
+  }, [countdownStatus, advance])
+
+  // ── End game manually (last question only) ─────────────────────────
   const handleEndGame = useCallback(async () => {
-    if (advancing) return
-    setAdvancing(true)
+    if (countdownStatus === 'advancing') return
+    setCountdownStatus('advancing')
 
     try {
       await fetch('/api/games/this-or-that/end', {
@@ -95,9 +183,9 @@ export function HostView({
       })
       // Redirect will happen via Pusher game-ended event
     } catch {
-      setAdvancing(false)
+      setCountdownStatus('counting')
     }
-  }, [advancing, roomCode])
+  }, [countdownStatus, roomCode])
 
   // Listen for game-ended to redirect host to results
   useEffect(() => {
@@ -115,6 +203,25 @@ export function HostView({
     }
   }, [roomCode, router])
 
+  // ── Cleanup all timers on unmount ──────────────────────────────────
+  useEffect(() => {
+    return () => {
+      if (timerIntervalRef.current) clearInterval(timerIntervalRef.current)
+      if (advanceTimeoutRef.current) clearTimeout(advanceTimeoutRef.current)
+    }
+  }, [])
+
+  // ── Derived display values ─────────────────────────────────────────
+  const timerUrgent = timeLeft <= 10
+  const timerPercent = (timeLeft / QUESTION_TIME) * 100
+
+  const statusMessage =
+    countdownStatus === 'all-voted'
+      ? 'All votes in! Advancing…'
+      : countdownStatus === 'times-up'
+        ? "Time's up! Advancing…"
+        : null
+
   if (!currentQuestion) {
     return (
       <div className="flex min-h-svh flex-col items-center justify-center gap-4 p-8">
@@ -128,13 +235,41 @@ export function HostView({
 
   return (
     <div className="flex min-h-svh flex-col bg-[#0a0a0a]">
-      {/* Progress bar */}
+      {/* Progress bar + timer */}
       <div className="px-6 pt-6">
         <div className="mx-auto flex max-w-4xl items-center gap-4">
           <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">
             Question {currentIndex + 1} of {totalQuestions}
           </span>
           <Progress value={progressPercent} className="h-1.5 flex-1" />
+
+          {/* Countdown timer (Word Chain style) */}
+          <div
+            className={cn(
+              'flex items-center gap-2 rounded-full border px-3 py-1.5 transition-all duration-500',
+              timerUrgent
+                ? 'border-red-500/60 bg-red-500/10'
+                : 'border-border/30 bg-card/40',
+            )}
+            role="timer"
+            aria-live="polite"
+            aria-label={`${timeLeft} seconds remaining`}
+          >
+            <Clock
+              className={cn(
+                'size-4 transition-colors duration-300',
+                timerUrgent ? 'text-red-400' : 'text-muted-foreground',
+              )}
+            />
+            <span
+              className={cn(
+                'font-mono text-sm font-bold tabular-nums transition-colors duration-300',
+                timerUrgent ? 'text-red-400' : 'text-foreground',
+              )}
+            >
+              {timeLeft}
+            </span>
+          </div>
         </div>
       </div>
 
@@ -145,6 +280,15 @@ export function HostView({
           transitioning && 'opacity-30',
         )}
       >
+        {/* Status message overlay */}
+        {statusMessage && (
+          <div className="animate-in fade-in slide-in-from-top-2 rounded-xl border border-primary/20 bg-primary/10 px-6 py-3">
+            <p className="text-lg font-semibold text-primary">
+              {statusMessage}
+            </p>
+          </div>
+        )}
+
         {/* Option A */}
         <div className="flex w-full max-w-3xl flex-1 flex-col items-center justify-center rounded-2xl border border-blue-500/20 bg-blue-500/5 px-6 py-8">
           <span className="mb-2 text-xs font-medium tracking-widest text-blue-400/60 uppercase">
@@ -167,7 +311,8 @@ export function HostView({
             ))}
           </div>
           <span className="mt-3 text-sm text-blue-400/60">
-            {results?.a_count ?? 0} vote{(results?.a_count ?? 0) !== 1 ? 's' : ''}
+            {results?.a_count ?? 0} vote
+            {(results?.a_count ?? 0) !== 1 ? 's' : ''}
           </span>
         </div>
 
@@ -202,7 +347,8 @@ export function HostView({
             ))}
           </div>
           <span className="mt-3 text-sm text-violet-400/60">
-            {results?.b_count ?? 0} vote{(results?.b_count ?? 0) !== 1 ? 's' : ''}
+            {results?.b_count ?? 0} vote
+            {(results?.b_count ?? 0) !== 1 ? 's' : ''}
           </span>
         </div>
       </div>
@@ -213,43 +359,31 @@ export function HostView({
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <span className="flex size-2 rounded-full bg-accent animate-pulse" />
             Live
+            {countdownStatus === 'advancing' && (
+              <span className="ml-2 inline-flex items-center gap-1">
+                <Loader2 className="size-3 animate-spin" />
+                Advancing…
+              </span>
+            )}
           </div>
 
           <div className="flex gap-3">
-            {isLastQuestion ? (
+            {isLastQuestion && (
               <Button
                 size="lg"
                 variant="destructive"
                 onClick={handleEndGame}
-                disabled={advancing}
+                disabled={countdownStatus === 'advancing'}
               >
-                {advancing ? (
+                {countdownStatus === 'advancing' ? (
                   <>
                     <Loader2 className="size-4 animate-spin" />
                     Ending…
                   </>
                 ) : (
                   <>
+                    <StopCircle className="size-4" />
                     End Game
-                    <ArrowRight className="size-4" />
-                  </>
-                )}
-              </Button>
-            ) : (
-              <Button
-                size="lg"
-                onClick={advance}
-                disabled={advancing}
-              >
-                {advancing ? (
-                  <>
-                    <Loader2 className="size-4 animate-spin" />
-                    Advancing…
-                  </>
-                ) : (
-                  <>
-                    Next Question
-                    <ArrowRight className="size-4" />
                   </>
                 )}
               </Button>

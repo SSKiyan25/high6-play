@@ -162,3 +162,91 @@ export async function endWcGame(roomId: string): Promise<string | null> {
   const state = await getWcGameState(roomId)
   return state.winnerId
 }
+
+/**
+ * Returns full game results including winner, elimination order with reasons,
+ * and the complete word chain. Uses turn_order on words as a proxy for
+ * elimination order (players with no words are placed first).
+ */
+export async function getWcFullResults(
+  roomId: string,
+): Promise<{
+  winner: WcPlayerWithNickname | null
+  eliminationOrder: {
+    player: WcPlayerWithNickname
+    reason: string
+  }[]
+  words: WcWord[]
+  totalWords: number
+}> {
+  const [players, words] = await Promise.all([
+    getWcPlayers(roomId),
+    getWcWords(roomId),
+  ])
+
+  const activePlayer = players.find((p) => !p.is_eliminated) ?? null
+  const eliminatedPlayers = players.filter((p) => p.is_eliminated)
+
+  // Build a map of player_id → their words (sorted by turn_order)
+  const playerWords = new Map<string, WcWord[]>()
+  for (const w of words) {
+    const existing = playerWords.get(w.player_id) || []
+    existing.push(w)
+    playerWords.set(w.player_id, existing)
+  }
+
+  // Determine the last turn_order for each eliminated player
+  const eliminationData = eliminatedPlayers.map((player) => {
+    const pWords = playerWords.get(player.player_id) || []
+    if (pWords.length === 0) {
+      return {
+        player,
+        lastTurnOrder: -1, // No words — place first
+        reason: 'Timed out',
+      }
+    }
+
+    // Last word this player submitted
+    const lastWord = pWords[pWords.length - 1]
+    // Find the word that preceded this player's last word in the full chain
+    const lastWordIndex = words.findIndex((w) => w.id === lastWord.id)
+    const prevWord = lastWordIndex > 0 ? words[lastWordIndex - 1] : null
+
+    // Infer reason
+    let reason = 'Timed out'
+    if (prevWord) {
+      const expectedLetter =
+        prevWord.word[prevWord.word.length - 1].toLowerCase()
+      if (lastWord.word.toLowerCase()[0] !== expectedLetter) {
+        reason = 'Wrong letter'
+      }
+    }
+    // Check for duplicate (this word appears earlier in the chain)
+    const wordLower = lastWord.word.toLowerCase()
+    const earlierMatch = words
+      .slice(0, lastWordIndex)
+      .find((w) => w.word.toLowerCase() === wordLower)
+    if (earlierMatch) {
+      reason = 'Duplicate word'
+    }
+
+    return {
+      player,
+      lastTurnOrder: lastWord.turn_order,
+      reason,
+    }
+  })
+
+  // Sort by lastTurnOrder ascending (no-words first, then earliest elimination)
+  eliminationData.sort((a, b) => a.lastTurnOrder - b.lastTurnOrder)
+
+  return {
+    winner: activePlayer,
+    eliminationOrder: eliminationData.map((d) => ({
+      player: d.player,
+      reason: d.reason,
+    })),
+    words,
+    totalWords: words.length,
+  }
+}
