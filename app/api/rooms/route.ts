@@ -3,17 +3,21 @@ import { createClient } from '@/lib/supabase/server'
 import { createRoom, getRoom } from '@/features/rooms/actions'
 import type { GameType } from '@/features/rooms/types'
 import type { TotQuestionInput } from '@/features/this-or-that/types'
+import type { MoleRoomConfigInput } from '@/features/mole-hunt/types'
+
+const VALID_GAME_TYPES = ['this-or-that', 'word-chain', 'mole-hunt']
 
 export async function POST(request: NextRequest) {
   try {
-    // Body: { game_type: GameType, questions?: TotQuestionInput[] }
+    // Body: { game_type: GameType, questions?: TotQuestionInput[], config?: MoleRoomConfigInput }
     const body = await request.json()
     const game_type = body.game_type as string
     const questions = body.questions as TotQuestionInput[] | undefined
+    const config = body.config as MoleRoomConfigInput | undefined
 
-    if (!game_type || !['this-or-that', 'word-chain'].includes(game_type)) {
+    if (!game_type || !VALID_GAME_TYPES.includes(game_type)) {
       return NextResponse.json(
-        { error: 'Invalid game_type. Must be "this-or-that" or "word-chain".' },
+        { error: `Invalid game_type. Must be one of: ${VALID_GAME_TYPES.join(', ')}.` },
         { status: 400 },
       )
     }
@@ -29,7 +33,7 @@ export async function POST(request: NextRequest) {
     }
 
     const supabase = await createClient()
-    const room = await createRoom(game_type as GameType, supabase, questions)
+    const room = await createRoom(game_type as GameType, supabase, questions, config)
     return NextResponse.json({ room }, { status: 201 })
   } catch (error) {
     const message =

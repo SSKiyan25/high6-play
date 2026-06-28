@@ -1,4 +1,4 @@
-export type GameType = 'this-or-that' | 'word-chain'
+export type GameType = 'this-or-that' | 'word-chain' | 'mole-hunt'
 export type RoomStatus = 'waiting' | 'active' | 'ended'
 
 export type Room = {

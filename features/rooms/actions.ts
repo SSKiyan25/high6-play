@@ -1,7 +1,9 @@
 import type { SupabaseClient } from '@supabase/supabase-js'
 import { createClient as createBrowserClient } from '@/lib/supabase/client'
 import type { TotQuestionInput } from '@/features/this-or-that/types'
+import type { MoleRoomConfigInput } from '@/features/mole-hunt/types'
 import { saveToQuestionBank, seedRoomQuestions } from '@/features/this-or-that/actions'
+import { saveRoomConfig } from '@/features/mole-hunt/actions'
 import type { GameType, Player, Room, RoomWithPlayers } from './types'
 
 async function generateRoomCode(supabase: SupabaseClient): Promise<string> {
@@ -27,6 +29,7 @@ export async function createRoom(
   gameType: GameType,
   client?: SupabaseClient,
   questions?: TotQuestionInput[],
+  config?: MoleRoomConfigInput,
 ): Promise<Room> {
   const supabase = client ?? createBrowserClient()
 
@@ -62,6 +65,11 @@ export async function createRoom(
   if (gameType === 'this-or-that' && questions && questions.length > 0) {
     await seedRoomQuestions(room.id, questions)
     await saveToQuestionBank(questions)
+  }
+
+  // Save room config for Mole Hunt rooms
+  if (gameType === 'mole-hunt' && config) {
+    await saveRoomConfig(room.id, config)
   }
 
   return room

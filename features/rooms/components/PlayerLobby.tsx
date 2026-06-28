@@ -16,6 +16,7 @@ interface PlayerLobbyProps {
 const GAME_LABELS: Record<GameType, string> = {
   'this-or-that': 'This or That',
   'word-chain': 'Word Chain',
+  'mole-hunt': 'Mole Hunt',
 }
 
 export function PlayerLobby({ room, playerNickname }: PlayerLobbyProps) {
@@ -29,7 +30,10 @@ export function PlayerLobby({ room, playerNickname }: PlayerLobbyProps) {
       router.push('/')
     },
     onGameStarted: (gameType: string) => {
-      const gamePath = gameType === 'word-chain' ? 'wc-game' : 'game'
+      const gamePath =
+        gameType === 'word-chain' ? 'wc-game'
+        : gameType === 'mole-hunt' ? 'mh-game'
+        : 'game'
       router.push(`/play/${room.code}/${gamePath}`)
     },
   })

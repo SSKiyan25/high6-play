@@ -5,11 +5,13 @@ import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { QuestionSetup } from '@/features/this-or-that/components/QuestionSetup'
-import { Gamepad2, PenTool, ArrowRight, Loader2 } from 'lucide-react'
+import { MoleHuntSetup } from '@/features/mole-hunt/components/MoleHuntSetup'
+import { Gamepad2, PenTool, Swords, ArrowRight, Loader2 } from 'lucide-react'
 import type { GameType, Room } from '../types'
 import type { TotQuestionInput } from '@/features/this-or-that/types'
+import type { MoleRoomConfigInput } from '@/features/mole-hunt/types'
 
-type Step = 'game-select' | 'question-setup'
+type Step = 'game-select' | 'question-setup' | 'mole-hunt-setup'
 
 interface CreateRoomResult {
   room: Room
@@ -38,6 +40,14 @@ const GAMES: {
       'Players take turns building a chain of connected words. Last player standing wins.',
     accent: 'from-emerald-500/20 to-teal-500/10',
   },
+  {
+    type: 'mole-hunt',
+    title: 'Mole Hunt',
+    icon: Swords,
+    description:
+      'Trivia meets social deduction. Find the moles before they deceive the crew. Can you spot the lies?',
+    accent: 'from-amber-500/20 to-orange-500/10',
+  },
 ]
 
 export function CreateRoom() {
@@ -46,7 +56,7 @@ export function CreateRoom() {
   const [creating, setCreating] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  async function createRoom(gameType: GameType, questions?: TotQuestionInput[]) {
+  async function createRoom(gameType: GameType, questions?: TotQuestionInput[], config?: MoleRoomConfigInput) {
     if (creating) return
     setCreating(true)
     setError(null)
@@ -55,6 +65,9 @@ export function CreateRoom() {
       const body: Record<string, unknown> = { game_type: gameType }
       if (questions && questions.length > 0) {
         body.questions = questions
+      }
+      if (config) {
+        body.config = config
       }
 
       const res = await fetch('/api/rooms', {
@@ -80,6 +93,8 @@ export function CreateRoom() {
   function handleGameSelect(gameType: GameType) {
     if (gameType === 'word-chain') {
       createRoom(gameType)
+    } else if (gameType === 'mole-hunt') {
+      setStep('mole-hunt-setup')
     } else {
       setStep('question-setup')
     }
@@ -87,6 +102,10 @@ export function CreateRoom() {
 
   function handleQuestionsConfirmed(questions: TotQuestionInput[]) {
     createRoom('this-or-that', questions)
+  }
+
+  async function handleMoleHuntCreate(config: MoleRoomConfigInput) {
+    await createRoom('mole-hunt', undefined, config)
   }
 
   // ── Step: Question Setup ──────────────────────────────────────────
@@ -97,6 +116,21 @@ export function CreateRoom() {
           <QuestionSetup
             onConfirm={handleQuestionsConfirmed}
             onBack={() => setStep('game-select')}
+            loading={creating}
+          />
+        </div>
+      </main>
+    )
+  }
+
+  // ── Step: Mole Hunt Setup ─────────────────────────────────────────
+  if (step === 'mole-hunt-setup') {
+    return (
+      <main className="min-h-svh bg-background">
+        <div className="mx-auto flex w-full max-w-lg flex-col px-4 py-12">
+          <MoleHuntSetup
+            onBack={() => setStep('game-select')}
+            onCreateRoom={handleMoleHuntCreate}
             loading={creating}
           />
         </div>

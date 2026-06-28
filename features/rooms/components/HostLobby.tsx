@@ -17,6 +17,7 @@ interface HostLobbyProps {
 const GAME_LABELS: Record<GameType, string> = {
   'this-or-that': 'This or That',
   'word-chain': 'Word Chain',
+  'mole-hunt': 'Mole Hunt',
 }
 
 export function HostLobby({ room }: HostLobbyProps) {
@@ -66,7 +67,9 @@ export function HostLobby({ room }: HostLobbyProps) {
       }
 
       const gamePath =
-        room.game_type === 'word-chain' ? 'wc-game' : 'game'
+        room.game_type === 'word-chain' ? 'wc-game'
+        : room.game_type === 'mole-hunt' ? 'mole-control'
+        : 'game'
       router.push(`/host/${room.code}/${gamePath}`)
     } catch (err) {
       setStarting(false)
