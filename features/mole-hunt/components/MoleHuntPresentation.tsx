@@ -8,9 +8,9 @@ import { Badge } from '@/components/ui/badge'
 import {
   Clock,
   Loader2,
-  ArrowRight,
   Trophy,
   Eye,
+  ExternalLink,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { pusherClient } from '@/lib/pusher/client'
@@ -20,6 +20,7 @@ import type { MolePhase, MoleTopic, MoleRound } from '../types'
 
 interface MoleHuntPresentationProps {
   roomCode: string
+  roomId: string
   initialRound: MoleRound | null
   initialTopic: MoleTopic | null
   discussTimerSeconds: number
@@ -41,9 +42,12 @@ interface RevealData {
  *
  * SECURITY: Mole/Canary identities are NEVER rendered before the `reveal` phase.
  * All role data is fetched only at reveal time and never stored in state before then.
+ *
+ * This screen is READ-ONLY. All host actions happen in the Control Room.
  */
 export function MoleHuntPresentation({
   roomCode,
+  roomId,
   initialRound,
   initialTopic,
   discussTimerSeconds,
@@ -79,10 +83,30 @@ export function MoleHuntPresentation({
   const [revealData, setRevealData] = useState<RevealData | null>(null)
   const [revealLoading, setRevealLoading] = useState(false)
 
-  // Phase advance
-  const [advancing, setAdvancing] = useState(false)
+  // Scores confirmation + game over
   const [scoresConfirmed, setScoresConfirmed] = useState(false)
   const [isGameOver, setIsGameOver] = useState(false)
+
+  // Round scores (displayed after reveal)
+  interface RoundScoreRow {
+    player_id: string
+    nickname: string
+    total_points: number
+  }
+  const [roundScores, setRoundScores] = useState<RoundScoreRow[] | null>(null)
+  const [roundScoresLoading, setRoundScoresLoading] = useState(false)
+
+  // Leaderboard data for inline display on game over
+  interface LeaderboardRow {
+    player_id: string
+    nickname: string
+    total_points: number
+    times_mole: number
+    times_canary: number
+    crew_deceived: number
+  }
+  const [leaderboard, setLeaderboard] = useState<LeaderboardRow[] | null>(null)
+  const [leaderboardLoading, setLeaderboardLoading] = useState(false)
 
   // Refs
   const timerIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
@@ -151,6 +175,35 @@ export function MoleHuntPresentation({
     [supabase],
   )
 
+  // ── Fetch round scores for inline leaderboard ───────────────────────
+  const fetchRoundScores = useCallback(
+    async (rid: string) => {
+      setRoundScoresLoading(true)
+      try {
+        const { data: scores } = await supabase
+          .from('mole_scores')
+          .select('player_id, total_points, players!inner(nickname)')
+          .eq('room_id', rid)
+          .order('total_points', { ascending: false })
+
+        if (scores) {
+          setRoundScores(
+            scores.map((s: any) => ({
+              player_id: s.player_id,
+              nickname: s.players?.nickname ?? 'Unknown',
+              total_points: s.total_points ?? 0,
+            })),
+          )
+        }
+      } catch {
+        // Non-critical
+      } finally {
+        setRoundScoresLoading(false)
+      }
+    },
+    [supabase],
+  )
+
   // ── Pusher subscription ────────────────────────────────────────────
   useEffect(() => {
     if (!roomCode) return
@@ -171,6 +224,7 @@ export function MoleHuntPresentation({
         setVotedCount(0)
         setRevealData(null)
         setScoresConfirmed(false)
+        setRoundScores(null)
         // Reset timer for discuss
         setTimeLeft(discussTimerSeconds)
         setTimerStatus('running')
@@ -206,6 +260,8 @@ export function MoleHuntPresentation({
 
     channel.bind('scores-updated', () => {
       setScoresConfirmed(true)
+      // Fetch round leaderboard for inline display during reveal
+      if (roomId) fetchRoundScores(roomId)
     })
 
     channel.bind('game-ended', () => {
@@ -257,6 +313,50 @@ export function MoleHuntPresentation({
     }
   }, [timerStatus])
 
+  // ── Fetch leaderboard on game over ──────────────────────────────────
+  useEffect(() => {
+    if (!isGameOver || !roomId) return
+
+    const fetchLeaderboard = async () => {
+      setLeaderboardLoading(true)
+      try {
+        const { data: scores } = await supabase
+          .from('mole_scores')
+          .select(
+            `
+            player_id,
+            total_points,
+            times_mole,
+            times_canary,
+            crew_deceived,
+            players!inner(nickname)
+          `,
+          )
+          .eq('room_id', roomId)
+          .order('total_points', { ascending: false })
+
+        if (scores) {
+          setLeaderboard(
+            scores.map((s: any) => ({
+              player_id: s.player_id,
+              nickname: s.players?.nickname ?? 'Unknown',
+              total_points: s.total_points ?? 0,
+              times_mole: s.times_mole ?? 0,
+              times_canary: s.times_canary ?? 0,
+              crew_deceived: s.crew_deceived ?? 0,
+            })),
+          )
+        }
+      } catch {
+        // Silently handle — leaderboard is non-critical
+      } finally {
+        setLeaderboardLoading(false)
+      }
+    }
+
+    fetchLeaderboard()
+  }, [isGameOver, roomId, supabase])
+
   // ── Reset timer when round changes ─────────────────────────────────
   useEffect(() => {
     if (phase === 'discuss') {
@@ -264,24 +364,6 @@ export function MoleHuntPresentation({
       setTimerStatus('running')
     }
   }, [roundId, discussTimerSeconds, phase])
-
-  // ── Phase advance handler ──────────────────────────────────────────
-  const handleAdvancePhase = useCallback(async () => {
-    if (advancing || !roundId) return
-    setAdvancing(true)
-
-    try {
-      await fetch('/api/games/mole-hunt/advance-phase', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ round_id: roundId, room_code: roomCode }),
-      })
-    } catch {
-      // Phase changes come via Pusher — no local state update needed
-    } finally {
-      setAdvancing(false)
-    }
-  }, [advancing, roundId, roomCode])
 
   // ── Derived display values ─────────────────────────────────────────
   const timerUrgent = timeLeft <= 10 && timerStatus === 'running'
@@ -294,27 +376,117 @@ export function MoleHuntPresentation({
   const roundProgressPercent =
     totalRounds > 0 ? (roundNumber / totalRounds) * 100 : 0
 
-  // ── Game Over Screen ───────────────────────────────────────────────
+  // ── Game Over Screen with Inline Leaderboard ────────────────────────
   if (isGameOver) {
+    const topDeceiver = leaderboard
+      ? [...leaderboard]
+          .filter((p) => p.crew_deceived > 0)
+          .sort((a, b) => b.crew_deceived - a.crew_deceived)[0]
+      : null
+
     return (
-      <main className="flex min-h-svh flex-col items-center justify-center gap-6 bg-[#0a0a0a] p-6">
-        <div className="flex size-20 items-center justify-center rounded-full bg-primary/10 ring-1 ring-primary/20">
-          <Trophy className="size-10 text-primary" />
+      <main className="flex min-h-svh flex-col bg-[#0a0a0a]">
+        <div className="flex flex-1 flex-col items-center justify-center gap-6 p-6">
+          <div className="flex size-20 items-center justify-center rounded-full bg-primary/10 ring-1 ring-primary/20">
+            <Trophy className="size-10 text-primary" />
+          </div>
+          <h1 className="text-3xl font-bold">Game Over!</h1>
+
+          {leaderboardLoading && (
+            <div className="flex items-center gap-2">
+              <Loader2 className="size-4 animate-spin text-muted-foreground" />
+              <span className="text-sm text-muted-foreground">
+                Loading leaderboard…
+              </span>
+            </div>
+          )}
+
+          {/* Most Deceptive Mole callout */}
+          {!leaderboardLoading && topDeceiver && (
+            <div className="w-full max-w-lg rounded-xl border border-amber-500/30 bg-amber-500/10 px-5 py-4">
+              <div className="flex items-center gap-3">
+                <Eye className="size-5 text-amber-400" />
+                <div>
+                  <p className="text-xs font-medium tracking-widest text-amber-400/70 uppercase">
+                    Most Deceptive Mole
+                  </p>
+                  <p className="text-lg font-bold text-amber-300">
+                    {topDeceiver.nickname}
+                  </p>
+                  <p className="text-xs text-amber-400/70">
+                    Deceived {topDeceiver.crew_deceived} crew member
+                    {topDeceiver.crew_deceived !== 1 ? 's' : ''}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Leaderboard list */}
+          {!leaderboardLoading && leaderboard && leaderboard.length > 0 && (
+            <div className="w-full max-w-lg space-y-2">
+              {leaderboard.map((player, index) => (
+                <div
+                  key={player.player_id}
+                  className={cn(
+                    'flex items-center justify-between rounded-xl border px-5 py-3',
+                    index === 0 &&
+                      'border-yellow-500/60 bg-yellow-500/10',
+                    index === 1 &&
+                      'border-slate-400/60 bg-slate-400/10',
+                    index === 2 &&
+                      'border-amber-700/60 bg-amber-700/10',
+                    index >= 3 && 'border-border/20 bg-card/40',
+                  )}
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="w-8 text-center text-lg font-bold tabular-nums">
+                      {index === 0
+                        ? '🥇'
+                        : index === 1
+                          ? '🥈'
+                          : index === 2
+                            ? '🥉'
+                            : `#${index + 1}`}
+                    </span>
+                    <span className="font-semibold">{player.nickname}</span>
+                  </div>
+                  <span
+                    className={cn(
+                      'font-bold tabular-nums',
+                      index === 0
+                        ? 'text-yellow-400'
+                        : index === 1
+                          ? 'text-slate-300'
+                          : index === 2
+                            ? 'text-amber-600'
+                            : 'text-foreground',
+                    )}
+                  >
+                    {player.total_points}
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
+
+          <div className="flex gap-3">
+            <Button
+              variant="outline"
+              onClick={() =>
+                router.push(`/host/${roomCode}/mh-results`)
+              }
+            >
+              View Full Results
+            </Button>
+            <Button
+              variant="outline"
+              onClick={() => router.push('/dashboard')}
+            >
+              Back to Dashboard
+            </Button>
+          </div>
         </div>
-        <div className="text-center">
-          <h1 className="text-2xl font-bold">Game Over!</h1>
-          <p className="mt-2 text-muted-foreground">
-            Check the leaderboard for final scores.
-          </p>
-        </div>
-        <Button
-          variant="outline"
-          onClick={() =>
-            router.push(`/host/${roomCode}/mh-results`)
-          }
-        >
-          View Results
-        </Button>
       </main>
     )
   }
@@ -578,20 +750,92 @@ export function MoleHuntPresentation({
               )
             )}
 
+            {/* Why this is correct */}
+            {topic?.correct_answer_why && (
+              <div className="rounded-xl border border-accent/20 bg-accent/5 p-4 text-center">
+                <p className="text-xs font-medium text-accent/70 uppercase tracking-wider mb-1">
+                  Why this is correct
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {topic.correct_answer_why}
+                </p>
+              </div>
+            )}
+
             {/* Scores confirmation */}
             {scoresConfirmed && (
               <div className="flex items-center justify-center gap-2 rounded-lg border border-accent/20 bg-accent/5 px-4 py-2 animate-in fade-in duration-300">
                 <Trophy className="size-4 text-accent" />
                 <span className="text-sm font-medium text-accent">
-                  Scores updated
+                  Scores updated — waiting for host to continue
                 </span>
+              </div>
+            )}
+
+            {/* ── Round Leaderboard ─────────────────────────────────── */}
+            {scoresConfirmed && (
+              <div className="w-full max-w-lg space-y-2 animate-in fade-in slide-in-from-bottom-2 duration-300">
+                {roundScoresLoading && (
+                  <div className="flex items-center justify-center gap-2 py-2">
+                    <Loader2 className="size-4 animate-spin text-muted-foreground" />
+                    <span className="text-sm text-muted-foreground">
+                      Loading standings…
+                    </span>
+                  </div>
+                )}
+
+                {!roundScoresLoading &&
+                  roundScores &&
+                  roundScores.length > 0 && (
+                    <>
+                      <h3 className="text-sm font-semibold text-center">
+                        Current Standings
+                      </h3>
+                      {roundScores.map((player, index) => (
+                        <div
+                          key={player.player_id}
+                          className={cn(
+                            'flex items-center justify-between rounded-xl border px-4 py-2',
+                            index === 0 &&
+                              'border-yellow-500/60 bg-yellow-500/10',
+                            index === 1 &&
+                              'border-slate-400/60 bg-slate-400/10',
+                            index === 2 &&
+                              'border-amber-700/60 bg-amber-700/10',
+                            index >= 3 && 'border-border/20 bg-card/30',
+                          )}
+                        >
+                          <div className="flex items-center gap-2">
+                            <span className="w-6 text-center text-sm font-bold tabular-nums text-muted-foreground">
+                              {index + 1}
+                            </span>
+                            <span className="text-sm font-semibold">
+                              {player.nickname}
+                            </span>
+                          </div>
+                          <span
+                            className={cn(
+                              'text-sm font-bold tabular-nums',
+                              index === 0
+                                ? 'text-yellow-400'
+                                : index === 1
+                                  ? 'text-slate-300'
+                                  : 'text-foreground',
+                            )}
+                          >
+                            {player.total_points}
+                          </span>
+                        </div>
+                      ))}
+                    </>
+                  )}
               </div>
             )}
           </div>
         )}
       </div>
 
-      {/* ── Bottom Controls ────────────────────────────────────────── */}
+      {/* ── Bottom Bar: Live indicator + Control Room link ────────── */}
       <div className="flex-shrink-0 border-t border-border/20 px-6 py-4">
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-4">
           {/* Live indicator */}
@@ -600,74 +844,19 @@ export function MoleHuntPresentation({
             Live
           </div>
 
-          {/* Phase advance button */}
-          <div className="flex gap-3">
-            {phase === 'discuss' && (
-              <Button
-                size="lg"
-                onClick={handleAdvancePhase}
-                disabled={advancing}
-              >
-                {advancing ? (
-                  <>
-                    <Loader2 className="size-4 animate-spin" />
-                    Advancing…
-                  </>
-                ) : (
-                  <>
-                    <ArrowRight className="size-4" />
-                    Start Voting
-                  </>
-                )}
-              </Button>
-            )}
-
-            {phase === 'vote' && (
-              <Button
-                size="lg"
-                onClick={handleAdvancePhase}
-                disabled={advancing}
-              >
-                {advancing ? (
-                  <>
-                    <Loader2 className="size-4 animate-spin" />
-                    Advancing…
-                  </>
-                ) : (
-                  <>
-                    <ArrowRight className="size-4" />
-                    Reveal Results
-                  </>
-                )}
-              </Button>
-            )}
-
-            {phase === 'reveal' && !scoresConfirmed && (
-              <Button
-                size="lg"
-                onClick={handleAdvancePhase}
-                disabled={advancing}
-              >
-                {advancing ? (
-                  <>
-                    <Loader2 className="size-4 animate-spin" />
-                    Advancing…
-                  </>
-                ) : (
-                  <>
-                    <ArrowRight className="size-4" />
-                    Next Round
-                  </>
-                )}
-              </Button>
-            )}
-
-            {phase === 'reveal' && scoresConfirmed && (
-              <p className="text-sm text-muted-foreground">
-                Waiting for host to start next round…
-              </p>
-            )}
-          </div>
+          {/* A2: Open Control Room affordance (new tab) */}
+          <Button
+            variant="outline"
+            size="sm"
+            className="gap-1.5 border-primary/30 text-primary hover:bg-primary/10"
+            onClick={() =>
+              window.open(`/host/${roomCode}/mole-control`, '_blank')
+            }
+          >
+            <ExternalLink className="size-3.5" />
+            <span className="hidden sm:inline">Open Control Room</span>
+            <span className="sm:hidden">Control</span>
+          </Button>
         </div>
       </div>
     </div>

@@ -49,6 +49,7 @@ export async function POST(request: NextRequest) {
       .from('players')
       .select('*', { count: 'exact', head: true })
       .eq('room_id', await getRoomIdFromRound(round_id))
+      .neq('is_host', true)
 
     if (playersError) throw playersError
 

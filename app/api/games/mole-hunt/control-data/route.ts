@@ -70,11 +70,12 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'Topic not found' }, { status: 404 })
     }
 
-    // Fetch all players in the room
+    // Fetch all players in the room (exclude host)
     const { data: players, error: playersError } = await supabase
       .from('players')
       .select('id, nickname')
       .eq('room_id', round.room_id)
+      .neq('is_host', true)
 
     if (playersError) {
       return NextResponse.json(

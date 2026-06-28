@@ -41,7 +41,7 @@ export default async function MoleControlPage({
   }
 
   if (room.status === 'ended') {
-    redirect(`/host/${code}/mh-results`)
+    redirect('/dashboard')
   }
 
   // 4. Fetch room config for total_rounds

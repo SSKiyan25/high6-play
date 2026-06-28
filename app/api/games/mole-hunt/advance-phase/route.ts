@@ -45,29 +45,12 @@ export async function POST(request: NextRequest) {
       phase: result.phase,
     })
 
-    // On reveal: calculate scores + fire scores-updated
+    // On reveal: calculate scores + fire scores-updated (but do NOT auto-create next round)
     if (result.phase === 'reveal') {
       await calculateAndSaveScores(round_id)
 
       await triggerGameEvent(room_code, 'scores-updated', {
         roundId: round_id,
-      })
-
-      // If this was the final round, trigger game-ended
-      if (!result.nextRound) {
-        await triggerGameEvent(room_code, 'game-ended', {
-          winnerId: null, // Mole Hunt has no single winner — leaderboard
-        })
-      }
-    }
-
-    // If there's a next round, fire round-started
-    if (result.nextRound) {
-      await triggerGameEvent(room_code, 'round-started', {
-        roundNumber: result.nextRound.roundNumber,
-        roundId: result.nextRound.id,
-        phase: 'discuss',
-        topicId: result.nextRound.topicId,
       })
     }
 
@@ -75,7 +58,6 @@ export async function POST(request: NextRequest) {
       success: true,
       phase: result.phase,
       roundNumber: result.roundNumber,
-      nextRound: result.nextRound,
     })
   } catch (error) {
     const message =

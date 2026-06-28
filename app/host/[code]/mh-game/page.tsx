@@ -52,16 +52,18 @@ export default async function HostMoleHuntGamePage({
     topic = data as MoleTopic | null
   }
 
-  // 5. Fetch players (for nickname mapping in reveal phase)
+  // 5. Fetch players (for nickname mapping in reveal phase, exclude host)
   const supabase = await createClient()
   const { data: players } = await supabase
     .from('players')
     .select('id, nickname')
     .eq('room_id', room.id)
+    .neq('is_host', true)
 
   return (
     <MoleHuntPresentation
       roomCode={code}
+      roomId={room.id}
       initialRound={currentRound}
       initialTopic={topic}
       discussTimerSeconds={config?.discuss_timer_seconds ?? 60}

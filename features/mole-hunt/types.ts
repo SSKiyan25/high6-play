@@ -12,6 +12,7 @@ export type MoleTopic = {
   mole_argument_1: string | null
   mole_argument_2: string | null
   mole_argument_3: string | null
+  correct_answer_why: string | null
   created_at: string
 }
 
@@ -25,6 +26,7 @@ export type MoleTopicInput = {
   mole_argument_1?: string
   mole_argument_2?: string
   mole_argument_3?: string
+  correct_answer_why?: string
 }
 
 export type MoleRoomConfig = {
@@ -35,6 +37,7 @@ export type MoleRoomConfig = {
   discuss_timer_seconds: number
   vote_timer_seconds: number
   total_rounds: number
+  selected_topic_ids: string[]
 }
 
 export type MoleRoomConfigInput = {
@@ -44,6 +47,7 @@ export type MoleRoomConfigInput = {
   discuss_timer_seconds: number
   vote_timer_seconds: number
   total_rounds: number
+  selected_topic_ids?: string[]
 }
 
 // ── Round Flow ──────────────────────────────────────────────────────────

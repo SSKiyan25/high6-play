@@ -30,6 +30,8 @@ import {
   ChevronDown,
   AlertTriangle,
   Monitor,
+  SkipForward,
+  Trophy,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useMoleHuntControl } from '../hooks/useMoleHuntControl'
@@ -45,8 +47,11 @@ interface MoleHuntControlRoomProps {
  * Host-only Control Room for Mole Hunt.
  *
  * Shows Mole/Canary identities fetched via authenticated API call
- * (never from Pusher). Provides phase advance, Canary deduction,
+ * (never from Pusher). Provides phase advance, Next Round, Canary deduction,
  * and end-game controls.
+ *
+ * A2: Identity panel is collapsed by default with a "Do not share" warning.
+ * A3: Reveal phase has explicit "Next Round" and "End Game" buttons.
  */
 export function MoleHuntControlRoom({
   roomCode,
@@ -65,6 +70,7 @@ export function MoleHuntControlRoom({
     players,
     voteProgress,
     advancePhase,
+    nextRound,
     deductCanaryPoints,
     endGame,
     loading,
@@ -72,7 +78,9 @@ export function MoleHuntControlRoom({
   } = useMoleHuntControl({ roomCode, roomId })
 
   // ── Local UI state ────────────────────────────────────────────────
+  const [showIdentities, setShowIdentities] = useState(false) // A2: collapsed by default
   const [advancing, setAdvancing] = useState(false)
+  const [nextRoundLoading, setNextRoundLoading] = useState(false)
   const [deductTarget, setDeductTarget] = useState<{
     id: string
     nickname: string
@@ -81,11 +89,13 @@ export function MoleHuntControlRoom({
   const [deductedIds, setDeductedIds] = useState<Set<string>>(new Set())
   const [showEndConfirm, setShowEndConfirm] = useState(false)
   const [ending, setEnding] = useState(false)
+  const [gameEnded, setGameEnded] = useState(false)
 
   // ── Phase helpers ─────────────────────────────────────────────────
   const phaseLabel = getPhaseLabel(currentPhase)
   const phaseColor = getPhaseColor(currentPhase)
   const roundNumber = currentRound?.round_number ?? 0
+  const isLastRound = roundNumber >= totalRounds
 
   // ── Advance Phase ─────────────────────────────────────────────────
   const handleAdvancePhase = useCallback(async () => {
@@ -99,6 +109,19 @@ export function MoleHuntControlRoom({
       setAdvancing(false)
     }
   }, [advancing, advancePhase])
+
+  // ── Next Round (reveal phase only) ─────────────────────────────────
+  const handleNextRound = useCallback(async () => {
+    if (nextRoundLoading) return
+    setNextRoundLoading(true)
+    try {
+      await nextRound()
+    } catch {
+      // Round changes come via Pusher
+    } finally {
+      setNextRoundLoading(false)
+    }
+  }, [nextRoundLoading, nextRound])
 
   // ── Deduct Canary ─────────────────────────────────────────────────
   const handleDeductConfirm = useCallback(async () => {
@@ -121,14 +144,49 @@ export function MoleHuntControlRoom({
     setEnding(true)
     try {
       await endGame()
-      router.push(`/host/${roomCode}/mh-results`)
+      // Game ended — show ended state instead of navigating to results
+      // Results are now displayed inline on the Presentation screen
+      setGameEnded(true)
     } catch {
       // Error handled silently
     } finally {
       setEnding(false)
       setShowEndConfirm(false)
     }
-  }, [ending, endGame, roomCode, router])
+  }, [ending, endGame])
+
+  // ── Game Ended ────────────────────────────────────────────────────
+  if (gameEnded) {
+    return (
+      <main className="flex min-h-svh flex-col items-center justify-center gap-6 bg-[#0a0a0a] p-6">
+        <div className="flex size-20 items-center justify-center rounded-full bg-primary/10 ring-1 ring-primary/20">
+          <Trophy className="size-10 text-primary" />
+        </div>
+        <div className="text-center">
+          <h1 className="text-2xl font-bold">Game Ended</h1>
+          <p className="mt-2 text-muted-foreground">
+            Final scores are on the presentation screen.
+          </p>
+        </div>
+        <div className="flex gap-3">
+          <Button
+            variant="outline"
+            onClick={() =>
+              router.push(`/host/${roomCode}/mh-results`)
+            }
+          >
+            View Full Results
+          </Button>
+          <Button
+            variant="default"
+            onClick={() => router.push('/dashboard')}
+          >
+            Back to Dashboard
+          </Button>
+        </div>
+      </main>
+    )
+  }
 
   // ── Loading ───────────────────────────────────────────────────────
   if (loading && !currentRound) {
@@ -153,8 +211,8 @@ export function MoleHuntControlRoom({
     )
   }
 
-  // ── Advance button label ──────────────────────────────────────────
-  const advanceLabel = getAdvanceLabel(currentPhase, roundNumber, totalRounds)
+  // ── Advance button label (discuss + vote phases only) ─────────────
+  const advanceLabel = getAdvanceLabel(currentPhase)
 
   return (
     <div className="flex min-h-svh flex-col bg-[#0a0a0a]">
@@ -179,6 +237,7 @@ export function MoleHuntControlRoom({
               {phaseLabel}
             </Badge>
 
+            {/* A2: Open Presentation in new tab */}
             <Button
               variant="ghost"
               size="sm"
@@ -220,69 +279,101 @@ export function MoleHuntControlRoom({
             </div>
           )}
 
-          {/* Role Panel — hidden during reveal (identities are public) */}
+          {/* A2: Collapsible Identity Panel — collapsed by default */}
           {currentPhase !== 'reveal' && (
-            <div className="rounded-xl border border-border/20 bg-card/40 p-4">
-              <h3 className="mb-3 text-sm font-semibold">Roles</h3>
-
-              {/* Moles */}
-              {moles.length > 0 && (
-                <div className="mb-3">
-                  <p className="flex items-center gap-1.5 text-xs font-medium tracking-wider text-amber-400 uppercase">
-                    <EyeOff className="size-3" />
-                    Mole{moles.length !== 1 ? 's' : ''}
-                  </p>
-                  <div className="mt-1.5 flex flex-wrap gap-1.5">
-                    {moles.map((m) => (
-                      <Badge
-                        key={m.id}
-                        className="border-amber-500/30 bg-amber-500/15 text-amber-300"
-                      >
-                        {m.nickname}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Canaries */}
-              {canaries.length > 0 && (
-                <div className="mb-3">
-                  <p className="flex items-center gap-1.5 text-xs font-medium tracking-wider text-teal-400 uppercase">
-                    <ShieldAlert className="size-3" />
-                    Canar{canaries.length !== 1 ? 'ies' : 'y'}
-                  </p>
-                  <div className="mt-1.5 flex flex-wrap gap-1.5">
-                    {canaries.map((c) => (
-                      <Badge
-                        key={c.id}
-                        className="border-teal-500/30 bg-teal-500/15 text-teal-300"
-                      >
-                        {c.nickname}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Crew */}
-              <div>
-                <p className="flex items-center gap-1.5 text-xs font-medium tracking-wider text-muted-foreground uppercase">
-                  <Eye className="size-3" />
-                  Crew
+            <div className="rounded-xl border border-red-500/20 bg-red-500/5 p-4">
+              {/* Warning banner */}
+              <div className="mb-3 flex items-start gap-2 rounded-lg border border-red-500/20 bg-red-500/10 px-3 py-2">
+                <AlertTriangle className="mt-0.5 size-3.5 shrink-0 text-red-400" />
+                <p className="text-xs font-medium text-red-400 leading-relaxed">
+                  Do not share this screen. These identities are secret.
                 </p>
-                <div className="mt-1.5 flex flex-wrap gap-1.5">
-                  {crew.map((c) => (
-                    <Badge key={c.id} variant="secondary" className="text-xs">
-                      {c.nickname}
-                    </Badge>
-                  ))}
-                </div>
               </div>
+
+              {!showIdentities ? (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="w-full border-red-500/30 text-red-400 hover:bg-red-500/10"
+                  onClick={() => setShowIdentities(true)}
+                >
+                  <Eye className="size-3.5" />
+                  Reveal Identities
+                </Button>
+              ) : (
+                <>
+                  <div className="mb-2 flex items-center justify-between">
+                    <h3 className="text-sm font-semibold">Roles</h3>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="h-auto p-1 text-muted-foreground hover:text-foreground"
+                      onClick={() => setShowIdentities(false)}
+                    >
+                      <EyeOff className="size-3.5" />
+                    </Button>
+                  </div>
+
+                  {/* Moles */}
+                  {moles.length > 0 && (
+                    <div className="mb-3">
+                      <p className="flex items-center gap-1.5 text-xs font-medium tracking-wider text-amber-400 uppercase">
+                        <EyeOff className="size-3" />
+                        Mole{moles.length !== 1 ? 's' : ''}
+                      </p>
+                      <div className="mt-1.5 flex flex-wrap gap-1.5">
+                        {moles.map((m) => (
+                          <Badge
+                            key={m.id}
+                            className="border-amber-500/30 bg-amber-500/15 text-amber-300"
+                          >
+                            {m.nickname}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Canaries */}
+                  {canaries.length > 0 && (
+                    <div className="mb-3">
+                      <p className="flex items-center gap-1.5 text-xs font-medium tracking-wider text-teal-400 uppercase">
+                        <ShieldAlert className="size-3" />
+                        Canar{canaries.length !== 1 ? 'ies' : 'y'}
+                      </p>
+                      <div className="mt-1.5 flex flex-wrap gap-1.5">
+                        {canaries.map((c) => (
+                          <Badge
+                            key={c.id}
+                            className="border-teal-500/30 bg-teal-500/15 text-teal-300"
+                          >
+                            {c.nickname}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Crew */}
+                  <div>
+                    <p className="flex items-center gap-1.5 text-xs font-medium tracking-wider text-muted-foreground uppercase">
+                      <Eye className="size-3" />
+                      Crew
+                    </p>
+                    <div className="mt-1.5 flex flex-wrap gap-1.5">
+                      {crew.map((c) => (
+                        <Badge key={c.id} variant="secondary" className="text-xs">
+                          {c.nickname}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
           )}
 
-          {/* Reveal Phase — identities are public */}
+          {/* Reveal Phase — identities are now public */}
           {currentPhase === 'reveal' && (
             <div className="rounded-xl border border-border/20 bg-card/40 p-4">
               <p className="text-xs text-muted-foreground">
@@ -372,20 +463,63 @@ export function MoleHuntControlRoom({
             </div>
           )}
 
-          {/* Reveal phase — waiting */}
+          {/* Reveal phase — host action options */}
           {currentPhase === 'reveal' && (
-            <div className="text-center">
+            <div className="text-center space-y-4">
               <div className="flex items-center justify-center gap-3 text-muted-foreground">
                 <div className="flex size-2 rounded-full bg-accent animate-pulse" />
                 <span className="text-sm">Results revealed</span>
               </div>
-              <p className="mt-2 text-xs text-muted-foreground">
+              <p className="text-xs text-muted-foreground">
                 Players can see the correct answer and who the Moles were.
               </p>
+
+              {/* A3: Explicit Next Round / End Game buttons */}
+              <div className="flex flex-col items-center gap-3 pt-2">
+                {!isLastRound && (
+                  <Button
+                    size="lg"
+                    onClick={handleNextRound}
+                    disabled={nextRoundLoading}
+                    className="gap-2"
+                  >
+                    {nextRoundLoading ? (
+                      <>
+                        <Loader2 className="size-4 animate-spin" />
+                        Advancing…
+                      </>
+                    ) : (
+                      <>
+                        <SkipForward className="size-4" />
+                        Next Round
+                      </>
+                    )}
+                  </Button>
+                )}
+
+                <Button
+                  variant={isLastRound ? 'default' : 'outline'}
+                  size={isLastRound ? 'lg' : 'sm'}
+                  onClick={() => setShowEndConfirm(true)}
+                  disabled={ending}
+                  className={isLastRound ? 'gap-2' : 'text-destructive hover:text-destructive'}
+                >
+                  {ending ? (
+                    <>
+                      <Loader2 className="size-4 animate-spin" />
+                      Ending…
+                    </>
+                  ) : isLastRound ? (
+                    'End Game & View Results'
+                  ) : (
+                    'End Game Early'
+                  )}
+                </Button>
+              </div>
             </div>
           )}
 
-          {/* ── Advance Phase Button ────────────────────────────────── */}
+          {/* ── Advance Phase Button (discuss + vote) ────────────────── */}
           <div className="flex flex-col items-center gap-3">
             {advanceLabel && (
               <Button
@@ -406,13 +540,6 @@ export function MoleHuntControlRoom({
                   </>
                 )}
               </Button>
-            )}
-
-            {/* No advance when game is over */}
-            {!advanceLabel && (
-              <p className="text-sm text-muted-foreground">
-                End the game to view results.
-              </p>
             )}
           </div>
         </div>
@@ -494,7 +621,7 @@ export function MoleHuntControlRoom({
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
               <AlertTriangle className="size-5 text-destructive" />
-              End Game Early?
+              End Game{!isLastRound ? ' Early' : ''}?
             </DialogTitle>
             <DialogDescription>
               This will close the room and redirect all players to the results
@@ -562,12 +689,8 @@ function getPhaseColor(phase: MolePhase): string {
   }
 }
 
-/** Returns the label for the advance button, or null if no advance possible. */
-function getAdvanceLabel(
-  phase: MolePhase,
-  roundNumber: number,
-  totalRounds: number,
-): string | null {
+/** Returns the label for the advance button (discuss + vote phases only). */
+function getAdvanceLabel(phase: MolePhase): string | null {
   switch (phase) {
     case 'assigning':
       return null // Auto-transitions
@@ -576,10 +699,7 @@ function getAdvanceLabel(
     case 'vote':
       return 'Reveal Results'
     case 'reveal':
-      if (roundNumber >= totalRounds) {
-        return null // Last round — host should end game
-      }
-      return 'Next Round'
+      return null // Next Round / End Game handled separately
     default:
       return null
   }

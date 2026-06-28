@@ -321,7 +321,7 @@ Rules:
 - [x] Pusher app created (keys in `.env.local`)
 - [x] shadcn/ui initialized (with MCP, 10 primitives, Radix Nova style)
 - [x] Claude Code plugins: engram, ui-ux-pro-max, graphify
-- [x] Supabase tables created (rooms, players, tot_question_bank, tot_questions, tot_votes, wc_words, wc_players)
+- [x] Supabase tables created (rooms, players, tot_question_bank, tot_questions, tot_votes, wc_words, wc_players, mole_topics, mole_room_config, mole_rounds, mole_votes, mole_scores)
 - [x] Pusher lib set up (`lib/pusher/client.ts`, `lib/pusher/server.ts`, `lib/pusher/trigger.ts`)
 - [x] `features/` folder structure scaffolded
 - [x] Room data layer (types, actions, API routes)
@@ -330,5 +330,9 @@ Rules:
 - [x] Word Chain — full game (types, actions, 3 API routes, 2 hooks, 3 components, results page)
 - [x] Host dashboard (game selection + question setup flow)
 - [x] Auth middleware via proxy.ts
+- [x] Mole Hunt — full game (types, actions, 10 API routes, 2 hooks, 7 components, results, control room)
+- [x] Mole Hunt — schema fixed: added correct_choice column; INSERTs populate all NOT NULL columns
+- [x] Pusher client lazy Proxy init (prevents SSR/Turbopack crash)
+- [x] HostLobby routes Mole Hunt to game-specific /api/games/mole-hunt/start
 - [ ] Auth actions (placeholder) + forgot-password/sign-up stub pages
 - [ ] Vercel deployment

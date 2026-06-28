@@ -1,11 +1,11 @@
 # Graph Report - high6-play  (2026-06-28)
 
 ## Corpus Check
-- 130 files · ~67,212 words
+- 130 files · ~67,084 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 753 nodes · 1431 edges · 40 communities (31 shown, 9 thin omitted)
+- 751 nodes · 1428 edges · 41 communities (32 shown, 9 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 33 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
@@ -20,6 +20,7 @@
 - [[_COMMUNITY_API Route Handlers|API Route Handlers]]
 - [[_COMMUNITY_Package Dependencies|Package Dependencies]]
 - [[_COMMUNITY_Game Views & Player UI|Game Views & Player UI]]
+- [[_COMMUNITY_Design System Generator|Design System Generator]]
 - [[_COMMUNITY_Room Code Pages|Room Code Pages]]
 - [[_COMMUNITY_shadcnui Configuration|shadcn/ui Configuration]]
 - [[_COMMUNITY_TypeScript Configuration|TypeScript Configuration]]
@@ -61,16 +62,16 @@
 10. `high6-play` - 14 edges
 
 ## Surprising Connections (you probably didn't know these)
+- `OptionCard()` --calls--> `cn()`  [INFERRED]
+  features/mole-hunt/components/PlayerView.tsx → lib/utils.ts
+- `GET()` --calls--> `createClient()`  [EXTRACTED]
+  app/api/games/mole-hunt/control-data/route.ts → lib/supabase/server.ts
 - `POST()` --calls--> `triggerGameEvent()`  [INFERRED]
-  app/api/games/mole-hunt/start/route.ts → lib/pusher/trigger.ts
-- `POST()` --calls--> `triggerRoomEvent()`  [INFERRED]
-  app/api/games/mole-hunt/start/route.ts → lib/pusher/trigger.ts
+  app/api/games/this-or-that/end/route.ts → lib/pusher/trigger.ts
 - `POST()` --calls--> `triggerGameEvent()`  [INFERRED]
   app/api/games/this-or-that/vote/route.ts → lib/pusher/trigger.ts
 - `POST()` --calls--> `triggerRoomEvent()`  [INFERRED]
   app/api/rooms/start/route.ts → lib/pusher/trigger.ts
-- `HostMoleHuntGamePage()` --calls--> `getRoom()`  [INFERRED]
-  app/host/[code]/mh-game/page.tsx → features/rooms/actions.ts
 
 ## Import Cycles
 - None detected.
@@ -79,31 +80,35 @@
 - **Graphify Extraction Pipeline** — graphify_skill_ast_extraction, graphify_skill_semantic_extraction, graphify_skill_confidence_rubric [EXTRACTED 1.00]
 - **Graphify Reference Documents** — references_extraction_spec_subagent, references_query_queryexpansion, references_update_incremental, references_exports_neo4j, references_exports_mcp, references_hooks_commithook, references_add_watch_ingest, references_add_watch_watchfolder, references_transcribe_whisper, references_github_merge_crossrepo [EXTRACTED 1.00]
 
-## Communities (40 total, 9 thin omitted)
+## Communities (41 total, 9 thin omitted)
 
 ### Community 0 - "App Pages & UI Components"
-Cohesion: 0.06
-Nodes (58): CreateRoom(), CreateRoomResult, GAMES, Step, GAME_LABELS, HostLobby(), HostLobbyProps, JoinForm() (+50 more)
+Cohesion: 0.09
+Nodes (33): CreateRoom(), CreateRoomResult, GAMES, Step, JoinForm(), JoinResult, LoginForm(), MODE_DEFAULTS (+25 more)
 
 ### Community 1 - "Room Creation & Host Lobby"
-Cohesion: 0.12
-Nodes (21): POST(), POST(), POST(), POST(), POST(), POST(), POST(), POST() (+13 more)
+Cohesion: 0.09
+Nodes (35): POST(), POST(), POST(), POST(), POST(), POST(), POST(), POST() (+27 more)
 
 ### Community 2 - "API Route Handlers"
 Cohesion: 0.05
 Nodes (39): dependencies, class-variance-authority, clsx, lucide-react, next, next-themes, pusher, pusher-js (+31 more)
 
 ### Community 3 - "Package Dependencies"
-Cohesion: 0.06
-Nodes (60): POST(), POST(), POST(), MoleHuntPresentation(), MoleHuntPresentationProps, PresentationOptionProps, RevealData, MoleHuntSetupProps (+52 more)
+Cohesion: 0.08
+Nodes (44): MoleHuntPresentationProps, OptionCard(), OptionCardProps, OutcomeToast, GET(), PlayerView(), PlayerViewProps, useMoleHunt() (+36 more)
 
 ### Community 4 - "Game Views & Player UI"
 Cohesion: 0.06
 Nodes (40): BM25, detect_domain(), _load_csv(), Lowercase, split, remove punctuation, filter short words, Build BM25 index from documents, Score all documents against query, Load CSV and return list of dicts, Core search function using BM25 (+32 more)
 
+### Community 5 - "Design System Generator"
+Cohesion: 0.09
+Nodes (30): HostPage(), HostPageProps, PlayPage(), PlayPageProps, HostLobby(), HostLobbyProps, MoleHuntResultsView(), GAME_LABELS (+22 more)
+
 ### Community 6 - "Room Code Pages"
-Cohesion: 0.06
-Nodes (53): POST(), GET(), HostPage(), HostPageProps, PlayPage(), PlayPageProps, CountdownStatus, HostView() (+45 more)
+Cohesion: 0.08
+Nodes (35): POST(), POST(), GET(), CountdownStatus, HostView(), HostViewProps, QuestionResultCard(), TotResultsView() (+27 more)
 
 ### Community 7 - "shadcn/ui Configuration"
 Cohesion: 0.06
@@ -166,26 +171,26 @@ Cohesion: 0.50
 Nodes (3): For --cluster-only, For --update (incremental re-extraction), graphify reference: incremental update and cluster-only
 
 ### Community 40 - "Community 40"
-Cohesion: 0.14
-Nodes (25): HostWcView(), HostWcViewProps, useHostTimer(), PlayerWcViewProps, REASON_ICONS, WcResultsView(), WcResultsViewProps, useWordChain() (+17 more)
+Cohesion: 0.13
+Nodes (23): HostWcViewProps, PlayerWcViewProps, REASON_ICONS, WcResultsView(), WcResultsViewProps, UseWordChainOptions, UseWordChainReturn, HostWcGamePage() (+15 more)
 
 ### Community 44 - "Community 44"
 Cohesion: 0.06
-Nodes (40): PlayerRow(), getAdvanceLabel(), getPhaseColor(), getPhaseLabel(), MoleHuntControlRoom(), MoleHuntControlRoomProps, PresentationOption(), getRevealOutcome() (+32 more)
+Nodes (55): GAME_LABELS, PlayerRow(), HostWcView(), useHostTimer(), getAdvanceLabel(), getPhaseColor(), getPhaseLabel(), MoleHuntControlRoom() (+47 more)
 
 ## Knowledge Gaps
-- **297 isolated node(s):** `npx`, `VALID_GAME_TYPES`, `HostGamePageProps`, `HostMoleHuntGamePageProps`, `MHResultsPageProps` (+292 more)
+- **296 isolated node(s):** `npx`, `VALID_GAME_TYPES`, `HostGamePageProps`, `HostMoleHuntGamePageProps`, `MHResultsPageProps` (+291 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `cn()` connect `Community 44` to `App Pages & UI Components`, `Community 40`, `Package Dependencies`, `Room Code Pages`?**
-  _High betweenness centrality (0.038) - this node is a cross-community bridge._
-- **Why does `createClient()` connect `Package Dependencies` to `Room Creation & Host Lobby`, `Room Code Pages`?**
+- **Why does `cn()` connect `Community 44` to `App Pages & UI Components`, `Package Dependencies`, `Design System Generator`, `Room Code Pages`, `Community 40`?**
+  _High betweenness centrality (0.037) - this node is a cross-community bridge._
+- **Why does `createClient()` connect `Room Creation & Host Lobby` to `Package Dependencies`, `Design System Generator`?**
   _High betweenness centrality (0.017) - this node is a cross-community bridge._
-- **Why does `createClient()` connect `Package Dependencies` to `App Pages & UI Components`, `Community 40`, `Community 44`, `Room Code Pages`?**
+- **Why does `createClient()` connect `Package Dependencies` to `App Pages & UI Components`, `Design System Generator`, `Room Code Pages`, `Community 40`, `Community 44`?**
   _High betweenness centrality (0.013) - this node is a cross-community bridge._
 - **Are the 3 inferred relationships involving `cn()` (e.g. with `OptionCard()` and `PlayerView()`) actually correct?**
   _`cn()` has 3 INFERRED edges - model-reasoned connections that need verification._
@@ -194,4 +199,4 @@ _Questions this graph is uniquely positioned to answer:_
 - **Are the 6 inferred relationships involving `getRoom()` (e.g. with `HostPage()` and `PlayPage()`) actually correct?**
   _`getRoom()` has 6 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `BM25 ranking algorithm for text search`, `Lowercase, split, remove punctuation, filter short words`, `Build BM25 index from documents` to the rest of the system?**
-  _324 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _323 weakly-connected nodes found - possible documentation gaps or missing edges._

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { closeRoom } from '@/features/rooms/actions'
-import { triggerRoomEvent } from '@/lib/pusher/trigger'
+import { triggerRoomEvent, triggerGameEvent } from '@/lib/pusher/trigger'
 
 export async function POST(request: NextRequest) {
   try {
@@ -17,6 +17,9 @@ export async function POST(request: NextRequest) {
     await closeRoom(code)
 
     await triggerRoomEvent(code, 'room-closed', {})
+
+    // Also notify game channel so in-game clients (Mole Hunt, etc.) can transition to results
+    await triggerGameEvent(code, 'game-ended', {})
 
     return NextResponse.json({ success: true })
   } catch (error) {

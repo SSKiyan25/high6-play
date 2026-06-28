@@ -1,5 +1,5 @@
 # high6-play — Session Handoff
-> Last updated: June 27, 2026
+> Last updated: June 28, 2026
 > Continue this in Claude.ai (claude.ai) — paste this file at the start of the next session.
 
 ---
@@ -345,6 +345,10 @@ mole_rounds (
   phase TEXT CHECK IN ('discuss','vote','reveal') DEFAULT 'discuss',
   mole_player_ids UUID[] NOT NULL,
   canary_player_ids UUID[] NOT NULL,
+  canary_flagged_ids UUID[] NOT NULL DEFAULT '{}',
+  correct_choice TEXT CHECK IN ('a','b') NOT NULL,
+  discuss_timer_seconds INT NOT NULL,
+  vote_timer_seconds INT NOT NULL,
   created_at TIMESTAMPTZ DEFAULT now()
 )
 
@@ -440,6 +444,34 @@ Done server-side in `submitWord()` action:
 ### Auth middleware
 Auth protection is via `proxy.ts` (not a traditional `middleware.ts`). It uses Supabase `getClaims()` to check for a user session. The matcher allows `/play/*` (public), `/api/*`, `/auth/*`, `/login`, and `/` without authentication. Everything else redirects to `/auth/login`.
 
+### Mole Hunt secret protection
+Role assignments (mole/canary IDs) are NEVER broadcast via Pusher. The only API endpoint that exposes them is `/api/games/mole-hunt/control-data` — auth-gated, host-only. Players fetch their own role individually via `/api/games/mole-hunt/my-role` (scoped to their player ID, returns only their role, never the full arrays).
+
+### Mole Hunt start flow
+The HostLobby routes Mole Hunt to `/api/games/mole-hunt/start` (not the generic `/api/rooms/start`). This endpoint creates the first round, assigns roles, picks topics, and fires both `game-started` and `round-started`. The generic start endpoint only updates room status and is insufficient for Mole Hunt.
+
+### Pusher client lazy initialization
+`lib/pusher/client.ts` uses a Proxy pattern — `new PusherJs(...)` is deferred to first property access (always in useEffect, client-only). This prevents a Turbopack/SSR crash where `pusher-js` resolves to its Node.js build whose default export is not a constructor.
+
+### Supabase client injection in actions
+`startGame()`, `getRoomConfig()`, and `getTopicBank()` accept an optional `SupabaseClient` parameter. API routes pass the server client; client components rely on the browser client fallback. This prevents `createBrowserClient` failures in API route contexts.
+
+### Recent bug fixes (June 28, 2026)
+- **Pusher SSR crash**: `lib/pusher/client.ts` — lazy Proxy init (see above)
+- **Infinite loading on start**: HostLobby called wrong API; fixed to route Mole Hunt to `/api/games/mole-hunt/start`
+- **Infinite loading on reload**: Added on-mount Supabase fetch in both `useMoleHuntControl` and `useMoleHunt` hooks
+- **Schema gaps**: Added `correct_choice` column to `mole_rounds`; INSERTs now populate `discuss_timer_seconds`, `vote_timer_seconds`, `canary_flagged_ids`
+- **Host counted as player**: Added `.neq('is_host', true)` to all Mole Hunt `players` queries; host no longer in role pools or vote counts
+- **Results now on Presentation screen**: Game-over leaderboard renders inline in `MoleHuntPresentation` (Zoom-safe); Control Room shows ended state
+- **Mole scoring deduction**: Moles who vote correctly get −100 (broke character); deception bonus only if they voted wrong
+- **Player game-end navigation**: Added `game-ended` Pusher trigger to close route; player page checks room status on mount
+- **Mole scoring deduction fix**: Removed ambiguous Supabase join (`mole_topics!inner`) from `calculateAndSaveScores()` — column name collision between `mole_rounds.correct_choice` and `mole_topics.correct_choice` could cause wrong scoring
+- **Role-aware reveal badge**: PlayerView reveal badge now role-contextual — Moles see green "In Character" when voting wrong (correct for their role), red "Broke Character" when voting correctly
+- **Per-round leaderboard**: Both Presentation and PlayerView show live standings after each round's scores are calculated
+- **Player-facing timers**: Countdown timer visible on player phones during discuss and vote phases
+- **Outcome toasts**: Contextual popup phrases after reveal based on role + vote outcome
+- **Username + (You) labels**: Player nickname shown in top bar; "(You)" marker in round leaderboard
+
 ---
 
 ## Claude Code plugins & MCPs
@@ -471,10 +503,10 @@ Auth protection is via `proxy.ts` (not a traditional `middleware.ts`). It uses S
 ## What to do next
 
 ### Priority 1 — End-to-end testing + polish (next task)
-- Test the full Mole Hunt flow: Create Room → Lobby → Start → Control Room + Presentation → Round Flow → Game End → Results
+- Mole Hunt start flow now works (HostLobby → start API → round creation → Pusher events → Control Room + Player views load correctly)
+- Run full Mole Hunt end-to-end: Create Room → Lobby → Start → Discuss → Vote → Reveal → Next Round → Game End → Results
 - End-to-end testing of all three games (This or That, Word Chain, Mole Hunt)
 - Polish: role-reveal animations, timer transitions, mobile responsiveness pass across all games
-- Verify auth middleware works correctly in production
 
 ### Priority 2 — Finish auth stubs
 - Implement `features/auth/actions.ts` (login, logout, signUp wrappers)
@@ -502,4 +534,4 @@ Paste this file and say:
 
 > "Continue high6-play. Here's the handoff."
 
-The project has three games built at different levels: This or That and Word Chain are feature-complete (host/player views, realtime, results). Mole Hunt has its data layer and host setup screens done — gameplay (Presentation/Control Room screens, role assignment, round flow, scoring, player views) is the clear next priority.
+All three games are feature-complete (host/player views, realtime, results). Mole Hunt's start flow, round creation, role assignment, Control Room, Presentation, and Results are all built and the critical bugs (Pusher SSR crash, wrong start API, schema mismatches) have been fixed. Next priority: full end-to-end testing of all three games.

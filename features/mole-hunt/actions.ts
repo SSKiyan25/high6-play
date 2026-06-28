@@ -1,4 +1,5 @@
 import { createClient as createBrowserClient } from '@/lib/supabase/client'
+import type { SupabaseClient } from '@supabase/supabase-js'
 import type {
   MoleTopic,
   MoleTopicInput,
@@ -10,10 +11,20 @@ import type {
   RoundScoreSummary,
 } from './types'
 
+// ── Client helper ───────────────────────────────────────────────────────
+
+/** Returns the provided client if given, otherwise creates a browser client. */
+function getClient(client?: SupabaseClient): SupabaseClient {
+  return client ?? createBrowserClient()
+}
+
 // ── Topic Bank ────────────────────────────────────────────────────────
 
-export async function getTopicBank(hostId: string): Promise<MoleTopic[]> {
-  const supabase = createBrowserClient()
+export async function getTopicBank(
+  hostId: string,
+  client?: SupabaseClient,
+): Promise<MoleTopic[]> {
+  const supabase = getClient(client)
 
   const { data, error } = await supabase
     .from('mole_topics')
@@ -43,6 +54,7 @@ export async function createTopic(
       option_a: input.option_a,
       option_b: input.option_b,
       correct_choice: input.correct_choice,
+      correct_answer_why: input.correct_answer_why ?? null,
       mole_argument_1: input.mole_argument_1 ?? null,
       mole_argument_2: input.mole_argument_2 ?? null,
       mole_argument_3: input.mole_argument_3 ?? null,
@@ -72,6 +84,7 @@ export async function updateTopic(
       option_a: input.option_a,
       option_b: input.option_b,
       correct_choice: input.correct_choice,
+      correct_answer_why: input.correct_answer_why ?? null,
       mole_argument_1: input.mole_argument_1 ?? null,
       mole_argument_2: input.mole_argument_2 ?? null,
       mole_argument_3: input.mole_argument_3 ?? null,
@@ -117,8 +130,9 @@ function validateTopicInput(input: MoleTopicInput): void {
 
 export async function getRoomConfig(
   roomId: string,
+  client?: SupabaseClient,
 ): Promise<MoleRoomConfig | null> {
-  const supabase = createBrowserClient()
+  const supabase = getClient(client)
 
   const { data, error } = await supabase
     .from('mole_room_config')
@@ -150,7 +164,6 @@ export async function saveRoomConfig(
   if (input.vote_timer_seconds < 1) {
     throw new Error('Vote timer must be at least 1 second.')
   }
-  // TODO: re-validate mole_count + canary_count against actual player count at game-start time
 
   const supabase = createBrowserClient()
 
@@ -163,6 +176,7 @@ export async function saveRoomConfig(
       discuss_timer_seconds: input.discuss_timer_seconds,
       vote_timer_seconds: input.vote_timer_seconds,
       total_rounds: input.total_rounds,
+      selected_topic_ids: input.selected_topic_ids ?? [],
     },
     { onConflict: 'room_id' },
   )
@@ -172,11 +186,15 @@ export async function saveRoomConfig(
 
 // ── Round Flow ──────────────────────────────────────────────────────────
 
-export async function startGame(roomId: string, hostId: string) {
-  const supabase = createBrowserClient()
+export async function startGame(
+  roomId: string,
+  hostId: string,
+  client?: SupabaseClient,
+) {
+  const supabase = getClient(client)
 
   // 1. Fetch room config
-  const config = await getRoomConfig(roomId)
+  const config = await getRoomConfig(roomId, supabase)
   if (!config) throw new Error('Game config not found for this room.')
 
   // 2. Fetch room to get host + game_type + code
@@ -189,33 +207,53 @@ export async function startGame(roomId: string, hostId: string) {
   if (roomError || !room) throw new Error('Room not found.')
   if (room.host_id !== hostId) throw new Error('Only the host can start the game.')
 
-  // 3. Count joined players
+  // 3. Count joined players (exclude host)
   const { data: players, error: playersError } = await supabase
     .from('players')
     .select('id')
     .eq('room_id', roomId)
+    .neq('is_host', true)
 
   if (playersError) throw playersError
-  const playerCount = players?.length ?? 0
+  const playerCount = (players?.length ?? 0)
 
-  // 4. Validate role counts
+  // 4. ── Server-side validation (mirrors client-side checks) ────────
+  if (config.mole_count < 1) {
+    throw new Error('Must have at least 1 Mole.')
+  }
+  if (config.total_rounds < 1) {
+    throw new Error('Must have at least 1 round.')
+  }
+  if (!config.selected_topic_ids || config.selected_topic_ids.length === 0) {
+    throw new Error('Select at least one topic before starting.')
+  }
+  if (config.selected_topic_ids.length !== config.total_rounds) {
+    throw new Error(
+      `Select exactly ${config.total_rounds} topics to match your round count (selected ${config.selected_topic_ids.length}).`,
+    )
+  }
   const totalRoles = config.mole_count + config.canary_count
   if (totalRoles >= playerCount) {
     throw new Error(
-      `Mole count (${config.mole_count}) + Canary count (${config.canary_count}) must be less than the number of joined players (${playerCount}).`,
+      `Not enough players. Need at least ${totalRoles + 1} players to assign ${config.mole_count} Mole(s) + ${config.canary_count} Canar${config.canary_count !== 1 ? 'ies' : 'y'}, but only ${playerCount} have joined.`,
     )
   }
 
-  // 5. Fetch host's topic bank
-  const topics = await getTopicBank(hostId)
-  if (topics.length < config.total_rounds) {
+  // 5. Fetch the selected topics in the host's chosen order
+  const allTopics = await getTopicBank(hostId, supabase)
+  const topicMap = new Map(allTopics.map((t) => [t.id, t]))
+  const selectedTopics = config.selected_topic_ids
+    .map((id) => topicMap.get(id))
+    .filter(Boolean) as MoleTopic[]
+
+  if (selectedTopics.length !== config.total_rounds) {
     throw new Error(
-      `Not enough topics in bank for this many rounds. Need ${config.total_rounds}, have ${topics.length}.`,
+      `Some selected topics no longer exist. Please re-select topics.`,
     )
   }
 
   // 6. Assign roles for round 1
-  const playerIds = players.map((p) => p.id)
+  const playerIds = (players ?? []).map((p) => p.id)
   const { moles, canaries } = assignRoles(
     playerIds,
     config.mole_count,
@@ -224,8 +262,8 @@ export async function startGame(roomId: string, hostId: string) {
     [], // no previous canaries
   )
 
-  // 7. Pick first topic randomly
-  const firstTopic = topics[Math.floor(Math.random() * topics.length)]
+  // 7. First topic is the first in the selected order
+  const firstTopic = selectedTopics[0]
 
   // 8. Insert first mole_round (phase: 'discuss' — skip 'assigning')
   const { data: round, error: roundError } = await supabase
@@ -238,6 +276,9 @@ export async function startGame(roomId: string, hostId: string) {
       canary_player_ids: canaries,
       phase: 'discuss',
       correct_choice: firstTopic.correct_choice,
+      discuss_timer_seconds: config.discuss_timer_seconds,
+      vote_timer_seconds: config.vote_timer_seconds,
+      canary_flagged_ids: [],
     })
     .select()
     .single()
@@ -245,7 +286,7 @@ export async function startGame(roomId: string, hostId: string) {
   if (roundError) throw roundError
 
   // 9. Initialize mole_scores for all players (0 points)
-  const scoreRows = players.map((p) => ({
+  const scoreRows = (players ?? []).map((p) => ({
     room_id: roomId,
     player_id: p.id,
     total_points: 0,
@@ -295,7 +336,7 @@ export async function advancePhase(roundId: string, hostId: string) {
   if (currentIndex < phaseOrder.length - 1) {
     nextPhase = phaseOrder[currentIndex + 1]
   } else {
-    throw new Error('Already at final phase (reveal).')
+    throw new Error('Already at final phase (reveal). Use Next Round or End Game.')
   }
 
   // 3. Update the round phase
@@ -306,37 +347,59 @@ export async function advancePhase(roundId: string, hostId: string) {
 
   if (updateError) throw updateError
 
-  // 4. If transitioning to reveal, calculate scores
-  let nextRound: any = null
-  if (nextPhase === 'reveal') {
-    // Fetch config for total_rounds check
-    const config = await getRoomConfig(round.room_id)
-    const totalRounds = config?.total_rounds ?? 1
-
-    // Create next round if needed
-    if (round.round_number < totalRounds) {
-      nextRound = await createNextRound(
-        round.room_id,
-        round.round_number + 1,
-        hostId,
-        round.mole_player_ids,
-        round.canary_player_ids,
-      )
-    }
-  }
-
   return {
     roundId,
     phase: nextPhase,
     roundNumber: round.round_number,
     roomCode: room.code,
-    nextRound: nextRound
-      ? {
-          id: nextRound.id,
-          roundNumber: nextRound.round_number,
-          topicId: nextRound.topic_id,
-        }
-      : null,
+    roomId: round.room_id,
+  }
+}
+
+export async function nextRound(roomId: string, hostId: string) {
+  const supabase = createBrowserClient()
+
+  // 1. Fetch the current (latest) round to get previous moles/canaries
+  const { data: currentRound, error: roundError } = await supabase
+    .from('mole_rounds')
+    .select('*, rooms!inner(host_id, code)')
+    .eq('room_id', roomId)
+    .order('round_number', { ascending: false })
+    .limit(1)
+    .single()
+
+  if (roundError || !currentRound) throw new Error('No active round found.')
+
+  const room = (currentRound as any).rooms
+  if (!room || room.host_id !== hostId) {
+    throw new Error('Only the host can advance to the next round.')
+  }
+
+  // 2. Check we're in reveal phase
+  if (currentRound.phase !== 'reveal') {
+    throw new Error('Can only advance to next round from the reveal phase.')
+  }
+
+  // 3. Fetch config to check total_rounds
+  const config = await getRoomConfig(roomId)
+  if (!config) throw new Error('Game config not found.')
+
+  if (currentRound.round_number >= config.total_rounds) {
+    throw new Error('This was the final round. End the game instead.')
+  }
+
+  // 4. Create the next round
+  const round = await createNextRound(
+    roomId,
+    currentRound.round_number + 1,
+    hostId,
+    currentRound.mole_player_ids,
+    currentRound.canary_player_ids,
+  )
+
+  return {
+    round,
+    roomCode: room.code,
   }
 }
 
@@ -388,7 +451,21 @@ export async function getMyRole(roundId: string, playerId: string) {
       canary_player_ids,
       correct_choice,
       topic_id,
-      mole_topics!inner(*)
+      mole_topics!inner(
+        id,
+        created_by,
+        title,
+        blurb,
+        image_url,
+        option_a,
+        option_b,
+        correct_choice,
+        correct_answer_why,
+        mole_argument_1,
+        mole_argument_2,
+        mole_argument_3,
+        created_at
+      )
     `,
     )
     .eq('id', roundId)
@@ -424,10 +501,11 @@ export async function getMyRole(roundId: string, playerId: string) {
 export async function calculateAndSaveScores(roundId: string) {
   const supabase = createBrowserClient()
 
-  // 1. Fetch the round
+  // 1. Fetch the round — only mole_rounds columns, no join
+  // (avoid column-name collision: both mole_rounds and mole_topics have correct_choice)
   const { data: round, error: roundError } = await supabase
     .from('mole_rounds')
-    .select('*, mole_topics!inner(correct_choice)')
+    .select('id, room_id, round_number, phase, correct_choice, mole_player_ids, canary_player_ids')
     .eq('id', roundId)
     .single()
 
@@ -437,11 +515,12 @@ export async function calculateAndSaveScores(roundId: string) {
   const moleIds: string[] = round.mole_player_ids ?? []
   const canaryIds: string[] = round.canary_player_ids ?? []
 
-  // 2. Fetch all players in the room
+  // 2. Fetch all players in the room (exclude host)
   const { data: players, error: playersError } = await supabase
     .from('players')
     .select('id, nickname')
     .eq('room_id', round.room_id)
+    .neq('is_host', true)
 
   if (playersError) throw playersError
 
@@ -487,20 +566,26 @@ export async function calculateAndSaveScores(roundId: string) {
     }
 
     if (role === 'mole') {
-      // +150 per deceived player (crew/canary who voted wrong)
-      let deceivedCount = 0
-      for (const p of players ?? []) {
-        if (p.id === pid) continue
-        const v = voteMap.get(p.id)
-        if (v && v !== correctChoice && !moleIds.includes(p.id)) {
-          deceivedCount++
+      // If mole voted correctly, they broke character → deduction
+      // Deduction and deception bonus are mutually exclusive per round
+      if (votedCorrectly) {
+        points -= 100
+      } else {
+        // +150 per deceived player (crew/canary who voted wrong)
+        let deceivedCount = 0
+        for (const p of players ?? []) {
+          if (p.id === pid) continue
+          const v = voteMap.get(p.id)
+          if (v && v !== correctChoice && !moleIds.includes(p.id)) {
+            deceivedCount++
+          }
         }
-      }
-      points += deceivedCount * 150
+        points += deceivedCount * 150
 
-      // +50 if majority was wrong
-      if (isMajorityWrong) {
-        points += 50
+        // +50 if majority was wrong
+        if (isMajorityWrong) {
+          points += 50
+        }
       }
     }
 
@@ -669,11 +754,12 @@ async function createNextRound(
 ) {
   const supabase = createBrowserClient()
 
-  // Fetch players
+  // Fetch players (exclude host)
   const { data: players, error: playersError } = await supabase
     .from('players')
     .select('id')
     .eq('room_id', roomId)
+    .neq('is_host', true)
 
   if (playersError) throw playersError
   const playerIds = players?.map((p) => p.id) ?? []
@@ -691,22 +777,23 @@ async function createNextRound(
     previousCanaryIds,
   )
 
-  // Fetch unused topics
-  const topics = await getTopicBank(hostId)
-  const { data: usedRounds, error: usedError } = await supabase
-    .from('mole_rounds')
-    .select('topic_id')
-    .eq('room_id', roomId)
+  // Use selected topics from config, in order
+  const topicIndex = roundNumber - 1
+  const selectedIds = config.selected_topic_ids ?? []
 
-  if (usedError) throw usedError
-  const usedTopicIds = new Set((usedRounds ?? []).map((r) => r.topic_id))
-  const unused = topics.filter((t) => !usedTopicIds.has(t.id))
-
-  if (unused.length === 0) {
-    throw new Error('Not enough topics in bank for this many rounds.')
+  if (topicIndex >= selectedIds.length) {
+    throw new Error('Not enough selected topics for this round.')
   }
 
-  const nextTopic = unused[Math.floor(Math.random() * unused.length)]
+  const nextTopicId = selectedIds[topicIndex]
+  const allTopics = await getTopicBank(hostId)
+  const nextTopic = allTopics.find((t) => t.id === nextTopicId)
+
+  if (!nextTopic) {
+    throw new Error(
+      `Selected topic no longer exists. Please re-select topics.`,
+    )
+  }
 
   // Update mole_scores times_mole/times_canary for newly assigned players
   for (const mid of moles) {
@@ -747,6 +834,9 @@ async function createNextRound(
       canary_player_ids: canaries,
       phase: 'discuss',
       correct_choice: nextTopic.correct_choice,
+      discuss_timer_seconds: config.discuss_timer_seconds,
+      vote_timer_seconds: config.vote_timer_seconds,
+      canary_flagged_ids: [],
     })
     .select()
     .single()

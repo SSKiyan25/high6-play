@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Badge } from '@/components/ui/badge'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
@@ -35,6 +36,7 @@ export function TopicBankManager({ onBack }: TopicBankManagerProps) {
   const [optionA, setOptionA] = useState('')
   const [optionB, setOptionB] = useState('')
   const [correctChoice, setCorrectChoice] = useState<'a' | 'b'>('a')
+  const [correctAnswerWhy, setCorrectAnswerWhy] = useState('')
 
   // Edit state
   const [editingTopic, setEditingTopic] = useState<MoleTopic | null>(null)
@@ -84,6 +86,7 @@ export function TopicBankManager({ onBack }: TopicBankManagerProps) {
     setOptionA('')
     setOptionB('')
     setCorrectChoice('a')
+    setCorrectAnswerWhy('')
     setError(null)
   }
 
@@ -146,6 +149,9 @@ export function TopicBankManager({ onBack }: TopicBankManagerProps) {
         option_b: b,
         correct_choice: correctChoice,
       }
+      if (correctAnswerWhy.trim()) {
+        input.correct_answer_why = correctAnswerWhy.trim()
+      }
       if (imagePath) {
         input.image_url = imagePath
       }
@@ -199,6 +205,9 @@ export function TopicBankManager({ onBack }: TopicBankManagerProps) {
         option_a: editingTopic.option_a,
         option_b: editingTopic.option_b,
         correct_choice: editingTopic.correct_choice,
+      }
+      if (editingTopic.correct_answer_why?.trim()) {
+        input.correct_answer_why = editingTopic.correct_answer_why.trim()
       }
       if (imagePath) {
         input.image_url = imagePath
@@ -321,13 +330,14 @@ export function TopicBankManager({ onBack }: TopicBankManagerProps) {
             <Label htmlFor="topic-blurb" className="text-xs">
               Information Blurb
             </Label>
-            <Input
+            <Textarea
               id="topic-blurb"
               value={blurb}
               onChange={(e) => setBlurb(e.target.value)}
               placeholder="2–3 sentences of ambiguous context…"
               maxLength={500}
               disabled={saving}
+              rows={4}
               className="border-amber-500/30 bg-background"
             />
           </div>
@@ -335,13 +345,14 @@ export function TopicBankManager({ onBack }: TopicBankManagerProps) {
             <Label htmlFor="topic-arg1" className="text-xs text-muted-foreground">
               Persuasion Argument 1 <span className="text-muted-foreground">(optional)</span>
             </Label>
-            <Input
+            <Textarea
               id="topic-arg1"
               value={moleArg1}
               onChange={(e) => setMoleArg1(e.target.value)}
               placeholder="e.g. Argue that the desert spans both countries…"
               maxLength={300}
               disabled={saving}
+              rows={3}
               className="bg-background"
             />
             <p className="text-[10px] text-muted-foreground">
@@ -352,13 +363,14 @@ export function TopicBankManager({ onBack }: TopicBankManagerProps) {
             <Label htmlFor="topic-arg2" className="text-xs text-muted-foreground">
               Persuasion Argument 2 <span className="text-muted-foreground">(optional)</span>
             </Label>
-            <Input
+            <Textarea
               id="topic-arg2"
               value={moleArg2}
               onChange={(e) => setMoleArg2(e.target.value)}
               placeholder="e.g. Point out the disputed border history…"
               maxLength={300}
               disabled={saving}
+              rows={3}
               className="bg-background"
             />
             <p className="text-[10px] text-muted-foreground">
@@ -369,13 +381,14 @@ export function TopicBankManager({ onBack }: TopicBankManagerProps) {
             <Label htmlFor="topic-arg3" className="text-xs text-muted-foreground">
               Persuasion Argument 3 <span className="text-muted-foreground">(optional)</span>
             </Label>
-            <Input
+            <Textarea
               id="topic-arg3"
               value={moleArg3}
               onChange={(e) => setMoleArg3(e.target.value)}
               placeholder="e.g. Mention how the climate varies by region…"
               maxLength={300}
               disabled={saving}
+              rows={3}
               className="bg-background"
             />
             <p className="text-[10px] text-muted-foreground">
@@ -489,6 +502,24 @@ export function TopicBankManager({ onBack }: TopicBankManagerProps) {
               <option value="a">Option A</option>
               <option value="b">Option B</option>
             </select>
+          </div>
+          <div className="space-y-1.5">
+            <Label htmlFor="topic-correct-why" className="text-xs text-muted-foreground">
+              Why this is correct <span className="text-muted-foreground">(host only)</span>
+            </Label>
+            <Textarea
+              id="topic-correct-why"
+              value={correctAnswerWhy}
+              onChange={(e) => setCorrectAnswerWhy(e.target.value)}
+              placeholder={`Cite the specific line from the blurb that proves the correct answer — e.g. "The blurb says X, which means Y."`}
+              maxLength={500}
+              disabled={saving}
+              rows={3}
+              className="bg-background"
+            />
+            <p className="text-[10px] text-muted-foreground">
+              Players never see this. Used by the host during the reveal.
+            </p>
           </div>
           <Button
             variant="outline"
@@ -651,7 +682,7 @@ export function TopicBankManager({ onBack }: TopicBankManagerProps) {
                 <Label htmlFor="edit-blurb" className="text-xs">
                   Blurb
                 </Label>
-                <Input
+                <Textarea
                   id="edit-blurb"
                   value={editingTopic.blurb}
                   onChange={(e) =>
@@ -659,13 +690,14 @@ export function TopicBankManager({ onBack }: TopicBankManagerProps) {
                   }
                   maxLength={500}
                   disabled={saving}
+                  rows={4}
                 />
               </div>
               <div className="space-y-1.5">
                 <Label htmlFor="edit-arg1" className="text-xs text-muted-foreground">
                   Persuasion Argument 1 (optional)
                 </Label>
-                <Input
+                <Textarea
                   id="edit-arg1"
                   value={editingTopic.mole_argument_1 ?? ''}
                   onChange={(e) =>
@@ -677,6 +709,7 @@ export function TopicBankManager({ onBack }: TopicBankManagerProps) {
                   placeholder="e.g. Argue that the desert spans both countries…"
                   maxLength={300}
                   disabled={saving || editUploading}
+                  rows={3}
                 />
                 <p className="text-[10px] text-muted-foreground">
                   Shown exclusively to Mole 1 during the discuss phase.
@@ -686,7 +719,7 @@ export function TopicBankManager({ onBack }: TopicBankManagerProps) {
                 <Label htmlFor="edit-arg2" className="text-xs text-muted-foreground">
                   Persuasion Argument 2 (optional)
                 </Label>
-                <Input
+                <Textarea
                   id="edit-arg2"
                   value={editingTopic.mole_argument_2 ?? ''}
                   onChange={(e) =>
@@ -698,6 +731,7 @@ export function TopicBankManager({ onBack }: TopicBankManagerProps) {
                   placeholder="e.g. Point out the disputed border history…"
                   maxLength={300}
                   disabled={saving || editUploading}
+                  rows={3}
                 />
                 <p className="text-[10px] text-muted-foreground">
                   Shown exclusively to Mole 2 during the discuss phase.
@@ -707,7 +741,7 @@ export function TopicBankManager({ onBack }: TopicBankManagerProps) {
                 <Label htmlFor="edit-arg3" className="text-xs text-muted-foreground">
                   Persuasion Argument 3 (optional)
                 </Label>
-                <Input
+                <Textarea
                   id="edit-arg3"
                   value={editingTopic.mole_argument_3 ?? ''}
                   onChange={(e) =>
@@ -719,6 +753,7 @@ export function TopicBankManager({ onBack }: TopicBankManagerProps) {
                   placeholder="e.g. Mention how the climate varies by region…"
                   maxLength={300}
                   disabled={saving || editUploading}
+                  rows={3}
                 />
                 <p className="text-[10px] text-muted-foreground">
                   Shown exclusively to Mole 3 during the discuss phase.
@@ -864,6 +899,28 @@ export function TopicBankManager({ onBack }: TopicBankManagerProps) {
                   <option value="a">Option A</option>
                   <option value="b">Option B</option>
                 </select>
+              </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="edit-correct-why" className="text-xs text-muted-foreground">
+                  Why this is correct <span className="text-muted-foreground">(host only)</span>
+                </Label>
+                <Textarea
+                  id="edit-correct-why"
+                  value={editingTopic.correct_answer_why ?? ''}
+                  onChange={(e) =>
+                    setEditingTopic({
+                      ...editingTopic,
+                      correct_answer_why: e.target.value || null,
+                    })
+                  }
+                  placeholder={`Cite the specific line from the blurb that proves the correct answer — e.g. "The blurb says X, which means Y."`}
+                  maxLength={500}
+                  disabled={saving || editUploading}
+                  rows={3}
+                />
+                <p className="text-[10px] text-muted-foreground">
+                  Players never see this. Used by the host during the reveal.
+                </p>
               </div>
               <div className="flex gap-3">
                 <Button

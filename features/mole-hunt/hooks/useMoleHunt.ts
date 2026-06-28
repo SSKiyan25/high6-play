@@ -1,7 +1,8 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { pusherClient } from '@/lib/pusher/client'
+import { createClient } from '@/lib/supabase/client'
 import type { MolePhase, MoleRole, MoleTopic, MyRoleResponse } from '../types'
 
 interface UseMoleHuntOptions {
@@ -25,6 +26,10 @@ export interface UseMoleHuntState {
   scoresUpdated: boolean
   /** True when the game has ended (no more rounds). */
   isGameOver: boolean
+  /** Countdown timer — seconds remaining in current phase. */
+  timeLeft: number
+  /** Total seconds for the current phase's timer. */
+  timerTotal: number
   submitVote: (choice: 'a' | 'b') => Promise<void>
   loading: boolean
   error: string | null
@@ -61,6 +66,12 @@ export function useMoleHunt({
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
+  // ── Timer state ──────────────────────────────────────────────────────
+  const [timeLeft, setTimeLeft] = useState(0)
+  const [timerTotal, setTimerTotal] = useState(0)
+  const timerIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const voteTimerSecondsRef = useRef(30)
+
   // ── Fetch my role from API ──────────────────────────────────────────
   const fetchMyRole = useCallback(
     async (roundId: string) => {
@@ -89,6 +100,56 @@ export function useMoleHunt({
     [playerId],
   )
 
+  // ── Initial state fetch (handles page reloads) ────────────────────
+  useEffect(() => {
+    if (!roomCode || !playerId) return
+
+    const init = async () => {
+      try {
+        const supabase = createClient()
+
+        // Look up room by code to get roomId
+        const { data: room } = await supabase
+          .from('rooms')
+          .select('id')
+          .eq('code', roomCode)
+          .single()
+
+        if (!room) return
+
+        // Look up current round for this room
+        const { data: round } = await supabase
+          .from('mole_rounds')
+          .select('id, round_number, phase, discuss_timer_seconds, vote_timer_seconds')
+          .eq('room_id', room.id)
+          .order('round_number', { ascending: false })
+          .limit(1)
+          .maybeSingle()
+
+        if (round) {
+          setCurrentRoundId(round.id)
+          setCurrentRoundNumber(round.round_number)
+          setCurrentPhase(round.phase as MolePhase)
+          voteTimerSecondsRef.current = round.vote_timer_seconds ?? 30
+          const activeTimer =
+            round.phase === 'discuss'
+              ? round.discuss_timer_seconds ?? 60
+              : round.phase === 'vote'
+                ? round.vote_timer_seconds ?? 30
+                : 0
+          if (activeTimer > 0) {
+            setTimerTotal(activeTimer)
+            setTimeLeft(activeTimer)
+          }
+          fetchMyRole(round.id)
+        }
+      } catch {
+        // If no round exists yet, Pusher will handle it when the game starts
+      }
+    }
+    init()
+  }, [roomCode, playerId, fetchMyRole])
+
   // ── Pusher subscription ─────────────────────────────────────────────
   useEffect(() => {
     if (!roomCode) return
@@ -102,12 +163,20 @@ export function useMoleHunt({
         roundId: string
         phase: MolePhase
         topicId: string
+        discussTimerSeconds?: number
+        voteTimerSeconds?: number
       }) => {
         setCurrentRoundId(data.roundId)
         setCurrentRoundNumber(data.roundNumber)
         setCurrentPhase(data.phase)
         setVoteProgress(null)
         setScoresUpdated(false)
+        // Start discuss countdown
+        if (data.discussTimerSeconds) {
+          setTimerTotal(data.discussTimerSeconds)
+          setTimeLeft(data.discussTimerSeconds)
+        }
+        voteTimerSecondsRef.current = data.voteTimerSeconds ?? 30
         // Fetch own role independently — never from Pusher
         fetchMyRole(data.roundId)
       },
@@ -117,6 +186,13 @@ export function useMoleHunt({
       'phase-advanced',
       (data: { roundId: string; phase: MolePhase }) => {
         setCurrentPhase(data.phase)
+        // Transition timer: discuss → vote (start vote countdown)
+        if (data.phase === 'vote') {
+          const vt = voteTimerSecondsRef.current
+          setTimerTotal(vt)
+          setTimeLeft(vt)
+        }
+        // Transition to reveal/assigning — stop timer (handled in countdown effect)
       },
     )
 
@@ -147,6 +223,39 @@ export function useMoleHunt({
       pusherClient.unsubscribe(`room-${roomCode}-game`)
     }
   }, [roomCode, fetchMyRole])
+
+  // ── Timer countdown ──────────────────────────────────────────────────
+  useEffect(() => {
+    const phase = currentPhase
+    if (phase !== 'discuss' && phase !== 'vote') {
+      if (timerIntervalRef.current) {
+        clearInterval(timerIntervalRef.current)
+        timerIntervalRef.current = null
+      }
+      return
+    }
+
+    timerIntervalRef.current = setInterval(() => {
+      setTimeLeft((prev) => {
+        const next = prev - 1
+        if (next <= 0) {
+          if (timerIntervalRef.current) {
+            clearInterval(timerIntervalRef.current)
+            timerIntervalRef.current = null
+          }
+          return 0
+        }
+        return next
+      })
+    }, 1000)
+
+    return () => {
+      if (timerIntervalRef.current) {
+        clearInterval(timerIntervalRef.current)
+        timerIntervalRef.current = null
+      }
+    }
+  }, [currentPhase, currentRoundId])
 
   // ── Submit vote ─────────────────────────────────────────────────────
   const submitVote = useCallback(
@@ -185,6 +294,8 @@ export function useMoleHunt({
     voteProgress,
     scoresUpdated,
     isGameOver,
+    timeLeft,
+    timerTotal,
     submitVote,
     loading,
     error,

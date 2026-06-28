@@ -1,8 +1,9 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useParams } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
 import { PlayerView } from '@/features/mole-hunt/components/PlayerView'
+import { createClient } from '@/lib/supabase/client'
 import { Loader2 } from 'lucide-react'
 
 interface PlayerIdentity {
@@ -13,6 +14,7 @@ interface PlayerIdentity {
 export default function MoleHuntPlayPage() {
   const params = useParams<{ code: string }>()
   const code = params?.code ?? ''
+  const router = useRouter()
 
   const [identity, setIdentity] = useState<PlayerIdentity | null>(null)
   const [loading, setLoading] = useState(true)
@@ -40,6 +42,30 @@ export default function MoleHuntPlayPage() {
     setIdentity(parsed)
     setLoading(false)
   }, [code])
+
+  // Check if room is already ended on mount (e.g. player refreshed after game end)
+  useEffect(() => {
+    if (!code || !identity) return
+
+    const checkRoomStatus = async () => {
+      try {
+        const supabase = createClient()
+        const { data: room } = await supabase
+          .from('rooms')
+          .select('status')
+          .eq('code', code)
+          .single()
+
+        if (room?.status === 'ended') {
+          router.push(`/play/${code}/mh-results`)
+        }
+      } catch {
+        // Silently handle — Pusher event will redirect when game ends
+      }
+    }
+
+    checkRoomStatus()
+  }, [code, identity, router])
 
   // ── Loading ───────────────────────────────────────────────────────
   if (loading) {
@@ -69,5 +95,5 @@ export default function MoleHuntPlayPage() {
   // ── Game ──────────────────────────────────────────────────────────
   if (!identity) return null
 
-  return <PlayerView roomCode={code} playerId={identity.playerId} />
+  return <PlayerView roomCode={code} playerId={identity.playerId} playerNickname={identity.nickname} />
 }

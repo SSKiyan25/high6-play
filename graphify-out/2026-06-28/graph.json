@@ -655,7 +655,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "advance_phase_route",
-      "community": 3,
+      "community": 1,
       "norm_label": "route.ts"
     },
     {
@@ -665,7 +665,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "advance_phase_route_post",
-      "community": 3,
+      "community": 1,
       "norm_label": "post()"
     },
     {
@@ -675,7 +675,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "canary_deduct_route",
-      "community": 3,
+      "community": 1,
       "norm_label": "route.ts"
     },
     {
@@ -685,7 +685,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "canary_deduct_route_post",
-      "community": 3,
+      "community": 1,
       "norm_label": "post()"
     },
     {
@@ -735,7 +735,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "next_round_route",
-      "community": 3,
+      "community": 1,
       "norm_label": "route.ts"
     },
     {
@@ -745,7 +745,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "next_round_route_post",
-      "community": 3,
+      "community": 1,
       "norm_label": "post()"
     },
     {
@@ -755,7 +755,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "player_results_route",
-      "community": 3,
+      "community": 1,
       "norm_label": "route.ts"
     },
     {
@@ -765,7 +765,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "player_results_route_get",
-      "community": 3,
+      "community": 1,
       "norm_label": "get()"
     },
     {
@@ -775,7 +775,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "score_route",
-      "community": 3,
+      "community": 1,
       "norm_label": "route.ts"
     },
     {
@@ -785,7 +785,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "score_route_post",
-      "community": 3,
+      "community": 1,
       "norm_label": "post()"
     },
     {
@@ -795,7 +795,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_api_games_mole_hunt_start_route_ts_start_route",
-      "community": 3,
+      "community": 1,
       "norm_label": "route.ts"
     },
     {
@@ -805,7 +805,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "app_api_games_mole_hunt_start_route_ts_start_route_post",
-      "community": 3,
+      "community": 1,
       "norm_label": "post()"
     },
     {
@@ -945,7 +945,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_api_games_this_or_that_end_route_ts_end_route",
-      "community": 1,
+      "community": 6,
       "norm_label": "route.ts"
     },
     {
@@ -955,7 +955,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "app_api_games_this_or_that_end_route_ts_end_route_post",
-      "community": 1,
+      "community": 6,
       "norm_label": "post()"
     },
     {
@@ -1085,7 +1085,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "rooms_route",
-      "community": 6,
+      "community": 5,
       "norm_label": "route.ts"
     },
     {
@@ -1095,7 +1095,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "rooms_route_valid_game_types",
-      "community": 6,
+      "community": 5,
       "norm_label": "valid_game_types"
     },
     {
@@ -1105,7 +1105,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "rooms_route_post",
-      "community": 6,
+      "community": 5,
       "norm_label": "post()"
     },
     {
@@ -1115,7 +1115,7 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "rooms_route_get",
-      "community": 6,
+      "community": 5,
       "norm_label": "get()"
     },
     {
@@ -1145,7 +1145,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "confirm_route",
-      "community": 3,
+      "community": 1,
       "norm_label": "route.ts"
     },
     {
@@ -1155,7 +1155,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "confirm_route_get",
-      "community": 3,
+      "community": 1,
       "norm_label": "get()"
     },
     {
@@ -1385,7 +1385,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_host_code_mh_results_page_tsx_mh_results_page",
-      "community": 6,
+      "community": 5,
       "norm_label": "page.tsx"
     },
     {
@@ -1395,7 +1395,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "mh_results_page_mhresultspageprops",
-      "community": 6,
+      "community": 5,
       "norm_label": "mhresultspageprops"
     },
     {
@@ -1405,7 +1405,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "mh_results_page_mhresultspage",
-      "community": 6,
+      "community": 5,
       "norm_label": "mhresultspage()"
     },
     {
@@ -1415,7 +1415,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "mole_control_page",
-      "community": 3,
+      "community": 1,
       "norm_label": "page.tsx"
     },
     {
@@ -1425,7 +1425,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "mole_control_page_molecontrolpageprops",
-      "community": 3,
+      "community": 1,
       "norm_label": "molecontrolpageprops"
     },
     {
@@ -1435,7 +1435,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "mole_control_page_molecontrolpage",
-      "community": 3,
+      "community": 1,
       "norm_label": "molecontrolpage()"
     },
     {
@@ -1445,7 +1445,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_host_code_page_tsx_code_page",
-      "community": 6,
+      "community": 5,
       "norm_label": "page.tsx"
     },
     {
@@ -1455,7 +1455,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "code_page_hostpageprops",
-      "community": 6,
+      "community": 5,
       "norm_label": "hostpageprops"
     },
     {
@@ -1465,7 +1465,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "code_page_hostpage",
-      "community": 6,
+      "community": 5,
       "norm_label": "hostpage()"
     },
     {
@@ -1685,7 +1685,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_play_code_mh_results_page_tsx_mh_results_page",
-      "community": 0,
+      "community": 44,
       "norm_label": "page.tsx"
     },
     {
@@ -1695,7 +1695,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "mh_results_page_playeridentity",
-      "community": 0,
+      "community": 44,
       "norm_label": "playeridentity"
     },
     {
@@ -1705,7 +1705,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "mh_results_page_playermoleresultspage",
-      "community": 0,
+      "community": 44,
       "norm_label": "playermoleresultspage()"
     },
     {
@@ -1715,7 +1715,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_play_code_page_tsx_code_page",
-      "community": 6,
+      "community": 5,
       "norm_label": "page.tsx"
     },
     {
@@ -1725,7 +1725,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "code_page_playpageprops",
-      "community": 6,
+      "community": 5,
       "norm_label": "playpageprops"
     },
     {
@@ -1735,7 +1735,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "code_page_playpage",
-      "community": 6,
+      "community": 5,
       "norm_label": "playpage()"
     },
     {
@@ -1745,7 +1745,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_play_code_wc_game_page_tsx_wc_game_page",
-      "community": 0,
+      "community": 40,
       "norm_label": "page.tsx"
     },
     {
@@ -1755,7 +1755,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "wc_game_page_playeridentity",
-      "community": 0,
+      "community": 40,
       "norm_label": "playeridentity"
     },
     {
@@ -1765,7 +1765,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "wc_game_page_playwcgamepage",
-      "community": 0,
+      "community": 40,
       "norm_label": "playwcgamepage()"
     },
     {
@@ -1995,7 +1995,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_badge",
-      "community": 0,
+      "community": 44,
       "norm_label": "badge.tsx"
     },
     {
@@ -2005,7 +2005,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "ui_badge_badgevariants",
-      "community": 0,
+      "community": 44,
       "norm_label": "badgevariants"
     },
     {
@@ -2015,7 +2015,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "ui_badge_badgeprops",
-      "community": 0,
+      "community": 44,
       "norm_label": "badgeprops"
     },
     {
@@ -2025,7 +2025,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "ui_badge_badge",
-      "community": 0,
+      "community": 44,
       "norm_label": "badge()"
     },
     {
@@ -2035,7 +2035,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_button",
-      "community": 0,
+      "community": 44,
       "norm_label": "button.tsx"
     },
     {
@@ -2045,7 +2045,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "ui_button_buttonvariants",
-      "community": 0,
+      "community": 44,
       "norm_label": "buttonvariants"
     },
     {
@@ -2055,7 +2055,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "ui_button_button",
-      "community": 0,
+      "community": 44,
       "norm_label": "button()"
     },
     {
@@ -2715,7 +2715,7 @@
       "source_location": "L131",
       "_origin": "ast",
       "id": "mole_hunt_actions_getroomconfig",
-      "community": 3,
+      "community": 1,
       "norm_label": "getroomconfig()"
     },
     {
@@ -2725,7 +2725,7 @@
       "source_location": "L147",
       "_origin": "ast",
       "id": "mole_hunt_actions_saveroomconfig",
-      "community": 6,
+      "community": 5,
       "norm_label": "saveroomconfig()"
     },
     {
@@ -2735,7 +2735,7 @@
       "source_location": "L189",
       "_origin": "ast",
       "id": "mole_hunt_actions_startgame",
-      "community": 3,
+      "community": 1,
       "norm_label": "startgame()"
     },
     {
@@ -2745,7 +2745,7 @@
       "source_location": "L313",
       "_origin": "ast",
       "id": "mole_hunt_actions_advancephase",
-      "community": 3,
+      "community": 1,
       "norm_label": "advancephase()"
     },
     {
@@ -2755,7 +2755,7 @@
       "source_location": "L359",
       "_origin": "ast",
       "id": "mole_hunt_actions_nextround",
-      "community": 3,
+      "community": 1,
       "norm_label": "nextround()"
     },
     {
@@ -2785,7 +2785,7 @@
       "source_location": "L501",
       "_origin": "ast",
       "id": "mole_hunt_actions_calculateandsavescores",
-      "community": 3,
+      "community": 1,
       "norm_label": "calculateandsavescores()"
     },
     {
@@ -2795,7 +2795,7 @@
       "source_location": "L646",
       "_origin": "ast",
       "id": "mole_hunt_actions_deductcanarypoints",
-      "community": 3,
+      "community": 1,
       "norm_label": "deductcanarypoints()"
     },
     {
@@ -2945,7 +2945,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_molehuntpresentation",
-      "community": 3,
+      "community": 44,
       "norm_label": "molehuntpresentation.tsx"
     },
     {
@@ -2965,7 +2965,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "components_molehuntpresentation_revealdata",
-      "community": 3,
+      "community": 44,
       "norm_label": "revealdata"
     },
     {
@@ -2975,7 +2975,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "components_molehuntpresentation_molehuntpresentation",
-      "community": 3,
+      "community": 44,
       "norm_label": "molehuntpresentation()"
     },
     {
@@ -2985,7 +2985,7 @@
       "source_location": "L868",
       "_origin": "ast",
       "id": "components_molehuntpresentation_presentationoptionprops",
-      "community": 3,
+      "community": 44,
       "norm_label": "presentationoptionprops"
     },
     {
@@ -3005,7 +3005,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_molehuntresultsview",
-      "community": 0,
+      "community": 44,
       "norm_label": "molehuntresultsview.tsx"
     },
     {
@@ -3015,7 +3015,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "components_molehuntresultsview_scorerow",
-      "community": 0,
+      "community": 44,
       "norm_label": "scorerow"
     },
     {
@@ -3025,7 +3025,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "components_molehuntresultsview_roundbreakdown",
-      "community": 0,
+      "community": 44,
       "norm_label": "roundbreakdown"
     },
     {
@@ -3035,7 +3035,7 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "components_molehuntresultsview_molehuntresultsviewprops",
-      "community": 0,
+      "community": 44,
       "norm_label": "molehuntresultsviewprops"
     },
     {
@@ -3045,7 +3045,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "components_molehuntresultsview_molehuntresultsview",
-      "community": 6,
+      "community": 5,
       "norm_label": "molehuntresultsview()"
     },
     {
@@ -3065,7 +3065,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "components_molehuntsetup_molehuntsetupprops",
-      "community": 3,
+      "community": 0,
       "norm_label": "molehuntsetupprops"
     },
     {
@@ -3105,7 +3105,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_playermoleresults",
-      "community": 0,
+      "community": 44,
       "norm_label": "playermoleresults.tsx"
     },
     {
@@ -3115,7 +3115,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "components_playermoleresults_playermoleresultsprops",
-      "community": 0,
+      "community": 44,
       "norm_label": "playermoleresultsprops"
     },
     {
@@ -3125,7 +3125,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "components_playermoleresults_playerscoredata",
-      "community": 0,
+      "community": 44,
       "norm_label": "playerscoredata"
     },
     {
@@ -3135,7 +3135,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "components_playermoleresults_playermoleresults",
-      "community": 0,
+      "community": 44,
       "norm_label": "playermoleresults()"
     },
     {
@@ -3145,7 +3145,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "features_mole_hunt_components_playerview_tsx_components_playerview",
-      "community": 44,
+      "community": 3,
       "norm_label": "playerview.tsx"
     },
     {
@@ -3155,7 +3155,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "features_mole_hunt_components_playerview_tsx_components_playerview_playerviewprops",
-      "community": 44,
+      "community": 3,
       "norm_label": "playerviewprops"
     },
     {
@@ -3165,67 +3165,47 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "features_mole_hunt_components_playerview_tsx_components_playerview_playerview",
-      "community": 44,
+      "community": 3,
       "norm_label": "playerview()"
-    },
-    {
-      "label": "RevealOutcome",
-      "file_type": "code",
-      "source_file": "features/mole-hunt/components/PlayerView.tsx",
-      "source_location": "L584",
-      "_origin": "ast",
-      "id": "components_playerview_revealoutcome",
-      "community": 44,
-      "norm_label": "revealoutcome"
-    },
-    {
-      "label": "getRevealOutcome()",
-      "file_type": "code",
-      "source_file": "features/mole-hunt/components/PlayerView.tsx",
-      "source_location": "L590",
-      "_origin": "ast",
-      "id": "components_playerview_getrevealoutcome",
-      "community": 44,
-      "norm_label": "getrevealoutcome()"
     },
     {
       "label": "OutcomeToast",
       "file_type": "code",
       "source_file": "features/mole-hunt/components/PlayerView.tsx",
-      "source_location": "L637",
+      "source_location": "L592",
       "_origin": "ast",
       "id": "components_playerview_outcometoast",
-      "community": 44,
+      "community": 3,
       "norm_label": "outcometoast"
     },
     {
       "label": "getOutcomePhrase()",
       "file_type": "code",
       "source_file": "features/mole-hunt/components/PlayerView.tsx",
-      "source_location": "L642",
+      "source_location": "L597",
       "_origin": "ast",
       "id": "components_playerview_getoutcomephrase",
-      "community": 44,
+      "community": 3,
       "norm_label": "getoutcomephrase()"
     },
     {
       "label": "OptionCardProps",
       "file_type": "code",
       "source_file": "features/mole-hunt/components/PlayerView.tsx",
-      "source_location": "L674",
+      "source_location": "L627",
       "_origin": "ast",
       "id": "components_playerview_optioncardprops",
-      "community": 44,
+      "community": 3,
       "norm_label": "optioncardprops"
     },
     {
       "label": "OptionCard()",
       "file_type": "code",
       "source_file": "features/mole-hunt/components/PlayerView.tsx",
-      "source_location": "L687",
+      "source_location": "L640",
       "_origin": "ast",
       "id": "components_playerview_optioncard",
-      "community": 44,
+      "community": 3,
       "norm_label": "optioncard()"
     },
     {
@@ -3295,7 +3275,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "hooks_usemolehunt_usemolehunt",
-      "community": 44,
+      "community": 3,
       "norm_label": "usemolehunt()"
     },
     {
@@ -3415,7 +3395,7 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "mole_hunt_types_moleroomconfiginput",
-      "community": 3,
+      "community": 0,
       "norm_label": "moleroomconfiginput"
     },
     {
@@ -3485,7 +3465,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "rooms_actions",
-      "community": 6,
+      "community": 5,
       "norm_label": "actions.ts"
     },
     {
@@ -3495,7 +3475,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "rooms_actions_generateroomcode",
-      "community": 6,
+      "community": 5,
       "norm_label": "generateroomcode()"
     },
     {
@@ -3505,7 +3485,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "rooms_actions_createroom",
-      "community": 6,
+      "community": 5,
       "norm_label": "createroom()"
     },
     {
@@ -3525,7 +3505,7 @@
       "source_location": "L109",
       "_origin": "ast",
       "id": "rooms_actions_getroom",
-      "community": 6,
+      "community": 5,
       "norm_label": "getroom()"
     },
     {
@@ -3595,7 +3575,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_hostlobby",
-      "community": 0,
+      "community": 44,
       "norm_label": "hostlobby.tsx"
     },
     {
@@ -3605,7 +3585,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "components_hostlobby_hostlobbyprops",
-      "community": 0,
+      "community": 5,
       "norm_label": "hostlobbyprops"
     },
     {
@@ -3615,7 +3595,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "components_hostlobby_game_labels",
-      "community": 0,
+      "community": 44,
       "norm_label": "game_labels"
     },
     {
@@ -3625,7 +3605,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "components_hostlobby_hostlobby",
-      "community": 0,
+      "community": 5,
       "norm_label": "hostlobby()"
     },
     {
@@ -3675,7 +3655,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_playerlobby",
-      "community": 0,
+      "community": 5,
       "norm_label": "playerlobby.tsx"
     },
     {
@@ -3685,7 +3665,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "components_playerlobby_playerlobbyprops",
-      "community": 0,
+      "community": 5,
       "norm_label": "playerlobbyprops"
     },
     {
@@ -3695,7 +3675,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "components_playerlobby_game_labels",
-      "community": 0,
+      "community": 5,
       "norm_label": "game_labels"
     },
     {
@@ -3705,7 +3685,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "components_playerlobby_playerlobby",
-      "community": 0,
+      "community": 5,
       "norm_label": "playerlobby()"
     },
     {
@@ -3715,7 +3695,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_playerlobbygate",
-      "community": 0,
+      "community": 5,
       "norm_label": "playerlobbygate.tsx"
     },
     {
@@ -3725,7 +3705,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "components_playerlobbygate_playerlobbygate",
-      "community": 6,
+      "community": 5,
       "norm_label": "playerlobbygate()"
     },
     {
@@ -3735,7 +3715,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "hooks_useroom",
-      "community": 0,
+      "community": 5,
       "norm_label": "useroom.ts"
     },
     {
@@ -3745,7 +3725,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "hooks_useroom_useroom",
-      "community": 0,
+      "community": 5,
       "norm_label": "useroom()"
     },
     {
@@ -3755,7 +3735,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "hooks_useroomplayers",
-      "community": 0,
+      "community": 5,
       "norm_label": "useroomplayers.ts"
     },
     {
@@ -3765,7 +3745,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "hooks_useroomplayers_useroomplayersoptions",
-      "community": 0,
+      "community": 5,
       "norm_label": "useroomplayersoptions"
     },
     {
@@ -3775,7 +3755,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "hooks_useroomplayers_useroomplayers",
-      "community": 0,
+      "community": 5,
       "norm_label": "useroomplayers()"
     },
     {
@@ -3785,7 +3765,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "rooms_types",
-      "community": 0,
+      "community": 5,
       "norm_label": "types.ts"
     },
     {
@@ -3795,7 +3775,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "rooms_types_gametype",
-      "community": 0,
+      "community": 5,
       "norm_label": "gametype"
     },
     {
@@ -3805,7 +3785,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "rooms_types_roomstatus",
-      "community": 0,
+      "community": 5,
       "norm_label": "roomstatus"
     },
     {
@@ -3825,7 +3805,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "rooms_types_player",
-      "community": 0,
+      "community": 5,
       "norm_label": "player"
     },
     {
@@ -3835,7 +3815,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "rooms_types_roomwithplayers",
-      "community": 0,
+      "community": 5,
       "norm_label": "roomwithplayers"
     },
     {
@@ -3865,7 +3845,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "this_or_that_actions_savetoquestionbank",
-      "community": 6,
+      "community": 5,
       "norm_label": "savetoquestionbank()"
     },
     {
@@ -3875,7 +3855,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "this_or_that_actions_seedroomquestions",
-      "community": 6,
+      "community": 5,
       "norm_label": "seedroomquestions()"
     },
     {
@@ -3935,7 +3915,7 @@
       "source_location": "L254",
       "_origin": "ast",
       "id": "this_or_that_actions_endgame",
-      "community": 1,
+      "community": 6,
       "norm_label": "endgame()"
     },
     {
@@ -4025,7 +4005,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "components_questionsetup_questionsetupprops",
-      "community": 6,
+      "community": 5,
       "norm_label": "questionsetupprops"
     },
     {
@@ -4035,7 +4015,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "components_questionsetup_bankitem",
-      "community": 6,
+      "community": 0,
       "norm_label": "bankitem"
     },
     {
@@ -4205,7 +4185,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "this_or_that_types_totquestionbank",
-      "community": 6,
+      "community": 0,
       "norm_label": "totquestionbank"
     },
     {
@@ -4215,7 +4195,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "this_or_that_types_totquestioninput",
-      "community": 6,
+      "community": 5,
       "norm_label": "totquestioninput"
     },
     {
@@ -4355,7 +4335,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_hostwcview",
-      "community": 40,
+      "community": 44,
       "norm_label": "hostwcview.tsx"
     },
     {
@@ -4375,7 +4355,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "components_hostwcview_usehosttimer",
-      "community": 40,
+      "community": 44,
       "norm_label": "usehosttimer()"
     },
     {
@@ -4385,7 +4365,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "components_hostwcview_hostwcview",
-      "community": 40,
+      "community": 44,
       "norm_label": "hostwcview()"
     },
     {
@@ -4395,7 +4375,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_playerwcview",
-      "community": 0,
+      "community": 44,
       "norm_label": "playerwcview.tsx"
     },
     {
@@ -4415,7 +4395,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "components_playerwcview_playerwcview",
-      "community": 0,
+      "community": 44,
       "norm_label": "playerwcview()"
     },
     {
@@ -4465,7 +4445,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "hooks_useturntimer",
-      "community": 0,
+      "community": 44,
       "norm_label": "useturntimer.ts"
     },
     {
@@ -4475,7 +4455,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "hooks_useturntimer_useturntimeroptions",
-      "community": 0,
+      "community": 44,
       "norm_label": "useturntimeroptions"
     },
     {
@@ -4485,7 +4465,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "hooks_useturntimer_useturntimerreturn",
-      "community": 0,
+      "community": 44,
       "norm_label": "useturntimerreturn"
     },
     {
@@ -4495,7 +4475,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "hooks_useturntimer_useturntimer",
-      "community": 0,
+      "community": 44,
       "norm_label": "useturntimer()"
     },
     {
@@ -4535,7 +4515,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "hooks_usewordchain_usewordchain",
-      "community": 40,
+      "community": 44,
       "norm_label": "usewordchain()"
     },
     {
@@ -4615,7 +4595,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "pusher_client",
-      "community": 3,
+      "community": 6,
       "norm_label": "client.ts"
     },
     {
@@ -4625,7 +4605,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "pusher_client_getclient",
-      "community": 3,
+      "community": 6,
       "norm_label": "getclient()"
     },
     {
@@ -4635,7 +4615,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "pusher_client_pusherclient",
-      "community": 3,
+      "community": 6,
       "norm_label": "pusherclient"
     },
     {
@@ -4735,7 +4715,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "supabase_server",
-      "community": 3,
+      "community": 1,
       "norm_label": "server.ts"
     },
     {
@@ -4745,7 +4725,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "supabase_server_createclient",
-      "community": 3,
+      "community": 1,
       "norm_label": "createclient()"
     },
     {
@@ -4775,7 +4755,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_utils",
-      "community": 0,
+      "community": 44,
       "norm_label": "utils.ts"
     },
     {
@@ -16397,16 +16377,6 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "features/mole-hunt/components/PlayerView.tsx",
-      "source_location": "L590",
-      "weight": 1.0,
-      "source": "features_mole_hunt_components_playerview_tsx_components_playerview",
-      "target": "components_playerview_getrevealoutcome",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "features/mole-hunt/components/PlayerView.tsx",
       "source_location": "L366",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -16432,16 +16402,6 @@
       "confidence_score": 1.0,
       "source": "features_mole_hunt_components_playerview_tsx_components_playerview",
       "target": "components_playerview_outcometoast"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "features/mole-hunt/components/PlayerView.tsx",
-      "source_location": "L584",
-      "weight": 1.0,
-      "source": "features_mole_hunt_components_playerview_tsx_components_playerview",
-      "target": "components_playerview_revealoutcome",
-      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -16572,17 +16532,6 @@
       "confidence_score": 1.0,
       "source": "features_mole_hunt_components_playerview_tsx_components_playerview",
       "target": "supabase_storage_gettopicimageurl"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "features/mole-hunt/components/PlayerView.tsx",
-      "source_location": "L232",
-      "weight": 1.0,
-      "source": "features_mole_hunt_components_playerview_tsx_components_playerview_playerview",
-      "target": "components_playerview_getrevealoutcome",
-      "confidence_score": 1.0
     },
     {
       "relation": "calls",

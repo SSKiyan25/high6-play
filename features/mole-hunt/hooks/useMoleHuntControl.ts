@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import { pusherClient } from '@/lib/pusher/client'
+import { getCurrentRound } from '../actions'
 import type {
   MolePhase,
   MoleRole,
@@ -40,6 +41,7 @@ export interface UseMoleHuntControlState {
   players: ControlPlayer[]
   voteProgress: { votedCount: number; totalPlayers: number }
   advancePhase: () => Promise<void>
+  nextRound: () => Promise<void>
   deductCanaryPoints: (playerId: string) => Promise<void>
   endGame: () => Promise<void>
   loading: boolean
@@ -105,6 +107,24 @@ export function useMoleHuntControl({
       setLoading(false)
     }
   }, [])
+
+  // ── Initial state fetch (handles page reloads) ────────────────────
+  useEffect(() => {
+    if (!roomId) return
+
+    const init = async () => {
+      try {
+        const round = await getCurrentRound(roomId)
+        if (round?.id) {
+          setCurrentPhase((round.phase as MolePhase) ?? 'discuss')
+          fetchControlData(round.id)
+        }
+      } catch {
+        // If no round exists yet, Pusher will handle it when the game starts
+      }
+    }
+    init()
+  }, [roomId, fetchControlData])
 
   // ── Pusher subscription ───────────────────────────────────────────
   useEffect(() => {
@@ -176,6 +196,15 @@ export function useMoleHuntControl({
     })
   }, [currentRound?.id, roomCode])
 
+  // ── Next Round ────────────────────────────────────────────────────
+  const nextRoundFn = useCallback(async () => {
+    await fetch('/api/games/mole-hunt/next-round', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ room_code: roomCode }),
+    })
+  }, [roomCode])
+
   // ── Deduct Canary Points ──────────────────────────────────────────
   const deductCanaryPointsFn = useCallback(
     async (playerId: string) => {
@@ -211,6 +240,7 @@ export function useMoleHuntControl({
     players,
     voteProgress,
     advancePhase,
+    nextRound: nextRoundFn,
     deductCanaryPoints: deductCanaryPointsFn,
     endGame,
     loading,

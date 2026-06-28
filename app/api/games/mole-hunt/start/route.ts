@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { startGame } from '@/features/mole-hunt/actions'
 import { triggerGameEvent, triggerRoomEvent } from '@/lib/pusher/trigger'
+import type { SupabaseClient } from '@supabase/supabase-js'
 
 /**
  * POST — start a Mole Hunt game (host only).
@@ -56,8 +57,13 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Start the game — all validation + round creation happens in actions
-    const result = await startGame(room.id, user.id)
+    // Start the game — pass the server Supabase client so all DB ops use
+    // the correct session (avoids createBrowserClient issues in API routes)
+    const result = await startGame(
+      room.id,
+      user.id,
+      supabase as unknown as SupabaseClient,
+    )
 
     // Update room status to active
     const { error: updateError } = await supabase
@@ -78,6 +84,8 @@ export async function POST(request: NextRequest) {
       roundId: result.round.id,
       phase: 'discuss',
       topicId: result.round.topic_id,
+      discussTimerSeconds: result.round.discuss_timer_seconds,
+      voteTimerSeconds: result.round.vote_timer_seconds,
     })
 
     return NextResponse.json({
@@ -88,12 +96,15 @@ export async function POST(request: NextRequest) {
       totalRounds: result.totalRounds,
     })
   } catch (error) {
+    // Log the full error server-side so you can see it in the terminal
+    console.error('mole-hunt start error:', error)
     const message =
-      error instanceof Error ? error.message : 'Failed to start game'
-    const status = message.includes('must be less than') ||
-      message.includes('Not enough topics')
-      ? 400
-      : 400
+      error instanceof Error
+        ? error.message
+        : typeof error === 'string'
+          ? error
+          : 'Unknown error — check server logs'
+    const status = 400
     return NextResponse.json({ error: message }, { status })
   }
 }
