@@ -5,7 +5,7 @@ import { PlayerLobby } from './PlayerLobby'
 import type { RoomWithPlayers } from '../types'
 
 export function PlayerLobbyGate({ room }: { room: RoomWithPlayers }) {
-  const [nickname, setNickname] = useState<string | null>(null)
+  const [playerData, setPlayerData] = useState<{ nickname: string; playerId: string } | null>(null)
   const [checked, setChecked] = useState(false)
 
   useEffect(() => {
@@ -13,7 +13,9 @@ export function PlayerLobbyGate({ room }: { room: RoomWithPlayers }) {
     if (stored) {
       try {
         const parsed = JSON.parse(stored)
-        setNickname(parsed.nickname || null)
+        if (parsed.nickname) {
+          setPlayerData({ nickname: parsed.nickname, playerId: parsed.playerId || '' })
+        }
       } catch {
         // Invalid stored data
       }
@@ -29,7 +31,7 @@ export function PlayerLobbyGate({ room }: { room: RoomWithPlayers }) {
     )
   }
 
-  if (!nickname) {
+  if (!playerData) {
     return (
       <div className="flex min-h-svh flex-col items-center justify-center gap-4 p-4">
         <p className="text-muted-foreground">No player session found.</p>
@@ -43,5 +45,5 @@ export function PlayerLobbyGate({ room }: { room: RoomWithPlayers }) {
     )
   }
 
-  return <PlayerLobby room={room} playerNickname={nickname} />
+  return <PlayerLobby room={room} playerNickname={playerData.nickname} playerId={playerData.playerId} />
 }

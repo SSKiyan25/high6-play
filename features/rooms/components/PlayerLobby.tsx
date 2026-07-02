@@ -14,6 +14,7 @@ import { createClient } from '@/lib/supabase/client'
 interface PlayerLobbyProps {
   room: RoomWithPlayers
   playerNickname: string
+  playerId: string
 }
 
 const GAME_LABELS: Record<GameType, string> = {
@@ -22,7 +23,7 @@ const GAME_LABELS: Record<GameType, string> = {
   'mole-hunt': 'Mole Hunt',
 }
 
-export function PlayerLobby({ room, playerNickname }: PlayerLobbyProps) {
+export function PlayerLobby({ room, playerNickname, playerId }: PlayerLobbyProps) {
   const router = useRouter()
   const [rulesOpen, setRulesOpen] = useState(false)
   const [wcRulesOpen, setWcRulesOpen] = useState(false)
@@ -46,6 +47,12 @@ export function PlayerLobby({ room, playerNickname }: PlayerLobbyProps) {
         : gameType === 'mole-hunt' ? 'mh-game'
         : 'game'
       router.push(`/play/${room.code}/${gamePath}`)
+    },
+    onPlayerRemoved: (removedPlayerId: string) => {
+      if (removedPlayerId === playerId) {
+        localStorage.removeItem('h6p_player')
+        router.push('/')
+      }
     },
   })
 

@@ -5,6 +5,14 @@ import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog'
 import { Users, DoorClosed, Play, Copy, Check, Loader2, ChevronDown, ChevronUp, BookOpen, UserMinus } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useRoomPlayers } from '../hooks/useRoomPlayers'
@@ -30,6 +38,7 @@ export function HostLobby({ room }: HostLobbyProps) {
   const [startError, setStartError] = useState<string | null>(null)
   const [rulesOpen, setRulesOpen] = useState(false)
   const [wcRulesOpen, setWcRulesOpen] = useState(false)
+  const [removeTarget, setRemoveTarget] = useState<{ id: string; nickname: string } | null>(null)
 
   // Mole Hunt config + validation state
   const [mhConfig, setMhConfig] = useState<MoleRoomConfig | null>(null)
@@ -164,15 +173,22 @@ export function HostLobby({ room }: HostLobbyProps) {
     setTimeout(() => setCopied(false), 2000)
   }
 
-  async function handleRemovePlayer(playerId: string) {
+  function handleRemoveClick(playerId: string, nickname: string) {
+    setRemoveTarget({ id: playerId, nickname })
+  }
+
+  async function confirmRemovePlayer() {
+    if (!removeTarget) return
     try {
       await fetch('/api/rooms/remove-player', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ room_code: room.code, player_id: playerId }),
+        body: JSON.stringify({ room_code: room.code, player_id: removeTarget.id }),
       })
     } catch {
       // Pusher handles UI update via player-removed
+    } finally {
+      setRemoveTarget(null)
     }
   }
 
@@ -449,7 +465,7 @@ export function HostLobby({ room }: HostLobbyProps) {
                   player={player}
                   index={i}
                   isNew={i >= room.players.length}
-                  onRemove={handleRemovePlayer}
+                  onRemove={handleRemoveClick}
                 />
               ))}
             </ul>
@@ -520,6 +536,35 @@ export function HostLobby({ room }: HostLobbyProps) {
           {closing ? 'Closing…' : 'Close Room'}
         </Button>
       </div>
+
+      {/* ── Remove Player Confirmation Dialog ────────────────────────── */}
+      <Dialog open={!!removeTarget} onOpenChange={() => setRemoveTarget(null)}>
+        <DialogContent showCloseButton={false}>
+          <DialogHeader>
+            <DialogTitle>Remove Player?</DialogTitle>
+            <DialogDescription>
+              This will kick <strong>{removeTarget?.nickname}</strong> from the
+              room. They will be returned to the home screen.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <Button
+              variant="outline"
+              onClick={() => setRemoveTarget(null)}
+            >
+              Cancel
+            </Button>
+            <Button
+              variant="default"
+              onClick={confirmRemovePlayer}
+              className="gap-1.5 bg-red-600 hover:bg-red-700 text-white"
+            >
+              <UserMinus className="size-3.5" />
+              Remove
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }
@@ -533,7 +578,7 @@ function PlayerRow({
   player: Player
   index: number
   isNew: boolean
-  onRemove: (playerId: string) => void
+  onRemove: (playerId: string, nickname: string) => void
 }) {
   return (
     <li
@@ -568,7 +613,7 @@ function PlayerRow({
           type="button"
           onClick={(e) => {
             e.stopPropagation()
-            onRemove(player.id)
+            onRemove(player.id, player.nickname)
           }}
           className="flex size-7 items-center justify-center rounded-md text-muted-foreground hover:bg-red-500/10 hover:text-red-400 transition-colors cursor-pointer"
           title={`Remove ${player.nickname}`}
