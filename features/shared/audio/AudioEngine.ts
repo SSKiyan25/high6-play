@@ -39,6 +39,7 @@ export class AudioEngine {
   private _destroyed = false
   private activeDucks = new Map<string, DuckTask>()
   private missingLogged = new Set<string>()
+  private pendingPreloads = new Map<string, Promise<void>>()
 
   // ── Lifecycle ──────────────────────────────────────────────────────────
 
@@ -86,6 +87,7 @@ export class AudioEngine {
       clearTimeout(task.timeoutId)
     }
     this.activeDucks.clear()
+    this.pendingPreloads.clear()
 
     // Stop all active sources
     for (const [, layer] of this.layers) {
@@ -114,7 +116,18 @@ export class AudioEngine {
   async preload(name: string, url: string): Promise<void> {
     if (this._destroyed) return
     if (this.buffers.has(name)) return
+    if (this.pendingPreloads.has(name)) return this.pendingPreloads.get(name)!
 
+    const promise = this._preloadInner(name, url)
+    this.pendingPreloads.set(name, promise)
+    try {
+      await promise
+    } finally {
+      this.pendingPreloads.delete(name)
+    }
+  }
+
+  private async _preloadInner(name: string, url: string): Promise<void> {
     try {
       const response = await fetch(url)
       if (!response.ok) throw new Error(`HTTP ${response.status}`)
@@ -201,27 +214,43 @@ export class AudioEngine {
    */
   playLoop(layerName: string, fadeInMs = 0): void {
     const buffer = this.buffers.get(layerName)
-    if (!buffer) {
-      if (!this.missingLogged.has(layerName)) {
-        this.missingLogged.add(layerName)
-        console.warn(`[AudioEngine] Buffer "${layerName}" not preloaded — call preload() first.`)
-      }
+    if (buffer) {
+      this.playBuffer(layerName, buffer, { loop: true, fadeInMs })
       return
     }
-    this.playBuffer(layerName, buffer, { loop: true, fadeInMs })
+
+    // Buffer not ready — wait for in-flight preload if one exists
+    const pending = this.pendingPreloads.get(layerName)
+    if (pending) {
+      pending.then(() => this.playLoop(layerName, fadeInMs)).catch(() => {})
+      return
+    }
+
+    if (!this.missingLogged.has(layerName)) {
+      this.missingLogged.add(layerName)
+      console.warn(`[AudioEngine] Buffer "${layerName}" not preloaded — call preload() first.`)
+    }
   }
 
   /** Play a one-shot sound effect. Overlapping calls are allowed. */
   playOneShot(layerName: string, fadeInMs = DEFAULT_FADE.sfxIn): void {
     const buffer = this.buffers.get(layerName)
-    if (!buffer) {
-      if (!this.missingLogged.has(layerName)) {
-        this.missingLogged.add(layerName)
-        console.warn(`[AudioEngine] Buffer "${layerName}" not preloaded — call preload() first.`)
-      }
+    if (buffer) {
+      this.playBuffer(layerName, buffer, { loop: false, fadeInMs })
       return
     }
-    this.playBuffer(layerName, buffer, { loop: false, fadeInMs })
+
+    // Buffer not ready — wait for in-flight preload if one exists
+    const pending = this.pendingPreloads.get(layerName)
+    if (pending) {
+      pending.then(() => this.playOneShot(layerName, fadeInMs)).catch(() => {})
+      return
+    }
+
+    if (!this.missingLogged.has(layerName)) {
+      this.missingLogged.add(layerName)
+      console.warn(`[AudioEngine] Buffer "${layerName}" not preloaded — call preload() first.`)
+    }
   }
 
   // ── Volume / Ducking ───────────────────────────────────────────────────
