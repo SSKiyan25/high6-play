@@ -5,9 +5,11 @@ import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Progress } from '@/components/ui/progress'
-import { Clock, SkipForward, Loader2, Trophy, Users } from 'lucide-react'
+import { Clock, SkipForward, Loader2, Trophy, Users, Volume2, VolumeX } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useWordChain } from '../hooks/useWordChain'
+import { useSharedAudio } from '@/features/shared/audio/AudioProvider'
+import { useWordChainAudio } from '../hooks/useWordChainAudio'
 import { DIFFICULTY_LABELS } from '../types'
 
 interface WordChainPlayerViewProps {
@@ -43,6 +45,29 @@ export function WordChainPlayerView({ roomCode, playerId, nickname }: WordChainP
 
   const [submitting, setSubmitting] = useState(false)
   const [actionError, setActionError] = useState<string | null>(null)
+
+  // ── Audio ────────────────────────────────────────────────────────────
+  const [audioEnabled, setAudioEnabled] = useState(false)
+  const engine = useSharedAudio()
+
+  // Preload player-relevant assets (SFX only — no bgm/timer loops)
+  useEffect(() => {
+    if (!engine) return
+    const base = '/audio/word-chain'
+    Promise.all([
+      engine.preload('skipped', `${base}/skipped.mp3`),
+      engine.preload('eliminated', `${base}/eliminated.mp3`),
+      engine.preload('passed', `${base}/passed.mp3`),
+    ])
+  }, [engine])
+
+  useWordChainAudio({
+    roomCode,
+    engine,
+    isHost: false,
+    enabled: audioEnabled && !!engine,
+    playerId,
+  })
 
   // ── Timer state (client-side, syncs with host) ───────────────────────
   const [timeLeft, setTimeLeft] = useState(timePerPlayerSeconds)
@@ -158,6 +183,29 @@ export function WordChainPlayerView({ roomCode, playerId, nickname }: WordChainP
             )}
           </div>
           <div className="flex items-center gap-2">
+            {/* Mute toggle — one-shot SFX only, default off */}
+            <button
+              onClick={() => {
+                if (!audioEnabled) {
+                  engine?.unlock() // gesture-gated AudioContext resume
+                }
+                setAudioEnabled((prev) => !prev)
+              }}
+              className={cn(
+                'p-1.5 rounded-md transition-colors',
+                audioEnabled
+                  ? 'text-foreground hover:bg-accent/20'
+                  : 'text-muted-foreground/50 hover:text-muted-foreground hover:bg-accent/10',
+              )}
+              aria-label={audioEnabled ? 'Mute sounds' : 'Unmute sounds'}
+              title={audioEnabled ? 'Mute sounds' : 'Unmute sounds'}
+            >
+              {audioEnabled ? (
+                <Volume2 className="size-4" />
+              ) : (
+                <VolumeX className="size-4" />
+              )}
+            </button>
             <span className="text-xs text-muted-foreground">{nickname}</span>
             <Badge variant="secondary" className="text-xs">
               {myScore} pts

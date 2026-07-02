@@ -1,0 +1,17 @@
+Audio assets for Word Chain game.
+Place the following MP3 files in this directory:
+
+  bgm.mp3         – looping background music (~30s seamless loop, <1MB)
+  timer.mp3       – tension-building timer loop (~10s seamless loop, <500KB)
+  times-up.mp3    – time's up sting (<100KB)
+  skipped.mp3     – skip sound effect (<50KB)
+  eliminated.mp3  – elimination sound effect (<100KB)
+  passed.mp3      – passed/confirmed chime (<50KB)
+
+IMPORTANT: bgm.mp3 and timer.mp3 MUST be encoded with seamless loop points
+(no audible click or amplitude discontinuity at the loop boundary).
+The Web Audio API will gaplessly repeat the buffer, but source-file
+artifacts will be audible.
+
+Missing files are handled gracefully — the AudioEngine logs a warning
+once per missing asset and continues silently.

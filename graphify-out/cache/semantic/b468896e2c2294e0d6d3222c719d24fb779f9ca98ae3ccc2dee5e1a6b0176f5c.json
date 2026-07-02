@@ -1,1 +1,0 @@
-{"nodes": [{"id": "references_extraction_spec_subagent", "label": "Extraction Subagent Prompt", "file_type": "concept", "source_file": ".claude/skills/graphify/references/extraction-spec.md", "source_location": "lines 4-67", "source_url": null, "captured_at": null, "author": null, "contributor": null}], "edges": [], "hyperedges": []}

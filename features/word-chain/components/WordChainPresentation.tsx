@@ -17,6 +17,8 @@ import { Clock, Loader2, Trophy, CheckCircle2, XCircle, ArrowRight, StopCircle }
 import { cn } from '@/lib/utils'
 import { pusherClient } from '@/lib/pusher/client'
 import { createClient } from '@/lib/supabase/client'
+import { useSharedAudio } from '@/features/shared/audio/AudioProvider'
+import { useWordChainAudio } from '../hooks/useWordChainAudio'
 import type { WordChainCategory, WordChainDifficulty } from '../types'
 import { DIFFICULTY_LABELS } from '../types'
 
@@ -105,6 +107,33 @@ export function WordChainPresentation({
   // Refs
   const timerIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
   const playerMap = useRef(new Map(players.map((p) => [p.id, p.nickname])))
+  const engine = useSharedAudio()
+
+  // ── Audio: preload game-specific assets (BGM is handled by AudioProvider) ─
+  useEffect(() => {
+    if (!engine) return
+    const base = '/audio/word-chain'
+    Promise.all([
+      engine.preload('timer', `${base}/timer.mp3`),
+      engine.preload('times-up', `${base}/times-up.mp3`),
+      engine.preload('skipped', `${base}/skipped.mp3`),
+      engine.preload('eliminated', `${base}/eliminated.mp3`),
+      engine.preload('passed', `${base}/passed.mp3`),
+    ])
+  }, [engine])
+
+  // ── Derived timer values (must be before useWordChainAudio) ──────────
+  const timerUrgent = timeLeft <= 5 && timerRunning
+
+  // ── Audio hook: wires Pusher events → AudioEngine ───────────────────
+  useWordChainAudio({
+    roomCode,
+    engine,
+    isHost: true,
+    enabled: !!engine,
+    timerUrgent,
+    timerExpired,
+  })
 
   // ── Build turn player list from turn_order + round_players ────────
   const buildTurnPlayers = useCallback(
@@ -407,6 +436,7 @@ export function WordChainPresentation({
   /** Host confirms the player answered — advances turn without elimination. */
   const handleConfirmAndNext = useCallback(async () => {
     if (!roundId || !roomCode || !currentTurnPlayerId || hostSubmitting) return
+    engine?.unlock() // fallback — gesture-gated AudioContext resume
     setHostSubmitting(true)
     setAdvanceError(null)
 
@@ -436,6 +466,7 @@ export function WordChainPresentation({
   /** Host eliminates the current player (timeout) and advances the turn. */
   const handleEliminateAndNext = useCallback(async () => {
     if (!roundId || !roomCode || hostSubmitting) return
+    engine?.unlock() // fallback — gesture-gated AudioContext resume
     setHostSubmitting(true)
     setAdvanceError(null)
 
@@ -504,7 +535,6 @@ export function WordChainPresentation({
   }
 
   // ── Timer display ───────────────────────────────────────────────────
-  const timerUrgent = timeLeft <= 5 && timerRunning
   const timerPercent = timerSeconds > 0 ? (timeLeft / timerSeconds) * 100 : 0
   const roundProgressPercent = totalRounds > 0 ? (roundNumber / totalRounds) * 100 : 0
 

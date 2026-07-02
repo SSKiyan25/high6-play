@@ -34,6 +34,7 @@ export async function POST(request: NextRequest) {
       currentPlayerId: result.currentPlayerId,
       currentPlayerNickname: result.currentPlayerNickname,
       activePlayerCount: result.activePlayerCount,
+      reason: 'confirmed',
     })
 
     return NextResponse.json({ success: true, ...result })
