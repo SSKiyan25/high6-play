@@ -118,7 +118,8 @@ export function useWordChainAudio({
       if (!enabled) return
 
       if (isHost) {
-        // BGM is handled globally by AudioProvider — just stop lingering timer
+        // Stop BGM during gameplay — timer + SFX take focus
+        e?.stop('bgm', 300)
         e?.stop('timer', 150)
         timerLoopActive.current = false
       }
@@ -185,8 +186,13 @@ export function useWordChainAudio({
     // ── game-ended ─────────────────────────────────────────────────────
     const onGameEnded = () => {
       if (!enabled) return
-      e?.stopAll(isHost ? 1000 : 300)
+      // Stop timer tension but leave one-shots (they end naturally)
+      e?.stop('timer', 150)
       timerLoopActive.current = false
+      // Restart BGM for results screen
+      if (isHost) {
+        e?.playLoop('bgm', 500)
+      }
     }
 
     // Bind all events
