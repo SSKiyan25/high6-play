@@ -1,16 +1,16 @@
 # Graph Report - high6-play  (2026-07-03)
 
 ## Corpus Check
-- 153 files · ~87,025 words
+- 153 files · ~87,293 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 912 nodes · 1823 edges · 44 communities (35 shown, 9 thin omitted)
+- 912 nodes · 1834 edges · 48 communities (39 shown, 9 thin omitted)
 - Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 47 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `18c692ee`
+- Built from commit: `081f750c`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -50,7 +50,11 @@
 - [[_COMMUNITY_Community 40|Community 40]]
 - [[_COMMUNITY_Community 41|Community 41]]
 - [[_COMMUNITY_Community 42|Community 42]]
+- [[_COMMUNITY_Community 43|Community 43]]
 - [[_COMMUNITY_Community 44|Community 44]]
+- [[_COMMUNITY_Community 45|Community 45]]
+- [[_COMMUNITY_Community 46|Community 46]]
+- [[_COMMUNITY_Community 47|Community 47]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `cn()` - 56 edges
@@ -73,8 +77,8 @@
   app/api/games/mole-hunt/start/route.ts → features/mole-hunt/actions.ts
 - `POST()` --calls--> `triggerGameEvent()`  [INFERRED]
   app/api/games/this-or-that/vote/route.ts → lib/pusher/trigger.ts
-- `POST()` --calls--> `endWcGame()`  [INFERRED]
-  app/api/games/word-chain-legacy-letterchain/end/route.ts → features/word-chain-legacy-letterchain/actions.ts
+- `POST()` --calls--> `startNextRound()`  [INFERRED]
+  app/api/games/word-chain/next-round/route.ts → features/word-chain/actions.ts
 
 ## Import Cycles
 - None detected.
@@ -83,15 +87,15 @@
 - **Graphify Extraction Pipeline** — graphify_skill_ast_extraction, graphify_skill_semantic_extraction, graphify_skill_confidence_rubric [EXTRACTED 1.00]
 - **Graphify Reference Documents** — references_extraction_spec_subagent, references_query_queryexpansion, references_update_incremental, references_exports_neo4j, references_exports_mcp, references_hooks_commithook, references_add_watch_ingest, references_add_watch_watchfolder, references_transcribe_whisper, references_github_merge_crossrepo [EXTRACTED 1.00]
 
-## Communities (44 total, 9 thin omitted)
+## Communities (48 total, 9 thin omitted)
 
 ### Community 0 - "App Pages & UI Components"
 Cohesion: 0.06
-Nodes (62): CreateRoom(), CreateRoomResult, GAME_LABELS, HostLobby(), HostLobbyProps, JoinForm(), JoinResult, LoginForm() (+54 more)
+Nodes (60): CreateRoom(), CreateRoomResult, GAME_LABELS, HostLobby(), HostLobbyProps, JoinForm(), JoinResult, LoginForm() (+52 more)
 
 ### Community 1 - "Room Creation & Host Lobby"
-Cohesion: 0.08
-Nodes (38): POST(), POST(), POST(), POST(), POST(), POST(), POST(), POST() (+30 more)
+Cohesion: 0.09
+Nodes (37): POST(), POST(), POST(), POST(), POST(), POST(), POST(), POST() (+29 more)
 
 ### Community 2 - "API Route Handlers"
 Cohesion: 0.05
@@ -107,19 +111,19 @@ Nodes (40): BM25, detect_domain(), _load_csv(), Lowercase, split, remove punctua
 
 ### Community 5 - "Community 5"
 Cohesion: 0.06
-Nodes (59): DELETE(), PUT(), WordChainGamePage(), GET(), POST(), STATUS_COLORS, STATUS_LABELS, TurnPlayer (+51 more)
+Nodes (58): DELETE(), PUT(), WordChainGamePage(), GET(), POST(), WordChainPresentation(), WordChainPresentationProps, DIFFICULTY_COLORS (+50 more)
 
 ### Community 6 - "Room Code Pages"
-Cohesion: 0.08
-Nodes (35): POST(), GET(), CountdownStatus, HostView(), HostViewProps, BankItem, QuestionResultCard(), TotResultsView() (+27 more)
+Cohesion: 0.23
+Nodes (11): POST(), GET(), BankItem, HostGamePage(), HostGamePageProps, getQuestionBank(), getQuestionResults(), getRoomQuestions() (+3 more)
 
 ### Community 7 - "shadcn/ui Configuration"
 Cohesion: 0.07
 Nodes (29): Auth middleware, Claude Code plugins & MCPs, Core, Current status — everything built except auth stubs + deployment, Database schema, Done ✅, Full project structure, high6-play — Session Handoff (+21 more)
 
 ### Community 8 - "Community 8"
-Cohesion: 0.10
-Nodes (23): HostPage(), HostPageProps, PlayPage(), PlayPageProps, MoleHuntResultsView(), MoleHuntSetupProps, PlayerLobbyGate(), MHResultsPage() (+15 more)
+Cohesion: 0.18
+Nodes (13): MoleHuntSetupProps, QuestionSetupProps, saveRoomConfig(), CreateRoomResult, MoleRoomConfigInput, createRoom(), generateRoomCode(), GET() (+5 more)
 
 ### Community 9 - "TypeScript Configuration"
 Cohesion: 0.09
@@ -179,7 +183,7 @@ Nodes (3): For --cluster-only, For --update (incremental re-extraction), graphif
 
 ### Community 40 - "Community 40"
 Cohesion: 0.12
-Nodes (25): HostWcView(), HostWcViewProps, useHostTimer(), PlayerWcViewProps, REASON_ICONS, WcResultsView(), WcResultsViewProps, UseWordChainOptions (+17 more)
+Nodes (24): HostWcView(), HostWcViewProps, useHostTimer(), PlayerWcViewProps, REASON_ICONS, WcResultsView(), WcResultsViewProps, UseWordChainOptions (+16 more)
 
 ### Community 41 - "Community 41"
 Cohesion: 0.06
@@ -189,9 +193,25 @@ Nodes (32): Actions (1), Actions — `features/tot/actions.ts`, API Routes (8), 
 Cohesion: 0.11
 Nodes (18): Acceptance Criteria, Files NOT Modified, Migration Plan: "This or That" code → Word Chain (post-DB rename), Order of Operations, Rename Map (Types), Step 10: engram memory, Step 1: Move OLD letter-chain code to legacy, Step 2: Rename tot code → word-chain (+10 more)
 
+### Community 43 - "Community 43"
+Cohesion: 0.17
+Nodes (11): HostPage(), HostPageProps, PlayPage(), PlayPageProps, MoleHuntResultsView(), PlayerLobbyGate(), MHResultsPage(), MHResultsPageProps (+3 more)
+
 ### Community 44 - "Community 44"
 Cohesion: 0.07
-Nodes (36): PlayerRow(), getAdvanceLabel(), getPhaseColor(), getPhaseLabel(), MoleHuntControlRoom(), MoleHuntControlRoomProps, PresentationOption(), OptionCard() (+28 more)
+Nodes (40): PlayerRow(), getAdvanceLabel(), getPhaseColor(), getPhaseLabel(), MoleHuntControlRoom(), MoleHuntControlRoomProps, PresentationOption(), OptionCard() (+32 more)
+
+### Community 45 - "Community 45"
+Cohesion: 0.22
+Nodes (10): PlayerView(), PlayerViewProps, PlayerIdentity, useThisOrThat(), UseThisOrThatOptions, UseThisOrThatState, TotGameState, TotQuestion (+2 more)
+
+### Community 46 - "Community 46"
+Cohesion: 0.33
+Nodes (7): CountdownStatus, HostView(), HostViewProps, useVotes(), UseVotesOptions, pusherClient, TotResults
+
+### Community 47 - "Community 47"
+Cohesion: 0.31
+Nodes (7): QuestionResultCard(), TotResultsView(), TotResultsViewProps, ResultsPage(), ResultsPageProps, getFullResults(), TotQuestionResult
 
 ## Knowledge Gaps
 - **360 isolated node(s):** `npx`, `VALID_GAME_TYPES`, `CreateRoomResult`, `HostGamePageProps`, `HostMoleHuntGamePageProps` (+355 more)
@@ -201,11 +221,11 @@ Nodes (36): PlayerRow(), getAdvanceLabel(), getPhaseColor(), getPhaseLabel(), Mo
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `cn()` connect `Community 44` to `App Pages & UI Components`, `Package Dependencies`, `Community 5`, `Room Code Pages`, `Community 40`?**
+- **Why does `cn()` connect `Community 44` to `App Pages & UI Components`, `Package Dependencies`, `Community 5`, `Community 40`, `Community 45`, `Community 46`, `Community 47`?**
   _High betweenness centrality (0.032) - this node is a cross-community bridge._
-- **Why does `createClient()` connect `Package Dependencies` to `App Pages & UI Components`, `Community 5`, `Room Code Pages`, `Community 8`, `Community 40`?**
+- **Why does `createClient()` connect `Package Dependencies` to `App Pages & UI Components`, `Community 5`, `Room Code Pages`, `Community 8`, `Community 40`, `Community 44`?**
   _High betweenness centrality (0.019) - this node is a cross-community bridge._
-- **Why does `createClient()` connect `Room Creation & Host Lobby` to `Community 8`, `Package Dependencies`, `Community 5`?**
+- **Why does `createClient()` connect `Room Creation & Host Lobby` to `Community 8`, `Community 43`, `Package Dependencies`, `Community 5`?**
   _High betweenness centrality (0.019) - this node is a cross-community bridge._
 - **Are the 3 inferred relationships involving `cn()` (e.g. with `OptionCard()` and `PlayerView()`) actually correct?**
   _`cn()` has 3 INFERRED edges - model-reasoned connections that need verification._
@@ -214,4 +234,4 @@ _Questions this graph is uniquely positioned to answer:_
 - **What connects `BM25 ranking algorithm for text search`, `Lowercase, split, remove punctuation, filter short words`, `Build BM25 index from documents` to the rest of the system?**
   _387 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `App Pages & UI Components` be split into smaller, more focused modules?**
-  _Cohesion score 0.055445544554455446 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05643564356435644 - nodes in this community are weakly interconnected._

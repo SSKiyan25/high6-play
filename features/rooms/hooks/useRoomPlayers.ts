@@ -36,6 +36,10 @@ export function useRoomPlayers({
       })
     })
 
+    channel.bind('player-removed', (data: { playerId: string }) => {
+      setPlayers((prev) => prev.filter((p) => p.id !== data.playerId))
+    })
+
     channel.bind('room-closed', () => {
       onRoomClosed?.()
     })

@@ -97,6 +97,17 @@ export async function joinRoom(
   if (roomError || !room) throw new Error('Room not found')
   if (room.status !== 'waiting') throw new Error('Room is not accepting players')
 
+  // Prevent duplicate players — same nickname in same room returns existing
+  const { data: existing } = await supabase
+    .from('players')
+    .select()
+    .eq('room_id', room.id)
+    .eq('nickname', nickname)
+    .eq('is_host', false)
+    .maybeSingle()
+
+  if (existing) return { room, player: existing }
+
   const { data: player, error: playerError } = await supabase
     .from('players')
     .insert({
@@ -111,6 +122,33 @@ export async function joinRoom(
   if (playerError) throw playerError
 
   return { room, player }
+}
+
+export async function removePlayer(
+  roomCode: string,
+  playerId: string,
+  hostId: string,
+): Promise<void> {
+  const supabase = createBrowserClient()
+
+  // Verify host
+  const { data: room, error: roomError } = await supabase
+    .from('rooms')
+    .select('id, host_id')
+    .eq('code', roomCode)
+    .single()
+
+  if (roomError || !room) throw new Error('Room not found')
+  if (room.host_id !== hostId) throw new Error('Only the host can remove players')
+
+  const { error } = await supabase
+    .from('players')
+    .delete()
+    .eq('id', playerId)
+    .eq('room_id', room.id)
+    .eq('is_host', false)
+
+  if (error) throw error
 }
 
 export async function getRoom(code: string): Promise<RoomWithPlayers> {

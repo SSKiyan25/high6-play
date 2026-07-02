@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Users, DoorClosed, Play, Copy, Check, Loader2, ChevronDown, ChevronUp, BookOpen } from 'lucide-react'
+import { Users, DoorClosed, Play, Copy, Check, Loader2, ChevronDown, ChevronUp, BookOpen, UserMinus } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useRoomPlayers } from '../hooks/useRoomPlayers'
 import { getRoomConfig } from '@/features/mole-hunt/actions'
@@ -162,6 +162,18 @@ export function HostLobby({ room }: HostLobbyProps) {
     await navigator.clipboard.writeText(room.code)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
+  }
+
+  async function handleRemovePlayer(playerId: string) {
+    try {
+      await fetch('/api/rooms/remove-player', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ room_code: room.code, player_id: playerId }),
+      })
+    } catch {
+      // Pusher handles UI update via player-removed
+    }
   }
 
   return (
@@ -437,6 +449,7 @@ export function HostLobby({ room }: HostLobbyProps) {
                   player={player}
                   index={i}
                   isNew={i >= room.players.length}
+                  onRemove={handleRemovePlayer}
                 />
               ))}
             </ul>
@@ -515,10 +528,12 @@ function PlayerRow({
   player,
   index,
   isNew,
+  onRemove,
 }: {
   player: Player
   index: number
   isNew: boolean
+  onRemove: (playerId: string) => void
 }) {
   return (
     <li
@@ -547,6 +562,19 @@ function PlayerRow({
           <span className="absolute inline-flex size-2 animate-ping rounded-full bg-accent opacity-75" />
           <span className="relative inline-flex size-2 rounded-full bg-accent" />
         </span>
+      )}
+      {!player.is_host && (
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation()
+            onRemove(player.id)
+          }}
+          className="flex size-7 items-center justify-center rounded-md text-muted-foreground hover:bg-red-500/10 hover:text-red-400 transition-colors cursor-pointer"
+          title={`Remove ${player.nickname}`}
+        >
+          <UserMinus className="size-3.5" />
+        </button>
       )}
     </li>
   )

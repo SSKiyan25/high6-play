@@ -1052,7 +1052,7 @@
       "label": "POST()",
       "file_type": "code",
       "source_file": "app/api/games/word-chain/advance-turn/route.ts",
-      "source_location": "L13",
+      "source_location": "L14",
       "_origin": "ast",
       "id": "advance_turn_route_post",
       "community": 1,
@@ -1125,7 +1125,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "confirm_turn_route",
-      "community": 1,
+      "community": 5,
       "norm_label": "route.ts"
     },
     {
@@ -1135,7 +1135,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "confirm_turn_route_post",
-      "community": 1,
+      "community": 5,
       "norm_label": "post()"
     },
     {
@@ -1292,7 +1292,7 @@
       "label": "GET()",
       "file_type": "code",
       "source_file": "app/api/rooms/route.ts",
-      "source_location": "L48",
+      "source_location": "L57",
       "_origin": "ast",
       "id": "rooms_route_get",
       "community": 8,
@@ -1595,7 +1595,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_host_code_mh_results_page_tsx_mh_results_page",
-      "community": 8,
+      "community": 43,
       "norm_label": "page.tsx"
     },
     {
@@ -1605,7 +1605,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "mh_results_page_mhresultspageprops",
-      "community": 8,
+      "community": 43,
       "norm_label": "mhresultspageprops"
     },
     {
@@ -1615,7 +1615,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "mh_results_page_mhresultspage",
-      "community": 8,
+      "community": 43,
       "norm_label": "mhresultspage()"
     },
     {
@@ -1625,7 +1625,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "mole_control_page",
-      "community": 8,
+      "community": 43,
       "norm_label": "page.tsx"
     },
     {
@@ -1635,7 +1635,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "mole_control_page_molecontrolpageprops",
-      "community": 8,
+      "community": 43,
       "norm_label": "molecontrolpageprops"
     },
     {
@@ -1645,7 +1645,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "mole_control_page_molecontrolpage",
-      "community": 8,
+      "community": 43,
       "norm_label": "molecontrolpage()"
     },
     {
@@ -1655,7 +1655,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_host_code_page_tsx_code_page",
-      "community": 8,
+      "community": 43,
       "norm_label": "page.tsx"
     },
     {
@@ -1665,7 +1665,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "code_page_hostpageprops",
-      "community": 8,
+      "community": 43,
       "norm_label": "hostpageprops"
     },
     {
@@ -1675,7 +1675,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "code_page_hostpage",
-      "community": 8,
+      "community": 43,
       "norm_label": "hostpage()"
     },
     {
@@ -1685,7 +1685,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "results_page",
-      "community": 6,
+      "community": 47,
       "norm_label": "page.tsx"
     },
     {
@@ -1695,7 +1695,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "results_page_resultspageprops",
-      "community": 6,
+      "community": 47,
       "norm_label": "resultspageprops"
     },
     {
@@ -1705,7 +1705,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "results_page_resultspage",
-      "community": 6,
+      "community": 47,
       "norm_label": "resultspage()"
     },
     {
@@ -1895,7 +1895,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_play_code_game_page_tsx_game_page",
-      "community": 6,
+      "community": 45,
       "norm_label": "page.tsx"
     },
     {
@@ -1905,7 +1905,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "game_page_playeridentity",
-      "community": 6,
+      "community": 45,
       "norm_label": "playeridentity"
     },
     {
@@ -1915,7 +1915,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "game_page_playgamepage",
-      "community": 6,
+      "community": 45,
       "norm_label": "playgamepage()"
     },
     {
@@ -1985,7 +1985,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_play_code_page_tsx_code_page",
-      "community": 8,
+      "community": 43,
       "norm_label": "page.tsx"
     },
     {
@@ -1995,7 +1995,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "code_page_playpageprops",
-      "community": 8,
+      "community": 43,
       "norm_label": "playpageprops"
     },
     {
@@ -2005,7 +2005,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "code_page_playpage",
-      "community": 8,
+      "community": 43,
       "norm_label": "playpage()"
     },
     {
@@ -3355,7 +3355,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "components_molehuntresultsview_molehuntresultsview",
-      "community": 8,
+      "community": 43,
       "norm_label": "molehuntresultsview()"
     },
     {
@@ -3835,7 +3835,7 @@
       "source_location": "L116",
       "_origin": "ast",
       "id": "rooms_actions_getroom",
-      "community": 8,
+      "community": 43,
       "norm_label": "getroom()"
     },
     {
@@ -4005,7 +4005,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_playerlobbygate",
-      "community": 8,
+      "community": 0,
       "norm_label": "playerlobbygate.tsx"
     },
     {
@@ -4015,7 +4015,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "components_playerlobbygate_playerlobbygate",
-      "community": 8,
+      "community": 43,
       "norm_label": "playerlobbygate()"
     },
     {
@@ -4215,7 +4215,7 @@
       "source_location": "L178",
       "_origin": "ast",
       "id": "this_or_that_actions_getfullresults",
-      "community": 6,
+      "community": 47,
       "norm_label": "getfullresults()"
     },
     {
@@ -4235,7 +4235,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_hostview",
-      "community": 6,
+      "community": 46,
       "norm_label": "hostview.tsx"
     },
     {
@@ -4245,7 +4245,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "components_hostview_countdownstatus",
-      "community": 6,
+      "community": 46,
       "norm_label": "countdownstatus"
     },
     {
@@ -4255,7 +4255,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "components_hostview_hostviewprops",
-      "community": 6,
+      "community": 46,
       "norm_label": "hostviewprops"
     },
     {
@@ -4265,7 +4265,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "components_hostview_hostview",
-      "community": 6,
+      "community": 46,
       "norm_label": "hostview()"
     },
     {
@@ -4275,7 +4275,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "features_this_or_that_components_playerview_tsx_components_playerview",
-      "community": 6,
+      "community": 45,
       "norm_label": "playerview.tsx"
     },
     {
@@ -4285,7 +4285,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "features_this_or_that_components_playerview_tsx_components_playerview_playerviewprops",
-      "community": 6,
+      "community": 45,
       "norm_label": "playerviewprops"
     },
     {
@@ -4295,7 +4295,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "features_this_or_that_components_playerview_tsx_components_playerview_playerview",
-      "community": 6,
+      "community": 45,
       "norm_label": "playerview()"
     },
     {
@@ -4315,7 +4315,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "components_questionsetup_questionsetupprops",
-      "community": 0,
+      "community": 8,
       "norm_label": "questionsetupprops"
     },
     {
@@ -4345,7 +4345,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_totresultsview",
-      "community": 6,
+      "community": 47,
       "norm_label": "totresultsview.tsx"
     },
     {
@@ -4355,7 +4355,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "components_totresultsview_totresultsviewprops",
-      "community": 6,
+      "community": 47,
       "norm_label": "totresultsviewprops"
     },
     {
@@ -4365,7 +4365,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "components_totresultsview_totresultsview",
-      "community": 6,
+      "community": 47,
       "norm_label": "totresultsview()"
     },
     {
@@ -4375,7 +4375,7 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "components_totresultsview_questionresultcard",
-      "community": 6,
+      "community": 47,
       "norm_label": "questionresultcard()"
     },
     {
@@ -4385,7 +4385,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "hooks_usethisorthat",
-      "community": 6,
+      "community": 45,
       "norm_label": "usethisorthat.ts"
     },
     {
@@ -4395,7 +4395,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "hooks_usethisorthat_usethisorthatoptions",
-      "community": 6,
+      "community": 45,
       "norm_label": "usethisorthatoptions"
     },
     {
@@ -4405,7 +4405,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "hooks_usethisorthat_usethisorthatstate",
-      "community": 6,
+      "community": 45,
       "norm_label": "usethisorthatstate"
     },
     {
@@ -4415,7 +4415,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "hooks_usethisorthat_usethisorthat",
-      "community": 6,
+      "community": 45,
       "norm_label": "usethisorthat()"
     },
     {
@@ -4425,7 +4425,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "hooks_usevotes",
-      "community": 6,
+      "community": 46,
       "norm_label": "usevotes.ts"
     },
     {
@@ -4435,7 +4435,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "hooks_usevotes_usevotesoptions",
-      "community": 6,
+      "community": 46,
       "norm_label": "usevotesoptions"
     },
     {
@@ -4445,7 +4445,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "hooks_usevotes_usevotes",
-      "community": 6,
+      "community": 46,
       "norm_label": "usevotes()"
     },
     {
@@ -4455,7 +4455,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "this_or_that_types",
-      "community": 6,
+      "community": 45,
       "norm_label": "types.ts"
     },
     {
@@ -4475,7 +4475,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "this_or_that_types_totquestion",
-      "community": 6,
+      "community": 45,
       "norm_label": "totquestion"
     },
     {
@@ -4485,7 +4485,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "this_or_that_types_totvote",
-      "community": 6,
+      "community": 45,
       "norm_label": "totvote"
     },
     {
@@ -4505,7 +4505,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "this_or_that_types_totquestioninput",
-      "community": 0,
+      "community": 8,
       "norm_label": "totquestioninput"
     },
     {
@@ -4515,7 +4515,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "this_or_that_types_totresults",
-      "community": 6,
+      "community": 46,
       "norm_label": "totresults"
     },
     {
@@ -4525,7 +4525,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "this_or_that_types_totgamestate",
-      "community": 6,
+      "community": 45,
       "norm_label": "totgamestate"
     },
     {
@@ -4535,7 +4535,7 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "this_or_that_types_totvotewithnickname",
-      "community": 6,
+      "community": 45,
       "norm_label": "totvotewithnickname"
     },
     {
@@ -4545,7 +4545,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "this_or_that_types_totquestionresult",
-      "community": 6,
+      "community": 47,
       "norm_label": "totquestionresult"
     },
     {
@@ -4625,7 +4625,7 @@
       "source_location": "L161",
       "_origin": "ast",
       "id": "word_chain_legacy_letterchain_actions_endwcgame",
-      "community": 40,
+      "community": 1,
       "norm_label": "endwcgame()"
     },
     {
@@ -4645,7 +4645,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_hostwcview",
-      "community": 40,
+      "community": 0,
       "norm_label": "hostwcview.tsx"
     },
     {
@@ -4995,14 +4995,14 @@
       "source_location": "L169",
       "_origin": "ast",
       "id": "word_chain_actions_saveroomconfig",
-      "community": 8,
+      "community": 5,
       "norm_label": "saveroomconfig()"
     },
     {
       "label": "startGame()",
       "file_type": "code",
       "source_file": "features/word-chain/actions.ts",
-      "source_location": "L229",
+      "source_location": "L246",
       "_origin": "ast",
       "id": "word_chain_actions_startgame",
       "community": 5,
@@ -5012,17 +5012,17 @@
       "label": "confirmTurn()",
       "file_type": "code",
       "source_file": "features/word-chain/actions.ts",
-      "source_location": "L351",
+      "source_location": "L368",
       "_origin": "ast",
       "id": "word_chain_actions_confirmturn",
-      "community": 1,
+      "community": 5,
       "norm_label": "confirmturn()"
     },
     {
       "label": "skipTurn()",
       "file_type": "code",
       "source_file": "features/word-chain/actions.ts",
-      "source_location": "L429",
+      "source_location": "L446",
       "_origin": "ast",
       "id": "word_chain_actions_skipturn",
       "community": 5,
@@ -5032,7 +5032,7 @@
       "label": "advanceTurn()",
       "file_type": "code",
       "source_file": "features/word-chain/actions.ts",
-      "source_location": "L533",
+      "source_location": "L550",
       "_origin": "ast",
       "id": "word_chain_actions_advanceturn",
       "community": 5,
@@ -5042,7 +5042,7 @@
       "label": "endRoundInternal()",
       "file_type": "code",
       "source_file": "features/word-chain/actions.ts",
-      "source_location": "L649",
+      "source_location": "L668",
       "_origin": "ast",
       "id": "word_chain_actions_endroundinternal",
       "community": 5,
@@ -5052,7 +5052,7 @@
       "label": "endRound()",
       "file_type": "code",
       "source_file": "features/word-chain/actions.ts",
-      "source_location": "L714",
+      "source_location": "L739",
       "_origin": "ast",
       "id": "word_chain_actions_endround",
       "community": 5,
@@ -5062,7 +5062,7 @@
       "label": "startNextRound()",
       "file_type": "code",
       "source_file": "features/word-chain/actions.ts",
-      "source_location": "L753",
+      "source_location": "L779",
       "_origin": "ast",
       "id": "word_chain_actions_startnextround",
       "community": 5,
@@ -5072,7 +5072,7 @@
       "label": "endGame()",
       "file_type": "code",
       "source_file": "features/word-chain/actions.ts",
-      "source_location": "L853",
+      "source_location": "L879",
       "_origin": "ast",
       "id": "word_chain_actions_endgame",
       "community": 1,
@@ -5082,7 +5082,7 @@
       "label": "getResults()",
       "file_type": "code",
       "source_file": "features/word-chain/actions.ts",
-      "source_location": "L879",
+      "source_location": "L905",
       "_origin": "ast",
       "id": "word_chain_actions_getresults",
       "community": 5,
@@ -5092,7 +5092,7 @@
       "label": "getCurrentRound()",
       "file_type": "code",
       "source_file": "features/word-chain/actions.ts",
-      "source_location": "L990",
+      "source_location": "L1016",
       "_origin": "ast",
       "id": "word_chain_actions_getcurrentround",
       "community": 5,
@@ -5102,7 +5102,7 @@
       "label": "getRoundState()",
       "file_type": "code",
       "source_file": "features/word-chain/actions.ts",
-      "source_location": "L1008",
+      "source_location": "L1034",
       "_origin": "ast",
       "id": "word_chain_actions_getroundstate",
       "community": 5,
@@ -5112,7 +5112,7 @@
       "label": "shuffle()",
       "file_type": "code",
       "source_file": "features/word-chain/actions.ts",
-      "source_location": "L1067",
+      "source_location": "L1093",
       "_origin": "ast",
       "id": "word_chain_actions_shuffle",
       "community": 5,
@@ -5122,7 +5122,7 @@
       "label": "findNextActivePlayer()",
       "file_type": "code",
       "source_file": "features/word-chain/actions.ts",
-      "source_location": "L1080",
+      "source_location": "L1106",
       "_origin": "ast",
       "id": "word_chain_actions_findnextactiveplayer",
       "community": 5,
@@ -5205,14 +5205,14 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_wordchainpresentation",
-      "community": 5,
+      "community": 44,
       "norm_label": "wordchainpresentation.tsx"
     },
     {
       "label": "WordChainPresentationProps",
       "file_type": "code",
       "source_file": "features/word-chain/components/WordChainPresentation.tsx",
-      "source_location": "L15",
+      "source_location": "L23",
       "_origin": "ast",
       "id": "components_wordchainpresentation_wordchainpresentationprops",
       "community": 5,
@@ -5222,37 +5222,37 @@
       "label": "TurnPlayer",
       "file_type": "code",
       "source_file": "features/word-chain/components/WordChainPresentation.tsx",
-      "source_location": "L32",
+      "source_location": "L40",
       "_origin": "ast",
       "id": "components_wordchainpresentation_turnplayer",
-      "community": 5,
+      "community": 44,
       "norm_label": "turnplayer"
     },
     {
       "label": "STATUS_COLORS",
       "file_type": "code",
       "source_file": "features/word-chain/components/WordChainPresentation.tsx",
-      "source_location": "L39",
+      "source_location": "L47",
       "_origin": "ast",
       "id": "components_wordchainpresentation_status_colors",
-      "community": 5,
+      "community": 44,
       "norm_label": "status_colors"
     },
     {
       "label": "STATUS_LABELS",
       "file_type": "code",
       "source_file": "features/word-chain/components/WordChainPresentation.tsx",
-      "source_location": "L46",
+      "source_location": "L54",
       "_origin": "ast",
       "id": "components_wordchainpresentation_status_labels",
-      "community": 5,
+      "community": 44,
       "norm_label": "status_labels"
     },
     {
       "label": "WordChainPresentation()",
       "file_type": "code",
       "source_file": "features/word-chain/components/WordChainPresentation.tsx",
-      "source_location": "L53",
+      "source_location": "L61",
       "_origin": "ast",
       "id": "components_wordchainpresentation_wordchainpresentation",
       "community": 5,
@@ -5282,7 +5282,7 @@
       "label": "DIFFICULTY_COLORS",
       "file_type": "code",
       "source_file": "features/word-chain/components/WordChainResultsView.tsx",
-      "source_location": "L24",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "components_wordchainresultsview_difficulty_colors",
       "community": 5,
@@ -5292,7 +5292,7 @@
       "label": "WordChainResultsView()",
       "file_type": "code",
       "source_file": "features/word-chain/components/WordChainResultsView.tsx",
-      "source_location": "L30",
+      "source_location": "L31",
       "_origin": "ast",
       "id": "components_wordchainresultsview_wordchainresultsview",
       "community": 5,
@@ -5415,7 +5415,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "word_chain_types_wordchaindifficulty",
-      "community": 5,
+      "community": 44,
       "norm_label": "wordchaindifficulty"
     },
     {
@@ -5605,7 +5605,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "pusher_client",
-      "community": 6,
+      "community": 46,
       "norm_label": "client.ts"
     },
     {
@@ -5615,7 +5615,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "pusher_client_getclient",
-      "community": 6,
+      "community": 46,
       "norm_label": "getclient()"
     },
     {
@@ -5625,7 +5625,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "pusher_client_pusherclient",
-      "community": 6,
+      "community": 46,
       "norm_label": "pusherclient"
     },
     {
@@ -17194,6 +17194,17 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "features/word-chain/components/WordChainPresentation.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "components_wordchainpresentation",
+      "target": "ui_dialog",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "components/ui/dialog.tsx",
       "source_location": "L6",
       "weight": 1.0,
@@ -17346,6 +17357,17 @@
       "target": "ui_dialog_dialog"
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "features/word-chain/components/WordChainPresentation.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "components_wordchainpresentation",
+      "target": "ui_dialog_dialog",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -17388,6 +17410,17 @@
       "confidence_score": 1.0,
       "source": "components_wordchaincategorymanager",
       "target": "ui_dialog_dialogcontent"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "features/word-chain/components/WordChainPresentation.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "components_wordchainpresentation",
+      "target": "ui_dialog_dialogcontent",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -17434,6 +17467,17 @@
       "target": "ui_dialog_dialogheader"
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "features/word-chain/components/WordChainPresentation.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "components_wordchainpresentation",
+      "target": "ui_dialog_dialogheader",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -17454,6 +17498,17 @@
       "confidence_score": 1.0,
       "source": "components_molehuntcontrolroom",
       "target": "ui_dialog_dialogfooter"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "features/word-chain/components/WordChainPresentation.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "components_wordchainpresentation",
+      "target": "ui_dialog_dialogfooter",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -17500,6 +17555,17 @@
       "target": "ui_dialog_dialogtitle"
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "features/word-chain/components/WordChainPresentation.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "components_wordchainpresentation",
+      "target": "ui_dialog_dialogtitle",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -17531,6 +17597,17 @@
       "confidence_score": 1.0,
       "source": "components_wordchaincategorymanager",
       "target": "ui_dialog_dialogdescription"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "features/word-chain/components/WordChainPresentation.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "components_wordchainpresentation",
+      "target": "ui_dialog_dialogdescription",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -23993,6 +24070,39 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "features/word-chain/actions.ts",
+      "source_location": "L555",
+      "weight": 1.0,
+      "source": "word_chain_actions_advanceturn",
+      "target": "word_chain_actions_getclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "features/word-chain/actions.ts",
+      "source_location": "L740",
+      "weight": 1.0,
+      "source": "word_chain_actions_endround",
+      "target": "word_chain_actions_getclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "features/word-chain/actions.ts",
+      "source_location": "L677",
+      "weight": 1.0,
+      "source": "word_chain_actions_endroundinternal",
+      "target": "word_chain_actions_getclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "features/word-chain/actions.ts",
       "source_location": "L31",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -24053,6 +24163,17 @@
       "confidence_score": 1.0,
       "source": "word_chain_actions_getroundstate",
       "target": "word_chain_actions_getclient"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "features/word-chain/actions.ts",
+      "source_location": "L197",
+      "weight": 1.0,
+      "source": "word_chain_actions_saveroomconfig",
+      "target": "word_chain_actions_getclient",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -28563,5 +28684,5 @@
       "source_file": ".claude/skills/graphify/SKILL.md"
     }
   ],
-  "built_at_commit": "18c692ee76d2fcf75d3e19dad2d04b9b008eaaff"
+  "built_at_commit": "081f750c2c40e6fbf92a3c1b6a46079ea5d7a5e1"
 }
