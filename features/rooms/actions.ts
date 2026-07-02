@@ -2,8 +2,10 @@ import type { SupabaseClient } from '@supabase/supabase-js'
 import { createClient as createBrowserClient } from '@/lib/supabase/client'
 import type { TotQuestionInput } from '@/features/this-or-that/types'
 import type { MoleRoomConfigInput } from '@/features/mole-hunt/types'
+import type { WordChainRoomConfigInput } from '@/features/word-chain/types'
 import { saveToQuestionBank, seedRoomQuestions } from '@/features/this-or-that/actions'
 import { saveRoomConfig } from '@/features/mole-hunt/actions'
+import { saveRoomConfig as saveWordChainRoomConfig } from '@/features/word-chain/actions'
 import type { GameType, Player, Room, RoomWithPlayers } from './types'
 
 async function generateRoomCode(supabase: SupabaseClient): Promise<string> {
@@ -29,7 +31,7 @@ export async function createRoom(
   gameType: GameType,
   client?: SupabaseClient,
   questions?: TotQuestionInput[],
-  config?: MoleRoomConfigInput,
+  config?: MoleRoomConfigInput | WordChainRoomConfigInput,
 ): Promise<Room> {
   const supabase = client ?? createBrowserClient()
 
@@ -61,15 +63,20 @@ export async function createRoom(
     score: 0,
   })
 
-  // Seed questions for This or That rooms
+  // Seed questions for This or That rooms (legacy binary-vote — hidden from UI)
   if (gameType === 'this-or-that' && questions && questions.length > 0) {
     await seedRoomQuestions(room.id, questions)
     await saveToQuestionBank(questions)
   }
 
+  // Save room config for Word Chain rooms (category-based elimination)
+  if (gameType === 'word-chain' && config) {
+    await saveWordChainRoomConfig(room.id, config as WordChainRoomConfigInput, supabase)
+  }
+
   // Save room config for Mole Hunt rooms
   if (gameType === 'mole-hunt' && config) {
-    await saveRoomConfig(room.id, config)
+    await saveRoomConfig(room.id, config as MoleRoomConfigInput)
   }
 
   return room

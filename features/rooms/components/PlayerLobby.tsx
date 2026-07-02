@@ -25,11 +25,13 @@ const GAME_LABELS: Record<GameType, string> = {
 export function PlayerLobby({ room, playerNickname }: PlayerLobbyProps) {
   const router = useRouter()
   const [rulesOpen, setRulesOpen] = useState(false)
+  const [wcRulesOpen, setWcRulesOpen] = useState(false)
 
   // Mole Hunt config (live from Supabase)
   const [mhConfig, setMhConfig] = useState<MoleRoomConfig | null>(null)
   const [configLoading, setConfigLoading] = useState(false)
   const isMoleHunt = room.game_type === 'mole-hunt'
+  const isWordChain = room.game_type === 'word-chain'
 
   const { players } = useRoomPlayers({
     roomCode: room.code,
@@ -188,6 +190,98 @@ export function PlayerLobby({ room, playerNickname }: PlayerLobbyProps) {
                   Example: &ldquo;The Atacama Desert is located primarily in which
                   country?&rdquo; — Option A: Chile, Option B: Peru. Read the blurb
                   carefully — the answer is always there.
+                </p>
+              </div>
+            </CardContent>
+          )}
+        </Card>
+      )}
+
+      {/* ── Word Chain Rules Panel ────────────────────────────────── */}
+      {isWordChain && (
+        <Card className="border-violet-500/20 bg-violet-500/5">
+          <button
+            type="button"
+            className="flex w-full items-center justify-between px-4 py-2.5 text-left cursor-pointer"
+            onClick={() => setWcRulesOpen(!wcRulesOpen)}
+          >
+            <span className="flex items-center gap-2 text-sm font-semibold text-violet-400">
+              <BookOpen className="size-4" />
+              How to Play Word Chain
+            </span>
+            {wcRulesOpen ? (
+              <ChevronUp className="size-4 text-violet-400" />
+            ) : (
+              <ChevronDown className="size-4 text-violet-400" />
+            )}
+          </button>
+          {wcRulesOpen && (
+            <CardContent className="space-y-3 px-4 pb-4 pt-0 text-xs leading-relaxed sm:text-sm">
+              {/* What the game is */}
+              <div>
+                <p className="font-semibold text-foreground">What is Word Chain?</p>
+                <p className="mt-1 text-muted-foreground">
+                  A category-based elimination game. Players take turns naming
+                  something in a category. Run out of time and you&apos;re
+                  eliminated. Last players standing win points. Survive through
+                  all rounds to top the leaderboard!
+                </p>
+              </div>
+
+              {/* How to Play */}
+              <div>
+                <p className="font-semibold text-foreground">How to Play</p>
+                <ul className="mt-1 space-y-1 text-muted-foreground">
+                  <li>The host picks categories — each category is one round</li>
+                  <li>Turn order is randomized at the start of each round</li>
+                  <li>When it&apos;s your turn, say something related to the category</li>
+                  <li>Tap <strong className="text-foreground">I Answered</strong> to confirm and pass the turn</li>
+                  <li>If the timer runs out, you&apos;re eliminated for that round</li>
+                </ul>
+              </div>
+
+              {/* Round Flow */}
+              <div>
+                <p className="font-semibold text-foreground">Round Flow</p>
+                <ol className="mt-1 list-inside list-decimal space-y-0.5 text-muted-foreground">
+                  <li>Category is revealed with a 5-second buffer</li>
+                  <li>Players take turns in randomized order</li>
+                  <li>Timer counts down per player</li>
+                  <li>Eliminated if time runs out</li>
+                  <li>Round ends when enough survivors remain</li>
+                  <li>Survivors earn points</li>
+                </ol>
+              </div>
+
+              {/* Scoring */}
+              <div>
+                <p className="font-semibold text-foreground">Scoring</p>
+                <ul className="mt-1 space-y-0.5 text-muted-foreground">
+                  <li><strong className="text-emerald-400">Easy</strong> categories — 1 point per survivor</li>
+                  <li><strong className="text-amber-400">Moderate</strong> categories — 2 points per survivor</li>
+                  <li><strong className="text-red-400">Difficult</strong> categories — 3 points per survivor</li>
+                  <li>Points accumulate across rounds — highest total wins!</li>
+                </ul>
+              </div>
+
+              {/* Skip */}
+              <div>
+                <p className="font-semibold text-foreground">One Skip Per Round</p>
+                <p className="mt-1 text-muted-foreground">
+                  Each player gets <strong className="text-foreground">1 skip</strong> per
+                  round. Use it to push yourself to the end of the turn cycle. You
+                  can&apos;t skip twice in the same round.
+                </p>
+              </div>
+
+              {/* Example */}
+              <div>
+                <p className="text-xs text-muted-foreground italic">
+                  Example: Category is <strong>&ldquo;Countries&rdquo;</strong>.
+                  Player 1 says &ldquo;France&rdquo; → taps I Answered. Player 2
+                  says &ldquo;Japan&rdquo; → taps I Answered. Player 3 runs out of
+                  time → eliminated. Round continues until only the required number
+                  of survivors remain.
                 </p>
               </div>
             </CardContent>

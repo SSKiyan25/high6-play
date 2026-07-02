@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
-import { submitWord } from '@/features/word-chain/actions'
+import { submitWord } from '@/features/word-chain-legacy-letterchain/actions'
 import { triggerGameEvent } from '@/lib/pusher/trigger'
 
 /**

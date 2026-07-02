@@ -65,7 +65,7 @@ export function JoinForm() {
       // Store player identity in localStorage
       localStorage.setItem(
         'h6p_player',
-        JSON.stringify({ nickname: trimmedNickname, playerId: data.player.id }),
+        JSON.stringify({ nickname: trimmedNickname, playerId: data.player.id, roomCode: trimmedCode }),
       )
 
       router.push(`/play/${trimmedCode}`)

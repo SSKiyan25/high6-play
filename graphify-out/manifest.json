@@ -55,9 +55,9 @@
     "semantic_hash": "cae2fe3dd879f4e7f4651ab533bf1801"
   },
   "app/api/rooms/route.ts": {
-    "mtime": 1782560372.735162,
-    "ast_hash": "aa363885599944d7569eaa35f2c19c23",
-    "semantic_hash": "aa363885599944d7569eaa35f2c19c23"
+    "mtime": 1783006268.3059723,
+    "ast_hash": "9dc2dbd1c35eac8a8c0b6c911875a061",
+    "semantic_hash": ""
   },
   "app/api/rooms/start/route.ts": {
     "mtime": 1781970288.3267574,
@@ -215,18 +215,18 @@
     "semantic_hash": "c7aff4fb84de27967968e928d0e8986f"
   },
   "features/rooms/actions.ts": {
-    "mtime": 1782560380.6311486,
-    "ast_hash": "49b4060e3aa8d1c392207ad830690937",
-    "semantic_hash": "49b4060e3aa8d1c392207ad830690937"
+    "mtime": 1783006256.106857,
+    "ast_hash": "eb52e551fed6b7d4e03ced65c5585c91",
+    "semantic_hash": ""
   },
   "features/rooms/components/CreateRoom.tsx": {
-    "mtime": 1782560403.0508454,
-    "ast_hash": "48c4b7d561c1ccf86f46c5c9075cd922",
-    "semantic_hash": "48c4b7d561c1ccf86f46c5c9075cd922"
+    "mtime": 1783009162.3655374,
+    "ast_hash": "07d0cd8e504dc7febfabd45db1f6b44d",
+    "semantic_hash": ""
   },
   "features/rooms/components/HostLobby.tsx": {
-    "mtime": 1782633355.5273898,
-    "ast_hash": "5bdff30f64d6506dc96bd955756dd414",
+    "mtime": 1783010517.9292712,
+    "ast_hash": "1a0a13823ff0ff42782e1902a658c6ea",
     "semantic_hash": ""
   },
   "features/rooms/components/JoinForm.tsx": {
@@ -235,8 +235,8 @@
     "semantic_hash": "2b8e1696bf3406d969c5b8f411b8b4cb"
   },
   "features/rooms/components/PlayerLobby.tsx": {
-    "mtime": 1782633383.0844102,
-    "ast_hash": "13c03693b2b42262d3bfbbcdfb58ec55",
+    "mtime": 1783010477.6662657,
+    "ast_hash": "60e07da0db1e8f7488bcfc5fc962f0cd",
     "semantic_hash": ""
   },
   "features/rooms/components/PlayerLobbyGate.tsx": {
@@ -295,14 +295,14 @@
     "semantic_hash": "5e42626bd6e00bfb6f0bdc5146798e08"
   },
   "features/word-chain/actions.ts": {
-    "mtime": 1782018087.2095013,
-    "ast_hash": "acb92b99f09f1c38f9213dcc3f52f21e",
-    "semantic_hash": "acb92b99f09f1c38f9213dcc3f52f21e"
+    "mtime": 1783009017.2874792,
+    "ast_hash": "4327d3f4f18c118b41f30eea2ebcf9f2",
+    "semantic_hash": ""
   },
   "features/word-chain/types.ts": {
-    "mtime": 1782018076.662914,
-    "ast_hash": "604d4004ef1d8d069ef8284c480f7917",
-    "semantic_hash": "604d4004ef1d8d069ef8284c480f7917"
+    "mtime": 1783009004.7731483,
+    "ast_hash": "d6f623ba4405ac9e9412cf45c71e14e8",
+    "semantic_hash": ""
   },
   "lib/pusher/client.ts": {
     "mtime": 1782629334.720646,
@@ -425,8 +425,8 @@
     "semantic_hash": ""
   },
   "HANDOFF.md": {
-    "mtime": 1782636315.068431,
-    "ast_hash": "397c4f677379d84a231123290e80b728",
+    "mtime": 1783003690.6071053,
+    "ast_hash": "45c2bfd9ac95329678e111f07cdf6903",
     "semantic_hash": ""
   },
   "README.md": {
@@ -434,65 +434,30 @@
     "ast_hash": "5ead18cf32b4ca89f5f30078aca70d6c",
     "semantic_hash": "5ead18cf32b4ca89f5f30078aca70d6c"
   },
-  "app/api/games/word-chain/eliminate/route.ts": {
-    "mtime": 1781971785.7339373,
-    "ast_hash": "9bf22e8a2cac0522ef3a782fb5c2ad02",
-    "semantic_hash": "9bf22e8a2cac0522ef3a782fb5c2ad02"
-  },
-  "app/api/games/word-chain/end/route.ts": {
-    "mtime": 1781971789.2454257,
-    "ast_hash": "f71388e4a4c5db73d70eaa14b64fdde9",
-    "semantic_hash": "f71388e4a4c5db73d70eaa14b64fdde9"
-  },
-  "app/api/games/word-chain/submit/route.ts": {
-    "mtime": 1781971780.72321,
-    "ast_hash": "01f8c90289410da8c6d27eeae1ff5a43",
-    "semantic_hash": "01f8c90289410da8c6d27eeae1ff5a43"
-  },
   "app/host/[code]/wc-game/page.tsx": {
-    "mtime": 1781972997.5021045,
-    "ast_hash": "ffa993717b73ab00394ce544a31de3eb",
-    "semantic_hash": "ffa993717b73ab00394ce544a31de3eb"
+    "mtime": 1783006101.7708035,
+    "ast_hash": "e1c993981915a1c60a83f0837aeea61a",
+    "semantic_hash": ""
   },
   "app/host/[code]/wc-results/page.tsx": {
-    "mtime": 1782018101.7504876,
-    "ast_hash": "98ad4d67eca10b78936afa3c49f94fd0",
-    "semantic_hash": "98ad4d67eca10b78936afa3c49f94fd0"
+    "mtime": 1783006169.7279184,
+    "ast_hash": "727bf9130b4f77a4d329fc95cba3e309",
+    "semantic_hash": ""
   },
   "app/play/[code]/wc-game/page.tsx": {
-    "mtime": 1781973010.485596,
-    "ast_hash": "cdf329cd4c4873af3c08690de2ba587d",
-    "semantic_hash": "cdf329cd4c4873af3c08690de2ba587d"
-  },
-  "features/word-chain/components/HostWcView.tsx": {
-    "mtime": 1781972945.6352775,
-    "ast_hash": "f4417746b341c164dcb44fe298a6a6ad",
-    "semantic_hash": "f4417746b341c164dcb44fe298a6a6ad"
-  },
-  "features/word-chain/components/PlayerWcView.tsx": {
-    "mtime": 1781972979.5021763,
-    "ast_hash": "91c25f9b9ddcfbb1a1709b193dcf845c",
-    "semantic_hash": "91c25f9b9ddcfbb1a1709b193dcf845c"
-  },
-  "features/word-chain/hooks/useTurnTimer.ts": {
-    "mtime": 1781972900.4925435,
-    "ast_hash": "93a98e9b76b49e9ec58b814897daec69",
-    "semantic_hash": "93a98e9b76b49e9ec58b814897daec69"
+    "mtime": 1783006128.846055,
+    "ast_hash": "8d1db8d3a9aa74f1ad85d28699e06c15",
+    "semantic_hash": ""
   },
   "features/word-chain/hooks/useWordChain.ts": {
-    "mtime": 1781972892.265965,
-    "ast_hash": "3ff732f590d7006d8c2cef8aaf7e5905",
-    "semantic_hash": "3ff732f590d7006d8c2cef8aaf7e5905"
+    "mtime": 1783010363.3506696,
+    "ast_hash": "e102a6c05903dccee7cedd066a7721ca",
+    "semantic_hash": ""
   },
   "features/this-or-that/components/TotResultsView.tsx": {
     "mtime": 1782018057.982183,
     "ast_hash": "dfeddfa75629430e2c25214076c37415",
     "semantic_hash": "dfeddfa75629430e2c25214076c37415"
-  },
-  "features/word-chain/components/WcResultsView.tsx": {
-    "mtime": 1782018100.3257828,
-    "ast_hash": "8c671d6a321133188dd6f5ac388ed19b",
-    "semantic_hash": "8c671d6a321133188dd6f5ac388ed19b"
   },
   "app/api/games/mole-hunt/topics/[id]/route.ts": {
     "mtime": 1782560305.486999,
@@ -530,8 +495,8 @@
     "semantic_hash": ""
   },
   "HANDOFF-mole-hunt-game-design.md": {
-    "mtime": 1782636296.3128326,
-    "ast_hash": "fdf2462330a58f48d4c3dfa635e9e875",
+    "mtime": 1782641592.044348,
+    "ast_hash": "975060af5f9b21ee54db64e0d222fb2d",
     "semantic_hash": ""
   },
   "app/api/games/mole-hunt/advance-phase/route.ts": {
@@ -647,6 +612,156 @@
   "app/api/games/mole-hunt/next-round/route.ts": {
     "mtime": 1782639701.9245105,
     "ast_hash": "a1f075b523bdf6d892a251a21a0cd62a",
+    "semantic_hash": ""
+  },
+  "PLAN-tot-rebuild.md": {
+    "mtime": 1783002546.167144,
+    "ast_hash": "137d829c290a2ec9d19337a90f4b26c7",
+    "semantic_hash": ""
+  },
+  "app/api/games/word-chain-legacy-letterchain/eliminate/route.ts": {
+    "mtime": 1783005545.164623,
+    "ast_hash": "d6bbd0ea4e091bf6b5d6286b27c3abcf",
+    "semantic_hash": ""
+  },
+  "app/api/games/word-chain-legacy-letterchain/end/route.ts": {
+    "mtime": 1783005544.1485398,
+    "ast_hash": "1e03991bc4b1b7daf7755072085393f4",
+    "semantic_hash": ""
+  },
+  "app/api/games/word-chain-legacy-letterchain/submit/route.ts": {
+    "mtime": 1783005543.136053,
+    "ast_hash": "24c763f18b510fd68931d06d6c9031c1",
+    "semantic_hash": ""
+  },
+  "app/api/games/word-chain/advance-turn/route.ts": {
+    "mtime": 1783005976.785523,
+    "ast_hash": "bce8c23930995346850340c2a554bd68",
+    "semantic_hash": ""
+  },
+  "app/api/games/word-chain/categories/[id]/route.ts": {
+    "mtime": 1783007375.408441,
+    "ast_hash": "46c082acd0543fcbc7b901b68c1af01f",
+    "semantic_hash": ""
+  },
+  "app/api/games/word-chain/categories/route.ts": {
+    "mtime": 1783008310.344937,
+    "ast_hash": "b83836fada1afb574e928a0a50d5f6f1",
+    "semantic_hash": ""
+  },
+  "app/api/games/word-chain/confirm-turn/route.ts": {
+    "mtime": 1783005976.7849112,
+    "ast_hash": "c6f245293a24052e3d8eeefd81b020c4",
+    "semantic_hash": ""
+  },
+  "app/api/games/word-chain/end-game/route.ts": {
+    "mtime": 1783005976.7881863,
+    "ast_hash": "c442bd4244d37f29c5ae7cfdd456a1d5",
+    "semantic_hash": ""
+  },
+  "app/api/games/word-chain/next-round/route.ts": {
+    "mtime": 1783010311.0220728,
+    "ast_hash": "b12525fefba8e774601462edc908252b",
+    "semantic_hash": ""
+  },
+  "app/api/games/word-chain/skip/route.ts": {
+    "mtime": 1783005976.7866635,
+    "ast_hash": "c0f7ed4cc8b04905c1899c7cb8ae5669",
+    "semantic_hash": ""
+  },
+  "app/api/games/word-chain/start/route.ts": {
+    "mtime": 1783010308.146731,
+    "ast_hash": "92f77f2411046eb47db9d80bcf5e647b",
+    "semantic_hash": ""
+  },
+  "app/host/[code]/wc-game-legacy-letterchain/page.tsx": {
+    "mtime": 1783005552.3267968,
+    "ast_hash": "538ac8ba8c35a2346bbda48aff080400",
+    "semantic_hash": ""
+  },
+  "app/host/[code]/wc-results-legacy-letterchain/page.tsx": {
+    "mtime": 1783005553.7139769,
+    "ast_hash": "d1726b510a72d3bdea6dfb23e91adf10",
+    "semantic_hash": ""
+  },
+  "app/play/[code]/wc-game-legacy-letterchain/page.tsx": {
+    "mtime": 1783005562.5371516,
+    "ast_hash": "f5f8984ed49c8260c81a4eb0c5abed11",
+    "semantic_hash": ""
+  },
+  "app/play/[code]/wc-results/page.tsx": {
+    "mtime": 1783006342.247155,
+    "ast_hash": "d8595668e9c4ca658cbab1a9361b3431",
+    "semantic_hash": ""
+  },
+  "features/word-chain-legacy-letterchain/actions.ts": {
+    "mtime": 1782018087.2095013,
+    "ast_hash": "acb92b99f09f1c38f9213dcc3f52f21e",
+    "semantic_hash": ""
+  },
+  "features/word-chain-legacy-letterchain/components/HostWcView.tsx": {
+    "mtime": 1781972945.6352775,
+    "ast_hash": "f4417746b341c164dcb44fe298a6a6ad",
+    "semantic_hash": ""
+  },
+  "features/word-chain-legacy-letterchain/components/PlayerWcView.tsx": {
+    "mtime": 1781972979.5021763,
+    "ast_hash": "91c25f9b9ddcfbb1a1709b193dcf845c",
+    "semantic_hash": ""
+  },
+  "features/word-chain-legacy-letterchain/components/WcResultsView.tsx": {
+    "mtime": 1782018100.3257828,
+    "ast_hash": "8c671d6a321133188dd6f5ac388ed19b",
+    "semantic_hash": ""
+  },
+  "features/word-chain-legacy-letterchain/hooks/useTurnTimer.ts": {
+    "mtime": 1781972900.4925435,
+    "ast_hash": "93a98e9b76b49e9ec58b814897daec69",
+    "semantic_hash": ""
+  },
+  "features/word-chain-legacy-letterchain/hooks/useWordChain.ts": {
+    "mtime": 1781972892.265965,
+    "ast_hash": "3ff732f590d7006d8c2cef8aaf7e5905",
+    "semantic_hash": ""
+  },
+  "features/word-chain-legacy-letterchain/types.ts": {
+    "mtime": 1782018076.662914,
+    "ast_hash": "604d4004ef1d8d069ef8284c480f7917",
+    "semantic_hash": ""
+  },
+  "features/word-chain/components/WordChainCategoryManager.tsx": {
+    "mtime": 1783005831.2386463,
+    "ast_hash": "c11f43089c3543b04de31f8e26dd3968",
+    "semantic_hash": ""
+  },
+  "features/word-chain/components/WordChainPlayerView.tsx": {
+    "mtime": 1783010439.8092546,
+    "ast_hash": "16ebaa2543c4c9ac180589522cb7be69",
+    "semantic_hash": ""
+  },
+  "features/word-chain/components/WordChainPresentation.tsx": {
+    "mtime": 1783010415.1661663,
+    "ast_hash": "ad15de170187e8eca8f49bc8fc651a0d",
+    "semantic_hash": ""
+  },
+  "features/word-chain/components/WordChainResultsView.tsx": {
+    "mtime": 1783005831.2658908,
+    "ast_hash": "4308ded4ebc9bf7131dbbc5a21de4745",
+    "semantic_hash": ""
+  },
+  "features/word-chain/components/WordChainSetup.tsx": {
+    "mtime": 1783009147.9358723,
+    "ast_hash": "4b6efe635469dc9f4cd59b73e96f0b9c",
+    "semantic_hash": ""
+  },
+  "PLAN-migration-tot-to-wordchain.md": {
+    "mtime": 1783005507.0832155,
+    "ast_hash": "407360ddc18ced93be7b06538fd7ca6f",
+    "semantic_hash": ""
+  },
+  "app/dashboard/mole-hunt/page.tsx": {
+    "mtime": 1783009178.8026938,
+    "ast_hash": "8c18c078f3110cc2edac7853aac6dc36",
     "semantic_hash": ""
   }
 }

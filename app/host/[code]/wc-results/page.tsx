@@ -1,15 +1,33 @@
 import { getRoom } from '@/features/rooms/actions'
-import { getWcFullResults } from '@/features/word-chain/actions'
-import { WcResultsView } from '@/features/word-chain/components/WcResultsView'
-import { notFound } from 'next/navigation'
+import { createClient } from '@/lib/supabase/server'
+import { getResults } from '@/features/word-chain/actions'
+import { WordChainResultsView } from '@/features/word-chain/components/WordChainResultsView'
+import { notFound, redirect } from 'next/navigation'
+import type { SupabaseClient } from '@supabase/supabase-js'
 
-interface WcResultsPageProps {
+interface WordChainResultsPageProps {
   params: Promise<{ code: string }>
 }
 
-export default async function WcResultsPage({ params }: WcResultsPageProps) {
+/**
+ * Host Word Chain results page.
+ * Auth-gated: only the host who created this room can access it.
+ * Fetches full leaderboard and round breakdown server-side at render time.
+ */
+export default async function WordChainResultsPage({ params }: WordChainResultsPageProps) {
   const { code } = await params
 
+  // 1. Auth check
+  const supabase = await createClient()
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+
+  if (!user) {
+    redirect('/auth/login')
+  }
+
+  // 2. Fetch room
   let room
   try {
     room = await getRoom(code)
@@ -17,19 +35,20 @@ export default async function WcResultsPage({ params }: WcResultsPageProps) {
     notFound()
   }
 
-  if (room.game_type !== 'word-chain') {
-    notFound()
+  // 3. Verify host ownership
+  if (room.host_id !== user.id) {
+    redirect('/auth/login')
   }
 
-  const results = await getWcFullResults(room.id)
+  // 4. Fetch results
+  const results = await getResults(room.id, supabase as unknown as SupabaseClient)
 
   return (
-    <WcResultsView
+    <WordChainResultsView
       roomCode={code}
-      winner={results.winner}
-      eliminationOrder={results.eliminationOrder}
-      words={results.words}
-      totalWords={results.totalWords}
+      leaderboard={results.leaderboard}
+      roundBreakdowns={results.roundBreakdowns}
+      isHost
     />
   )
 }

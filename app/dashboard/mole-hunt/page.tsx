@@ -2,19 +2,19 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { WordChainSetup } from '@/features/word-chain/components/WordChainSetup'
-import type { WordChainRoomConfigInput } from '@/features/word-chain/types'
+import { MoleHuntSetup } from '@/features/mole-hunt/components/MoleHuntSetup'
+import type { MoleRoomConfigInput } from '@/features/mole-hunt/types'
 
 interface CreateRoomResult {
   room: { code: string }
 }
 
-export function CreateRoom() {
+export default function MoleHuntPage() {
   const router = useRouter()
   const [creating, setCreating] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  async function handleCreate(config: WordChainRoomConfigInput) {
+  async function handleCreate(config: MoleRoomConfigInput) {
     if (creating) return
     setCreating(true)
     setError(null)
@@ -23,7 +23,7 @@ export function CreateRoom() {
       const res = await fetch('/api/rooms', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ game_type: 'word-chain', config }),
+        body: JSON.stringify({ game_type: 'mole-hunt', config }),
       })
 
       const data: CreateRoomResult & { error?: string } = await res.json()
@@ -42,7 +42,7 @@ export function CreateRoom() {
   return (
     <main className="min-h-svh bg-background">
       <div className="mx-auto flex w-full max-w-lg flex-col px-4 py-12">
-        <WordChainSetup
+        <MoleHuntSetup
           onBack={() => router.push('/dashboard')}
           onCreateRoom={handleCreate}
           loading={creating}

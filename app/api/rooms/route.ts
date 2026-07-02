@@ -4,16 +4,18 @@ import { createRoom, getRoom } from '@/features/rooms/actions'
 import type { GameType } from '@/features/rooms/types'
 import type { TotQuestionInput } from '@/features/this-or-that/types'
 import type { MoleRoomConfigInput } from '@/features/mole-hunt/types'
+import type { WordChainRoomConfigInput } from '@/features/word-chain/types'
 
 const VALID_GAME_TYPES = ['this-or-that', 'word-chain', 'mole-hunt']
 
 export async function POST(request: NextRequest) {
+  let body: Record<string, unknown> = {}
   try {
-    // Body: { game_type: GameType, questions?: TotQuestionInput[], config?: MoleRoomConfigInput }
-    const body = await request.json()
+    // Body: { game_type: GameType, questions?: TotQuestionInput[], config?: WordChainRoomConfigInput | MoleRoomConfigInput }
+    body = await request.json()
     const game_type = body.game_type as string
     const questions = body.questions as TotQuestionInput[] | undefined
-    const config = body.config as MoleRoomConfigInput | undefined
+    const config = body.config as (WordChainRoomConfigInput | MoleRoomConfigInput) | undefined
 
     if (!game_type || !VALID_GAME_TYPES.includes(game_type)) {
       return NextResponse.json(
@@ -39,6 +41,14 @@ export async function POST(request: NextRequest) {
     const message =
       error instanceof Error ? error.message : 'Failed to create room'
     const status = message === 'Not authenticated' ? 401 : 400
+
+    const config = body.config as Record<string, unknown> | undefined
+    console.error('[POST /api/rooms] Error creating room:', {
+      message,
+      game_type: body.game_type,
+      configKeys: config ? Object.keys(config) : null,
+      stack: error instanceof Error ? error.stack : undefined,
+    })
 
     return NextResponse.json({ error: message }, { status })
   }

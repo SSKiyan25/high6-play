@@ -29,6 +29,7 @@ export function HostLobby({ room }: HostLobbyProps) {
   const [copied, setCopied] = useState(false)
   const [startError, setStartError] = useState<string | null>(null)
   const [rulesOpen, setRulesOpen] = useState(false)
+  const [wcRulesOpen, setWcRulesOpen] = useState(false)
 
   // Mole Hunt config + validation state
   const [mhConfig, setMhConfig] = useState<MoleRoomConfig | null>(null)
@@ -41,6 +42,7 @@ export function HostLobby({ room }: HostLobbyProps) {
 
   const nonHostPlayers = players.filter((p) => !p.is_host)
   const isMoleHunt = room.game_type === 'mole-hunt'
+  const isWordChain = room.game_type === 'word-chain'
 
   // ── Fetch Mole Hunt config ─────────────────────────────────────────
   useEffect(() => {
@@ -121,10 +123,13 @@ export function HostLobby({ room }: HostLobbyProps) {
 
     try {
       const isMH = room.game_type === 'mole-hunt'
+      const isWC = room.game_type === 'word-chain'
       const startUrl = isMH
         ? '/api/games/mole-hunt/start'
-        : '/api/rooms/start'
-      const body = isMH
+        : isWC
+          ? '/api/games/word-chain/start'
+          : '/api/rooms/start'
+      const body = isMH || isWC
         ? { room_code: room.code }
         : { code: room.code }
 
@@ -310,6 +315,97 @@ export function HostLobby({ room }: HostLobbyProps) {
                   country?&rdquo;</em> — Option A: Chile, Option B: Peru. The blurb
                   contains clues about the correct answer. No outside knowledge is
                   needed — everything you need is in the text on screen.
+                </p>
+              </div>
+            </CardContent>
+          )}
+        </Card>
+      )}
+
+      {/* ── Word Chain Rules Panel ────────────────────────────────── */}
+      {isWordChain && (
+        <Card className="border-violet-500/20 bg-violet-500/5">
+          <button
+            type="button"
+            className="flex w-full items-center justify-between px-6 py-3 text-left cursor-pointer"
+            onClick={() => setWcRulesOpen(!wcRulesOpen)}
+          >
+            <span className="flex items-center gap-2 text-sm font-semibold text-violet-400">
+              <BookOpen className="size-4" />
+              How to Play Word Chain
+            </span>
+            {wcRulesOpen ? (
+              <ChevronUp className="size-4 text-violet-400" />
+            ) : (
+              <ChevronDown className="size-4 text-violet-400" />
+            )}
+          </button>
+          {wcRulesOpen && (
+            <CardContent className="space-y-4 px-6 pb-5 pt-0 text-sm leading-relaxed">
+              {/* What the game is */}
+              <div>
+                <p className="font-semibold text-foreground">What is Word Chain?</p>
+                <p className="mt-1 text-muted-foreground">
+                  A category-based elimination game. Players take turns naming
+                  something in a category. Run out of time and they&apos;re
+                  eliminated. Last players standing win points. Survive through
+                  all rounds to top the leaderboard!
+                </p>
+              </div>
+
+              {/* How to Play (host perspective) */}
+              <div>
+                <p className="font-semibold text-foreground">How to Play</p>
+                <ul className="mt-1 space-y-1 text-muted-foreground">
+                  <li>You pick categories — each category is one round</li>
+                  <li>Turn order is randomized at the start of each round</li>
+                  <li>Players take turns naming something in the category</li>
+                  <li>As host, you control the timer from the presentation screen</li>
+                  <li>Tap <strong className="text-foreground">Confirm &amp; Next</strong> when a player answers correctly</li>
+                  <li>Tap <strong className="text-red-400">Eliminate &amp; Next</strong> if the timer runs out</li>
+                </ul>
+              </div>
+
+              {/* Round Flow */}
+              <div>
+                <p className="font-semibold text-foreground">Round Flow</p>
+                <ol className="mt-1 list-inside list-decimal space-y-1 text-muted-foreground">
+                  <li>Category is revealed with a 5-second buffer for everyone to read</li>
+                  <li>Players take turns in randomized order</li>
+                  <li>Timer counts down per player (visible on screen)</li>
+                  <li>Player eliminated if time runs out</li>
+                  <li>Round ends when only the required number of survivors remain</li>
+                  <li>Survivors earn points equal to the category&apos;s difficulty</li>
+                </ol>
+              </div>
+
+              {/* Scoring */}
+              <div>
+                <p className="font-semibold text-foreground">Scoring</p>
+                <ul className="mt-1 space-y-1 text-muted-foreground">
+                  <li><strong className="text-emerald-400">Easy</strong> categories — 1 point per survivor</li>
+                  <li><strong className="text-amber-400">Moderate</strong> categories — 2 points per survivor</li>
+                  <li><strong className="text-red-400">Difficult</strong> categories — 3 points per survivor</li>
+                  <li>Points accumulate across rounds — highest total wins!</li>
+                </ul>
+              </div>
+
+              {/* Host controls */}
+              <div>
+                <p className="font-semibold text-foreground">Host Controls</p>
+                <p className="mt-1 text-muted-foreground">
+                  You have two buttons during each turn: <strong className="text-emerald-400">Confirm &amp; Next</strong> (player answered — advance to next) and <strong className="text-red-400">Eliminate &amp; Next</strong> (timeout — eliminate and advance). Between rounds, use <strong className="text-foreground">Next Round</strong> to start the next round with a fresh turn order. After the final round, <strong className="text-foreground">End Game</strong> to see results.
+                </p>
+              </div>
+
+              {/* Example */}
+              <div>
+                <p className="text-xs text-muted-foreground italic">
+                  Example: Category is <strong>&ldquo;Countries&rdquo;</strong>.
+                  Player 1 says &ldquo;France&rdquo; → you tap Confirm &amp; Next.
+                  Player 2 says &ldquo;Japan&rdquo; → Confirm &amp; Next. Player 3
+                  runs out of time → you tap Eliminate &amp; Next. Round continues
+                  until survivor threshold is reached.
                 </p>
               </div>
             </CardContent>
